@@ -1,0 +1,141 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>AVL Trees</h1>
+<p>What if the input to binary search tree comes in sorted (ascending or descending) manner? It will then look like this &minus;</p>
+<img src="unbalanced_bst.jpg" alt="Unbalanced BST" />
+<p>It is observed that BST's worst-case performance closes to linear search algorithms, that is &Omicron;(n). In real time data we cannot predict data pattern and their frequencies. So a need arises to balance out existing BST.</p>
+<p>Named after their inventor <b><i>Adelson</i></b>, <b><i>Velski</i></b> &amp; <b><i>Landis</i></b>, <b>AVL</b> trees are height balancing binary search tree. AVL tree checks the height of left and right sub-trees and assures that the difference is not more than 1. This difference is called <b><i>Balance Factor</i></b>.</p>
+<p>Here we see that the first tree is balanced and next two trees are not balanced &minus;</p>
+<img src="unbalanced_avl_trees.jpg" alt="Unbalanced AVL Trees" />
+<p>In second tree, the left subtree of <b>C</b> has height 2 and right subtree has height 0, so the difference is 2. In third tree, the right subtree of <b>A</b> has height 2 and left is missing, so it is 0, and the difference is 2 again. AVL tree permits difference (balance factor) to be only 1.</p>
+<pre class="result notranslate">
+<i><b>BalanceFactor</b></i> = height(left-sutree) &minus; height(right-sutree)
+</pre>
+<p>If the difference in the height of left and right sub-trees is more than 1, the tree is balanced using some rotation techniques.</p>
+<h2>AVL Rotations</h2>
+<p>To make itself balanced, an AVL tree may perform four kinds of rotations &minus;</p>
+<ul class="list">
+<li>Left rotation</li>
+<li>Right rotation</li>
+<li>Left-Right rotation</li>
+<li>Right-Left rotation</li>
+</ul>
+<p>First two rotations are single rotations and next two rotations are double rotations. Two have an unbalanced tree we at least need a tree of height 2. With this simple tree, let's understand them one by one.</p>
+<h2>Left Rotation</h2>
+<p>If a tree become unbalanced, when a node is inserted into the right subtree of right subtree, then we perform single left rotation &minus;</p>
+<img src="avl_left_rotation.jpg" alt="Left Rotation" />
+<p>In our example, node <b>A</b> has become unbalanced as a node is inserted in right subtree of A's right subtree. We perform left rotation by making <b>A</b> left-subtree of B.</p>
+<h2>Right Rotation</h2>
+<p>AVL tree may become unbalanced if a node is inserted in the left subtree of left subtree. The tree then needs a right rotation.</p>
+<img src="avl_right_rotation.jpg" alt="Right Rotation" />
+<p>As depicted, the unbalanced node becomes right child of its left child by performing a right rotation.</p>
+<h2>Left-Right Rotation</h2>
+<p>Double rotations are slightly complex version of already explained versions of rotations. To understand them better, we should take note of each action performed while rotation. Let's first check how to perform Left-Right rotation. A left-right rotation is combination of left rotation followed by right rotation.</p>
+<table class="table table-bordered">
+<tr>
+<th width="30%">State</th>
+<th>Action</th>
+</tr>
+<tr>
+<td><img src="right_subtree_of_left_subtree.jpg" alt="Right Rotation" /></td>
+<td style="vertical-align:middle">A node has been inserted into right subtree of left subtree. This makes <b>C</b> an unbalanced node. These scenarios cause AVL tree to perform left-right rotation.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="subtree_left_rotation.jpg" alt="Left Rotation" /></td>
+<td style="vertical-align:middle">We first perform left rotation on left subtree of <b>C</b>. This makes <b>A</b>, left subtree of <b>B</b>.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="left_unbalanced_tree.jpg" alt="Left Rotation" /></td>
+<td style="vertical-align:middle">Node <b>C</b> is still unbalanced but now, it is because of left-subtree of left-subtree.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="right_rotation.jpg" alt="Right Rotation" /></td>
+<td style="vertical-align:middle">We shall now right-rotate the tree making <b>B</b> new root node of this subtree. <b>C</b> now becomes right subtree of its own left subtree.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="balanced_avl_tree.jpg" alt="Balanced Avl Tree" /></td>
+<td style="vertical-align:middle">The tree is now balanced.</td>
+</tr>
+</table>
+<h2>Right-Left Rotation</h2>
+<p>Second type of double rotation is Right-Left Rotation. It is a combination of right rotation followed by left rotation.</p>
+<table class="table table-bordered">
+<tr>
+<th width="30%">State</th>
+<th>Action</th>
+</tr>
+<tr>
+<td><img src="left_subtree_of_right_subtree.jpg" alt="Left Subtree of Right Subtree" /></td>
+<td style="vertical-align:middle">A node has been inserted into left subtree of right subtree. This makes <b>A</b> an unbalanced node, with balance factor 2.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="subtree_right_rotation.jpg" alt="Subtree Right Rotation" /></td>
+<td style="vertical-align:middle">First, we perform right rotation along <b>C</b> node, making <b>C</b> the right subtree of its own left subtree <b>B</b>. Now, <b>B</b> becomes right subtree of <b>A</b>.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="right_unbalanced_tree.jpg" alt="Right Unbalanced Tree" /></td>
+<td style="vertical-align:middle">Node <b>A</b> is still unbalanced because of right subtree of its right subtree and requires a left rotation.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="left_rotation.jpg" alt="Left Rotation" /></td>
+<td style="vertical-align:middle">A left rotation is performed by making <b>B</b> the new root node of the subtree. <b>A</b> becomes left subtree of its right subtree <b>B</b>.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="balanced_avl_tree.jpg" alt="Balanced AVL Tree" /></td>
+<td style="vertical-align:middle">The tree is now balanced.</td>
+</tr>
+</table>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

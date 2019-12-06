@@ -1,0 +1,56 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+
+          font-size: 12px;
+          font-family: "Times New Roman";
+        width: 100%;
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Spanning Tree</h1>
+<p>A spanning tree is a subset of Graph G, which has all the vertices covered with minimum possible number of edges. Hence, a spanning tree does not have cycles and it can not be disconnected.</p>
+<p>By this definition we can draw a conclusion that every connected &amp; undirected Graph G has at least one spanning tree. A disconnected graph do not have any spanning tree, as it can not spanned to all its vertices.</p>
+<img src="spanning_trees.jpg" alt="Spanning Trees" />
+<p>We found three spanning trees off one complete graph. A complete undirected graph can have maximum <code><b>n<sup>n-2</sup></b></code> number of spanning trees, where n is number of nodes.  In addressed example, n is 3, hence <code><b>3<sup>3&minus;2</sup> = 3</b></code> spanning trees are possible.</p>
+<h2>General properties of spanning tree</h2>
+<p>We now understand that one graph can have more than one spanning trees. Below are few properties is spanning tree of given connected graph G &minus;</p>
+<ul class="list">
+<li><p>A connected graph G can have more than one spanning tree.</p></li>
+<li><p>All possible spanning trees of graph G, have same number of edges and vertices.</p></li>
+<li><p>Spanning tree does not have any cycle (loops)</p></li>
+<li><p>Removing one edge from spanning tree will make the graph disconnected i.e. spanning tree is <b>minimally connected</b>.</p></li>
+<li><p>Adding one edge to a spanning tree will create a circuit or loop i.e. spanning tree is <b>maximally acyclic</b>.</p></li>
+</ul>
+<h2>Mathematical properties of spanning tree</h2>
+<ul class="list">
+<li><p>Spanning tree has n-1 edges, where n is number of nodes (vertices)</p></li>
+<li><p>From a complete graph, by removing maximum <code><b>e-n+1</b></code> edges, we can construct a spanning tree.</p></li>
+<li><p>A complete graph can have maximum <code><b>n<sup>n-2</sup></b></code> number of spanning trees.</p></li>
+</ul>
+<p>So we can conclude here that spanning trees are subset of a connected Graph G and disconnected Graphs do not have spanning tree.</p>
+<h2>Application of Spanning Tree</h2>
+<p>Spanning tree is basically used to find minimum paths to connect all nodes in a graph. Common application of spanning trees are &minus;</p>
+<ul class="list">
+<li><p><b>Civil Network Planning</b></p></li>
+<li><p><b>Computer Network Routing Protocol</b></p></li>
+<li><p><b>Cluster Analysis</b></p></li>
+</ul>
+<p>Lets understand this by a small example. Consider city network as a huge graph and now plan to deploy telephone lines such a way that in minimum lines we can connect to all city nodes. This is where spanning tree comes in the picture.</p>
+<h2>Minimum Spanning Tree (MST)</h2>
+<p>In a weighted graph, a minimum spanning tree is a spanning tree that has minimum weight that all other spanning trees of the same graph. In real world situations, this weight can be measured as distance, congestion, traffic load or any arbitrary value denoted to the edges.</p>
+<h2>Minimum Spanning-Tree Algorithm</h2>
+<p>We shall learn about two most important spanning tree algorithms here &minus;</p>
+<ul class="list">
+<li><p>Kruskal's Algorithm</a></p></li>
+<li><p>Prim's Algorithm</a></p></li>
+</ul>
+<p>Both are greedy algorithms.</p>
+<br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Bubble Sort Algorithm</h1>
+<p>Bubble sort is a simple sorting algorithm. This sorting algorithm is comparison based algorithm in which each pair of adjacent elements is compared and elements are swapped if they are not in order. This algorithm is not suitable for large data sets as its average and worst case complexity are of O(n<sup>2</sup>) where n are no. of items.</p>
+<h2>How bubble sort works?</h2>
+<p>We take an unsorted array for our example. Bubble sort take &Omicron;(n<sup>2</sup>) time so we're keeping short and precise.</p>
+<img src="bubble_sort_0.jpg" alt="Bubble Sort" />
+<p>Bubble sort starts with very first two elements, comparing them to check which one is greater.</p>
+<img src="bubble_sort_1.jpg" alt="Bubble Sort" />
+<p>In this case, value 33 is greater than 14, so it is already in sorted locations. Next, we compare 33 with 27.</p>
+<img src="bubble_sort_2.jpg" alt="Bubble Sort" />
+<p>We find that 27 is smaller than 33 and these two values must be swapped.</p>
+<img src="bubble_sort_3.jpg" alt="Bubble Sort" />
+<p>The new array should look like this &minus;</p>
+<img src="bubble_sort_4.jpg" alt="Bubble Sort" />
+<p>Next we compare 33 and 35. We find that both are in already sorted positions.</p>
+<img src="bubble_sort_5.jpg" alt="Bubble Sort" />
+<p>Then we move to next two values, 35 and 10.</p>
+<img src="bubble_sort_6.jpg" alt="Bubble Sort" />
+<p>We know than 10 is smaller 35. Hence they are not sorted.</p>
+<img src="bubble_sort_7.jpg" alt="Bubble Sort" />
+<p>We swap these values. We find that we reach at the end of the array. After one iteration the array should look like this &minus;</p>
+<img src="bubble_sort_8.jpg" alt="Bubble Sort" />
+<p>To be precise, we are now showing that how array should look like after each iteration. After second iteration, it should look like this &minus;</p>
+<img src="bubble_sort_9.jpg" alt="Bubble Sort" />
+<p>Notice that after each iteration, at least one value moves at the end.</p>
+<img src="bubble_sort_10.jpg" alt="Bubble Sort" />
+<p>And when there's no swap required, bubble sorts learns that array is completely sorted.</p>
+<img src="bubble_sort_11.jpg" alt="Bubble Sort" />
+<p>Now we should look into some practical aspects of bubble sort.</p>
+<h2>Algorithm</h2>
+<p>We assume <b>list</b> is an array of <b>n</b> elements. We further assume that <b>swap</b> function, swaps the values of given array elements.</p>
+<pre class="prettyprint notranslate">
+begin BubbleSort(list)
+
+   for all elements of list
+      if list[i] &gt; list[i+1]
+         swap(list[i], list[i+1])
+      end if
+   end for
+
+   return list
+
+end BubbleSort
+</pre>
+<h2>Pseudocode</h2>
+<p>We observe in algorithm that Bubble Sort compares each pair of array element unless the whole array is completely sorted ascending. This may cause few complexity issues like what if the array needs no more swapping as all the elements are already ascending.</p>
+<p>To ease-out the issue, we use one flag variable <b>swapped</b> which will help us to see if any swap is happened or not. If no swap is occurred, i.e. the array requires no more processing to be sorted, it will come out of the loop.</p>
+<p>Pseudocode of BubbleSort algorithm can be written as given below &minus;</p>
+<pre class="prettyprint notranslate">
+procedure bubbleSort( list : array of items )
+
+   loop = list.count;
+
+   for i = 0 to loop-1 do:
+      swapped = false
+
+      for j = 0 to loop-1 do:
+
+         /* compare the adjacent elements */
+         if list[j] > list[j+1] then
+            /* swap them */
+            swap( list[j], list[j+1] )
+            swapped = true
+         end if
+
+      end for
+
+      /*if no number was swapped that means
+      array is sorted now, break the loop.*/
+
+      if(not swapped) then
+         break
+      end if
+
+   end for
+
+end procedure return list
+</pre>
+<h2>Implementation</h2>
+<p>One more issue we did not address in our original algorithm and its improvised pseudocode, that is, after every iteration the highest values settles down at the end of the array. So next iteration needs not to include already sorted elements. For this purpose, in our implementation, we restrict the inner loop to avoid already sorted values.</p>
+
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

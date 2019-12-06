@@ -1,0 +1,63 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Recursion Basics</h1>
+<p>Some computer programming languages allows a module or function to call itself. This technique is known as recursion. In recursion, a fuction <b>&alpha;</b> either calls itself directly or calls a function <b>&beta;</b> that in turn calls the original function <b>&alpha;</b>. The function <b>&alpha;</b> is called recursive function.</p>
+<p><b>Example &minus; a function calling itself.</b></p>
+<pre class="prettyprint notranslate">
+int function(int value) {
+   if(value &lt; 1)
+      return;
+   function(value - 1);
+
+   printf("%d ",value);
+}
+</pre>
+<p><b>Example &minus; a function that calls another function which in turn calls it again.</b></p>
+<pre class="prettyprint notranslate">
+int function(int value) {
+   if(value &lt; 1)
+      return;
+   function(value - 1);
+
+   printf("%d ",value);
+}
+</pre>
+<h2>Properties</h2>
+<p>A recursive function can go infinite like a loop. To avoid infinite running of recursive function, there are two properties that a recursive function must have &minus;</p>
+<ul class="list">
+<li><p><b>Base criteria</b> &minus; There must be at least one base criteria or condition, such that, when this condition is met the function stops calling itself recursively.</p></li>
+<li><p><b>Progressive approach</b> &minus; The recursive calls should progress in such a way that each time a recursive call is made it comes closer to the base criteria.</p></li>
+</ul>
+<h2>Implementation</h2>
+<p>Many programming languages implement recursion by means of <b>stacks</b>. Generally, whenever a function (<b>caller</b>) calls another function (<b>callee</b>) or itself as callee, the caller function transfers execution control to callee. This transfer process may also involve some data to be passed from caller to callee.</p>
+<p>This implies, the caller function has to suspend its execution temporarily and resume later when the execution control returns from callee function. Here, caller function needs to start exactly from the point of execution where it put itself on hold. It also needs the exact same data values it was working on. For this purpose an activation record (or stack frame) is created for caller function.</p>
+<img src="activation_records.jpg" alt="Activation Records" />
+<p>This activation record keeps the information about local variables, formal parameters, return address and all informations passed to called function.</p>
+<h2>Analysis of recursion</h2>
+<p>One may argue that why to use recursion as the same task can be done with iteration. The first reason is recursion makes a program more readable and because of today's enhance CPU systems, recursion is more efficient than iterations.</p>
+<h3>Time complexity</h3>
+<p>In case of iterations, we take number of iterations to count the time complexity. Likewise, in case of recursion, assuming everything is constant, we try to figure out the number of time recursive call is being made. A call made to a function is &Omicron;(1), hence the (n) number of time a recursive call is made makes the recursive function &Omicron;(n).</p>
+<h3>Space complexity</h3>
+<p>Space complexity is counted as what amount of extra space is required for a module to execute. In case of iterations, the compiler hardly requires any extra space. Compiler keeps updating the values of variables used in the iterations. But in case of recursion, the system needs to store activation record each time a recursive call is made. So it is considered that space complexity of recursive function may go higher than that of a function with iteration.</p>
+<br><br><br><br><br><br><br>
+</body>
+</html>

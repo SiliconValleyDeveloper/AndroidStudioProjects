@@ -1,0 +1,79 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+      width: 100%;
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Selection Sort</h1>
+<p>Selection sort is a simple sorting algorithm. This sorting algorithm is a in-place comparison based algorithm in which the list is divided into two parts, sorted part at left end and unsorted part at right end. Initially sorted part is empty and unsorted part is entire list.</p>
+<p>Smallest element is selected from the unsorted array and swapped with the leftmost element and that element becomes part of sorted array. This process continues moving unsorted array boundary by one element to the right.</p>
+<p>This algorithm is not suitable for large data sets as its average and worst case complexity are of O(n<sup>2</sup>) where n are no. of items.</p>
+<h2>How selection sort works?</h2>
+<p>We take the below depicted array for our example.</p>
+<img src="unsorted_array.jpg" alt="Unsorted Array" />
+<p>For the first position in the sorted list, the whole list is scanned sequentially.  The first position where 14 is stored presently, we search the whole list and find that 10 is the lowest value.</p>
+<img src="selection_sort_1.jpg" alt="Selection Sort" />
+<p>So we replace 14 with 10. After one iteration 10, which happens to be the minimum value in the list, appears in the first position of sorted list.</p>
+<img src="selection_sort_2.jpg" alt="Selection Sort" />
+<p>For the second position, where 33 is residing, we start scanning the rest of the list in linear manner.</p>
+<img src="selection_sort_3.jpg" alt="Selection Sort" />
+<p>We find that 14 is the second lowest value in the list and it should appear at the second place. We swap these values.</p>
+<img src="selection_sort_4.jpg" alt="Selection Sort" />
+<p>After two iterations, two least values are positioned at the the beginning in the sorted manner.</p>
+<img src="selection_sort_5.jpg" alt="Selection Sort" />
+<p>The same process is applied on the rest of the items in the array. We shall see an pictorial depiction of entire sorting process &minus;</p>
+<img src="selection_sort.jpg" alt="Selection Sort" />
+<p>Now, we should learn some programming aspects of selection sort.</p>
+<h2>Algorithm</h2>
+<pre class="result notranslate">
+<b>Step 1</b> &minus; Set MIN to location 0
+<b>Step 2</b> &minus; Search the minimum element in the list
+<b>Step 3</b> &minus; Swap with value at location MIN
+<b>Step 4</b> &minus; Increment MIN to point to next element
+<b>Step 5</b> &minus; Repeat until list is sorted
+</pre>
+<h2>Pseudocode</h2>
+<pre class="prettyprint notranslate">
+procedure selection sort
+   list  : array of items
+   n     : size of list
+
+   for i = 1 to n - 1
+   /* set current element as minimum*/
+      min = i
+
+      /* check the element to be minimum */
+
+      for j = i+1 to n
+         if list[j] &lt; list[min] then
+            min = j;
+         end if
+      end for
+
+      /* swap the minimum element with the current element*/
+      if indexMin != i  then
+         swap list[min] and list[i]
+      end if
+
+   end for
+
+end procedure
+</pre>
+<br><br><br><br><br><br><br>
+</body>
+</html>

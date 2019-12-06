@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0077)http://dw.convertfiles.com/files/0226886001534508000/1%20linear%20search.html -->
+<html><head>
+	<style type="text/css">
+	p {
+
+			color: #800080;
+			font-family: "Times New Roman";
+      font-size: 15px
+			 font-style: italic;
+			 border-bottom: 2px solid Black;
+
+	}
+	pre {
+			margin:8px;
+			padding: 8px;
+			font-family: "Times New Roman";
+		 font-size: 12px;
+
+	}
+	</style>
+</head>
+<body lang="en-US" dir="LTR">
+<p>/*
+*C program to input N numbers and store them in an array.
+*Do a linear search for a given key and report success
+*or failure.
+*/</p>
+<pre class="western">
+#include &lt;stdio.h&gt;
+
+void main()
+{
+    int array[10];
+    int i, num, keynum, found = 0;
+
+    printf("Enter the value of num \n");
+    scanf("%d", &amp;num);
+    printf("Enter the elements one by one \n");
+    for (i = 0; i &lt; num; i++)
+    {
+        scanf("%d", &amp;array[i]);
+    }
+    printf("Input array is \n");
+    for (i = 0; i &lt; num; i++)
+    {
+        printf("%dn", array[i]);
+    }
+    printf("Enter the element to be searched \n");
+    scanf("%d", &amp;keynum);
+    /*  Linear search begins */
+    for (i = 0; i &lt; num ; i++)
+    {
+        if (keynum == array[i] )
+        {
+            found = 1;
+            break;
+        }
+    }
+    if (found == 1)
+        printf("Element is present in the array\n");
+    else
+        printf("Element is not present in the array\n");
+}
+
+Output:
+    Enter the value of num
+    5
+    Enter the elements one by one
+    456
+    78
+    90
+    40
+    100
+    Input array is
+    456
+    78
+    90
+    40
+    100
+    Enter the element to be searched
+    70
+    Element is not present in the array
+
+
+    Enter the value of num
+    7
+    Enter the elements one by one
+    45
+    56
+    89
+    56
+    90
+    23
+    10
+    Input array is
+    45
+    56
+    89
+    56
+    90
+    23
+    10
+    Enter the element to be searched
+    45
+    Element is present in the array</pre>
+
+</body></html>

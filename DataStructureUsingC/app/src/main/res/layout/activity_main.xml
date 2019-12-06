@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/a3"
+    tools:context=".MainActivity">
+
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="30dp"
+    android:layout_centerInParent="true"
+    android:text="DATA"
+    android:fontFamily="@font/ralewaysemibold"
+    android:id="@+id/data"
+    android:gravity="left"
+    android:layout_marginLeft="10dp"
+
+    android:textColor="@android:color/black"
+    android:textStyle="bold"
+    />
+    <TextView
+        android:layout_below="@id/data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_centerInParent="true"
+        android:text="STRUCTURES AND"
+        android:fontFamily="@font/ralewayregular"
+        android:id="@+id/structure_and"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+
+        android:textStyle="bold"
+        />
+    <TextView
+        android:fontFamily="@font/ralewaysemibold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/structure_and"
+        android:layout_centerInParent="true"
+        android:text="ALGORITHMS"
+        android:id="@+id/ALGORITHMS"
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="2dp"
+        android:layout_below="@id/ALGORITHMS"
+        android:background="@android:color/background_dark"/>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-2783298230694780/2437225760">
+    </com.google.android.gms.ads.AdView></RelativeLayout>

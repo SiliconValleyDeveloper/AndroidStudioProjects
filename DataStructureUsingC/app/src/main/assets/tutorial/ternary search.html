@@ -1,0 +1,40 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Ternary search</h1>
+
+Ternary search is an algorithm similar to binary search. It is used when we have a function that is bitonic on a given interval instead of monotone, and we wish to optimize its value on that interval. That is, either the function first increases and then decreases, and we wish to find its maximum (that is, where it changes from increasing to decreasing), or it first decreases and then increases, and we wish to find the minimum. (In the former case, finding the minimum is trivial; it is at either the left edge or the right edge of the interval. In the latter case, finding the maximum is trivial.)
+<br><br>
+For the algorithm to work, we need the increase and decrease to be strict. Otherwise, we could have a pathological case in which the function is constant at all but one point, and then it would be impossible to find that point in the continuous case (and would be impossible to do it efficiently in the discrete case).
+<br><br>
+Should we wish to find a specific value, we can use binary search on the increasing part and the decreasing part separately, after having located the extremum and hence determined where the increasing part and decreasing part begin and end.
+<br><br>
+The function in question is usually defined on a continuous domain rather than a discrete domain, which gives the following pseudocode for the increasing-then-decreasing case:
+
+<pre>
+// a: left edge of interval
+// b: right edge of interval
+// f: function
+// epsilon: tolerance
+input a, b, f, epsilon
+l ← a
+r ← b
+while (r-l > epsilon)
+    m1 ← (2*l + r)/3
+    m2 ← (l + 2*r)/3
+    if f(m1) < f(m2)
+        l ← m1
+    else
+        r ← m2
+print r
+</pre>
+</html>

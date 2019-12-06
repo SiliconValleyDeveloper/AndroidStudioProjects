@@ -1,0 +1,41 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Graph Data Structure</h1>
+<p>A graph is a pictorial representation of a set of objects where some pairs of objects are connected by links. The interconnected objects are represented by points termed as <b>vertices,</b> and the links that connect the vertices are called <b>edges</b>.</p>
+<p>Formally, a graph is a pair of sets <b>(V, E),</b> where <b>V</b> is the set of vertices and <b>E</b> is the set of edges, connecting the pairs of vertices. Take a look at the following graph &minus;</p>
+<img src="graph_basics.jpg" alt="Graph Example" />
+<p>In the above graph,</p>
+<p style="padding-left:8%;">V = {a, b, c, d, e}</p>
+<p style="padding-left:8%;">E = {ab, ac, bd, cd, de}</p>
+<h2>Graph Data Structure</h2>
+<p>Mathematical graphs can be represented in data-structure. We can represent a graph using an array of vertices and a two dimensional array of edges. Before we proceed further, let's familiarize ourselves with some important terms &minus;</p>
+<ul class="list">
+<li><p><b>Vertex</b> &minus; Each node of the graph is represented as a vertex. In example given below, labeled circle represents vertices. So A to G are vertices. We can represent them using an array as shown in image below. Here A can be identified by index 0. B can be identified using index 1 and so on.</p></li>
+<li><p><b>Edge</b> &minus; Edge represents a path between two vertices or a line between two vertices. In example given below, lines from A to B, B to C and so on represents edges. We can use a two dimensional array to represent array as shown in image below. Here AB can be represented as 1 at row 0, column 1, BC as 1 at row 1, column 2 and so on, keeping other combinations as 0.</p></li>
+<li><p><b>Adjacency</b> &minus; Two node or vertices are adjacent if they are connected to each other through an edge. In example given below, B is adjacent to A, C is adjacent to B and so on.</p></li>
+<li><p><b>Path</b> &minus; Path represents a sequence of edges between two vertices. In example given below, ABCD represents a path from A to D.</p></li>
+</ul>
+<img src="graph.jpg" alt="graph" />
+<h2>Basic Operations</h2>
+<p>Following are basic primary operations of a Graph which are following.</p>
+<ul class="list">
+<li><p><b>Add Vertex</b> &minus; add a vertex to a graph.</p></li>
+<li><p><b>Add Edge</b> &minus; add an edge between two vertices of a graph.</p></li>
+<li><p><b>Display Vertex</b> &minus; display a vertex of a graph.</p></li>
+</ul>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

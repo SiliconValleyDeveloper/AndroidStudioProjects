@@ -1,0 +1,36 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Prim's Spanning Tree Algorithm</h1>
+<p>Prim's algorithm to find minimum cost spanning tree (as Kruskal's algorithm) uses greedy approach. Prim's algorithm shares similarity with <b>shortest path first</b> algorithms.</p>
+<p>Prim's algorithm, in contrast with Kruskal's algorithm, treats the nodes as a single tree and keeps on adding new nodes to the spanning tree from the given graph.</p>
+<p>To contrast with Kruskal's algorithm and to understand Prim's algorithm better, we shall use the same example &minus;</p>
+<img src="mst_graph.jpg" alt="MST Graph" />
+<h2>Step 1 - Remove all loops &amp; Parallel Edges</h2>
+<img src="mst_with_loops.jpg" alt="MST Graph with loops" />
+<p>Remove all loops and parallel edges from the given graph. In case of parallel edges, keep the one which has least cost associated and remove all others.</p>
+<img src="mst_without_loops.jpg" alt="MST Graph without loops" />
+<h2>Step 2 - Choose any arbitrary node as root node</h2>
+<p>In this case, we choose <b>S</b> node as root node of Prim's spanning tree. This node is arbitrarily chosen so any node can be root node. One may wonder why can any video be a root node, so the answer is, in spanning tree all the nodes of a graph are included and because it is connected then there must be at least one edge which will join it to the rest of the tree.</p>
+<h2>Step 3 - Check outgoing edges and select the one with less cost</h2>
+<p>After choosing root node <b>S</b>, we see that S,A and S,C are two edges with weight 7 and 8 respectively. And we choose S,A edge as it is lesser than the other.</p>
+<img src="mst_graph_step_1.jpg" alt="MST Graph Step 1" />   
+<p>Now, the tree S-7-A is treated as one node and we check for all edges going out from it. We select the one which has the lowest cost and include it in the tree.</p>
+<img src="mst_graph_step_2.jpg" alt="MST Graph Step 2" />   
+<p>After this step, S-7-A-3-C tree is formed. Now we'll again treat is as a node and will check all the edges again and will choose only the least cost edge one. Here in this case C-3-D is the new edge which is less than other edges' cost 8, 6, 4 etc.</p>
+<img src="mst_graph_step_3.jpg" alt="MST Graph Step 3" />
+<p>After adding node <b>D</b> to the spanning tree, we now have two edges going out of it have same cost, i.e. D-2-T and D-2-B. So we can add either one. But the next step will again yield the edge 2 as the least cost. So here we are showing spanning tree with both edges included.</p>
+<img src="mst_prims_algorithm.jpg" alt="MST Prim's Algorithm" />
+<p>We may find that the output spanning tree of the same graph using two different algorithm is same.</p>
+<br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0080)http://dw.convertfiles.com/files/0312397001534325784/doubly%20linked%20list.html -->
+<html><head>
+	<style type="text/css">
+	h3 {
+
+      color: #800080;
+			font-family: "Times New Roman";
+
+			 border-bottom: 2px solid Black;
+	}
+	pre {
+			margin:8px;
+			padding: 8px;
+			font-family: "Times New Roman";
+		 font-size: 12px;
+
+	}
+	</style>
+</head>
+<body lang="en-US" dir="LTR">
+	<h3>/*DOUBLY LINKED LIST*/</h3>
+<pre class="western">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node
+{
+    struct node *prev;
+    int n;
+    struct node *next;
+}*h,*temp,*temp1,*temp2,*temp4;
+
+void insert1();
+void insert2();
+void insert3();
+void traversebeg();
+void traverseend(int);
+void sort();
+void search();
+void update();
+void delete();
+void deleteatbeg();
+void deleteatEnd();
+
+int count = 0;
+
+void main()
+{
+    int ch;
+
+    h = NULL;
+    temp = temp1 = NULL;
+
+    printf("\n 1 -  Insert at beginning");
+    printf("\n 2 -  Insert at end");
+    printf("\n 3 -  Insert at position i");
+    printf("\n 4 -  Delete at beginning");
+    printf("\n 5 -  Delete at end");
+    printf("\n 6 -  Delete at position i");
+    printf("\n 7 -  Display from beginning");
+    printf("\n 8 -  Display from end");
+    printf("\n 9 -  Search for element");
+    printf("\n 10 - Sort the list");
+    printf("\n 11 - Update an element");
+    printf("\n 12 - Exit");
+
+    while (1)
+    {
+        printf("\n Enter choice : ");
+        scanf("%d", &amp;ch);
+        switch (ch)
+        {
+        case 1:
+            insert1();
+            break;
+        case 2:
+            insert2();
+            break;
+        case 3:
+            insert3();
+            break;
+        case 4:
+            deleteatbeg();
+            break;
+        case 5:
+            deleteatEnd();
+            break;
+        case 6:
+            delete();
+            break;
+          case 7:
+              traversebeg();
+              break;
+          case 8:
+          temp2 = h;
+          if (temp2 == NULL)
+              printf("\n Error : List empty to display ");
+          else
+          {
+              printf("\n Reverse order of linked list is : ");
+              traverseend(temp2-&gt;n);
+          }
+          break;
+              break;
+          case 9:
+              search();
+              break;
+          case 10:
+             sort();
+              break;
+          case 11:
+              update();
+              break;
+          case 12:
+            exit(0);
+        default:
+            printf("\n Wrong choice menu");
+        }
+    }
+}
+
+/* TO create an empty node */
+void create()
+{
+    int data;
+
+    temp =(struct node *)malloc(1*sizeof(struct node));
+    temp-&gt;prev = NULL;
+    temp-&gt;next = NULL;
+    printf("\n Enter value to node : ");
+    scanf("%d", &amp;data);
+    temp-&gt;n = data;
+    count++;
+}
+
+/*  TO insert at beginning */
+void insert1()
+{
+    if (h == NULL)
+    {
+        create();
+        h = temp;
+        temp1 = h;
+    }
+    else
+    {
+        create();
+        temp-&gt;next = h;
+        h-&gt;prev = temp;
+        h = temp;
+    }
+}
+
+/* To insert at end */
+void insert2()
+{
+    if (h == NULL)
+    {
+        create();
+        h = temp;
+        temp1 = h;
+    }
+    else
+    {
+        create();
+        temp1-&gt;next = temp;
+        temp-&gt;prev = temp1;
+        temp1 = temp;
+    }
+}
+
+/* To insert at any position */
+void insert3()
+{
+    int pos, i = 2;
+
+    printf("\n Enter position to be inserted : ");
+    scanf("%d", &amp;pos);
+    temp2 = h;
+
+    if ((pos &lt; 1) || (pos &gt;= count + 1))
+    {
+        printf("\n Position out of range to insert");
+        return;
+    }
+    if ((h == NULL) &amp;&amp; (pos != 1))
+    {
+        printf("\n Empty list cannot insert other than 1st position");
+        return;
+    }
+    if ((h == NULL) &amp;&amp; (pos == 1))
+    {
+        create();
+        h = temp;
+        temp1 = h;
+        return;
+    }
+    else
+    {
+        while (i &lt; pos)
+        {
+            temp2 = temp2-&gt;next;
+            i++;
+        }
+        create();
+        temp-&gt;prev = temp2;
+        temp-&gt;next = temp2-&gt;next;
+        temp2-&gt;next-&gt;prev = temp;
+        temp2-&gt;next = temp;
+    }
+}
+
+/* To delete an element */
+void delete()
+{
+    int i = 1, pos;
+
+    printf("\n Enter position to be deleted : ");
+    scanf("%d", &amp;pos);
+    temp2 = h;
+
+    if ((pos &lt; 1) || (pos &gt;= count + 1))
+    {
+        printf("\n Error : Position out of range to delete");
+        return;
+    }
+    if (h == NULL)
+    {
+        printf("\n Error : Empty list no elements to delete");
+        return;
+    }
+    else
+    {
+        while (i &lt; pos)
+        {
+            temp2 = temp2-&gt;next;
+            i++;
+        }
+        if (i == 1)
+        {
+            if (temp2-&gt;next == NULL)
+            {
+                printf("Node deleted from list");
+                free(temp2);
+                temp2 = h = NULL;
+                return;
+            }
+        }
+        if (temp2-&gt;next == NULL)
+        {
+            temp2-&gt;prev-&gt;next = NULL;
+            free(temp2);
+            printf("Node deleted from list");
+            return;
+        }
+        temp2-&gt;next-&gt;prev = temp2-&gt;prev;
+        if (i != 1)
+            temp2-&gt;prev-&gt;next = temp2-&gt;next;    /* Might not need this statement if i == 1 check */
+        if (i == 1)
+            h = temp2-&gt;next;
+        printf("\n Node deleted");
+        free(temp2);
+    }
+    count--;
+}
+
+/* Traverse from beginning */
+void traversebeg()
+{
+    temp2 = h;
+
+    if (temp2 == NULL)
+    {
+        printf("List empty to display \n");
+        return;
+    }
+    printf("\n Linked list elements from begining : ");
+
+    while (temp2-&gt;next != NULL)
+    {
+        printf(" %d ", temp2-&gt;n);
+        temp2 = temp2-&gt;next;
+    }
+    printf(" %d ", temp2-&gt;n);
+}
+
+/* To traverse from end recursively */
+void traverseend(int i)
+{
+    if (temp2 != NULL)
+    {
+        i = temp2-&gt;n;
+        temp2 = temp2-&gt;next;
+        traverseend(i);
+        printf(" %d ", i);
+    }
+}
+
+/* To search for an element in the list */
+void search()
+{
+    int data, count = 0;
+    temp2 = h;
+
+    if (temp2 == NULL)
+    {
+        printf("\n Error : List empty to search for data");
+        return;
+    }
+    printf("\n Enter value to search : ");
+    scanf("%d", &amp;data);
+    while (temp2 != NULL)
+    {
+        if (temp2-&gt;n == data)
+        {
+            printf("\n Data found in %d position",count + 1);
+            return;
+        }
+        else
+             temp2 = temp2-&gt;next;
+            count++;
+    }
+    printf("\n Error : %d not found in list", data);
+}
+
+/* To update a node value in the list */
+void update()
+{
+    int data, data1;
+
+    printf("\n Enter node data to be updated : ");
+    scanf("%d", &amp;data);
+    printf("\n Enter new data : ");
+    scanf("%d", &amp;data1);
+    temp2 = h;
+    if (temp2 == NULL)
+    {
+        printf("\n Error : List empty no node to update");
+        return;
+    }
+    while (temp2 != NULL)
+    {
+        if (temp2-&gt;n == data)
+        {
+
+            temp2-&gt;n = data1;
+            traversebeg();
+            return;
+        }
+        else
+            temp2 = temp2-&gt;next;
+    }
+
+    printf("\n Error : %d not found in list to update", data);
+}
+
+/* To sort the linked list */
+void sort()
+{
+    int i, j, x;
+
+    temp2 = h;
+    temp4 = h;
+
+    if (temp2 == NULL)
+    {
+        printf("\n List empty to sort");
+        return;
+    }
+
+    for (temp2 = h; temp2 != NULL; temp2 = temp2-&gt;next)
+    {
+        for (temp4 = temp2-&gt;next; temp4 != NULL; temp4 = temp4-&gt;next)
+        {
+            if (temp2-&gt;n &gt; temp4-&gt;n)
+            {
+                x = temp2-&gt;n;
+                temp2-&gt;n = temp4-&gt;n;
+                temp4-&gt;n = x;
+            }
+        }
+    }
+    traversebeg();
+}
+/* Delete at End*/
+ void deleteatEnd(){
+        if(h == NULL){
+           printf("\n List is empty : ");
+           return ;
+       }
+       temp2 = h ;
+          while(temp2-&gt;next!=NULL)
+          temp2=temp2-&gt;next;
+          printf("Node deleted\n");
+          free(h);
+          temp2-&gt;prev-&gt;next = NULL;
+          count--;
+          }
+
+/* Delete at begining */
+ void deleteatbeg(){
+   if(h==NULL){
+       printf("\n List is empty\n");
+       return;
+   }
+    temp2 = h ;
+    h = h-&gt;next;
+    h-&gt;prev = NULL;
+    printf("\n Node deleted");
+    free(temp2);
+   count--;
+}</pre>
+
+</body></html>

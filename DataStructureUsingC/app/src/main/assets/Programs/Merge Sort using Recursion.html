@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0090)http://dw.convertfiles.com/files/0479182001534506297/merge%20sort%20using%20recursion.html -->
+<html><head>
+	<style type="text/css">
+	h4 {
+
+			color: #800080;
+			font-family: "Times New Roman";
+			 font-style: italic;
+			 border-bottom: 2px solid Black;
+
+	}
+	pre {
+			margin:8px;
+			padding: 8px;
+			font-family: "Times New Roman";
+		 font-size: 12px;
+
+	}
+	</style>
+</head>
+<body lang="en-US" dir="LTR">
+<pre class="western">
+<h4>/*
+*C Program to Input Few Numbers &amp; Perform Merge Sort on them using Recursion
+*/</h4>
+
+#include &lt;stdio.h&gt;
+
+void mergeSort(int [], int, int, int);
+void partition(int [],int, int);
+
+int main()
+{
+    int list[50];
+    int i, size;
+
+    printf("Enter total number of elements:");
+    scanf("%d", &amp;size);
+    printf("Enter the elements:\n");
+    for(i = 0; i &lt; size; i++)
+    {
+         scanf("%d", &amp;list[i]);
+    }
+    partition(list, 0, size - 1);
+    printf("After merge sort:\n");
+    for(i = 0;i &lt; size; i++)
+    {
+         printf("%d   ",list[i]);
+    }
+
+   return 0;
+}
+
+void partition(int list[],int low,int high)
+{
+    int mid;
+
+    if(low &lt; high)
+    {
+        mid = (low + high) / 2;
+        partition(list, low, mid);
+        partition(list, mid + 1, high);
+        mergeSort(list, low, mid, high);
+    }
+}
+
+void mergeSort(int list[],int low,int mid,int high)
+{
+    int i, mi, k, lo, temp[50];
+
+    lo = low;
+    i = low;
+    mi = mid + 1;
+    while ((lo &lt;= mid) &amp;&amp; (mi &lt;= high))
+    {
+        if (list[lo] &lt;= list[mi])
+        {
+            temp[i] = list[lo];
+            lo++;
+        }
+        else
+        {
+            temp[i] = list[mi];
+            mi++;
+        }
+        i++;
+    }
+    if (lo &gt; mid)
+    {
+        for (k = mi; k &lt;= high; k++)
+        {
+            temp[i] = list[k];
+            i++;
+        }
+    }
+    else
+    {
+        for (k = lo; k &lt;= mid; k++)
+        {
+             temp[i] = list[k];
+             i++;
+        }
+    }
+
+    for (k = low; k &lt;= high; k++)
+    {
+        list[k] = temp[k];
+    }
+}
+
+Output:
+
+    Enter total number of elements:5
+    Enter the elements:
+    12
+    36
+    22
+    76
+    54
+    After merge sort:
+    12   22   36   54   76</pre>
+
+</body></html>

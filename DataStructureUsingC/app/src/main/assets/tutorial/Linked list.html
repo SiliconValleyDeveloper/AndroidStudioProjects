@@ -1,0 +1,91 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Linked List</h1>
+
+<p>A linked-list is a sequence of data structures which are connected together via links.</p>
+<p>Linked List is a sequence of links which contains items. Each link contains a connection to another link. Linked list the second most used data structure after array. Following are important terms to understand the concepts of Linked List.</p>
+<ul class="list">
+<li><p><b>Link</b> &minus; Each Link of a linked list can store a data called an element.</p></li>
+<li><p><b>Next</b> &minus; Each Link of a linked list contain a link to next link called Next.</p></li>
+<li><p><b>LinkedList</b> &minus; A LinkedList contains the connection link to the first Link called First.</p></li>
+</ul>
+<h2>Linked List Representation</h2>
+<p>Linked list can be visualized as a chain of nodes, where every node points to the next node.</p>
+<img src="linked_list.jpg" alt="Linked List" />
+<p>As per above shown illustration, following are the important points to be considered.</p>
+<ul class="list">
+<li>LinkedList contains an link element called first.</li>
+<li>Each Link carries a data field(s) and a Link Field called next.</li>
+<li>Each Link is linked with its next link using its next link.</li>
+<li>Last Link carries a Link as null to mark the end of the list.</li>
+</ul>
+<h2>Types of Linked List</h2>
+<p>Following are the various flavours of linked list.</p>
+<ul class="list">
+<li><p><b>Simple Linked List</b> &minus; Item Navigation is forward only.</p></li>
+<li><p><b>Doubly Linked List</b> &minus; Items can be navigated forward and backward way.</p></li>
+<li><p><b>Circular Linked List</b> &minus; Last item contains link of the first element as next and and first element has link to last element as prev.</p></li>
+</ul>
+<h2>Basic Operations</h2>
+<p>Following are the basic operations supported by a list.</p>
+<ul class="list">
+<li><p><b>Insertion</b> &minus; add an element at the beginning of the list.</p></li>
+<li><p><b>Deletion</b> &minus; delete an element at the beginning of the list.</p></li>
+<li><p><b>Display</b> &minus; displaying complete list.</p></li>
+<li><p><b>Search</b> &minus; search an element using given key.</p></li>
+<li><p><b>Delete</b> &minus; delete an element using given key.</p></li>
+</ul>
+<h2>Insertion Operation</h2>
+<p>Adding a new node in linked list is a more than one step activity. We Shall learn this with diagrams here. First, create a node using the same structure and find the location where it has to be inserted.</p>
+<img src="linked_list_insertion_0.jpg" alt="Linked List Insertion" />
+<p>Imagine that we are inserting a node B (NewNode), between A (LeftNode) and C (RightNode). Then point B.next to C</p>
+<pre class="result notranslate">
+NewNode.next &minus;&gt; RightNode;
+</pre>
+<p>It should look like this &minus;</p>
+<img src="linked_list_insertion_1.jpg" alt="Linked List Insertion" />
+<p>Now the next of the node at left should point to the new node.</p>
+<pre class="result notranslate">
+LeftNode.next &minus;&gt; NewNode;
+</pre>
+<img src="linked_list_insertion_2.jpg" alt="Linked List Insertion" />
+<p>This will put the new node in the middle of the two. The new list should look like this &minus;</p>
+<img src="linked_list_insertion_3.jpg" alt="Linked List Insertion" />
+<p>Similar steps should be taken if the node being inserted at the beginning of the list. While putting it at the end, then the second last node of list should point to new node and the new node will point to NULL.</p>
+<h2>Deletion Operation</h2>
+<p>Deletion is also a more than one step process. We shall learn with pictorial representation. First, locate the target node to be removed, by using searching algorithms.</p>
+<img src="linked_list_deletion_0.jpg" alt="Linked List Deletion" />
+<p>The left (previous) node of the target node now should point to the next node of the target node &minus;</p>
+<pre class="result notranslate">
+LeftNode.next &minus;&gt; TargetNode.next;
+</pre>
+<img src="linked_list_deletion_1.jpg" alt="Linked List Deletion" />
+<p>This will remove the link that was pointing to target node. Now we shall remove to what target node is pointing.</p>
+<pre class="result notranslate">
+TargetNode.next &minus;&gt; NULL;
+</pre>
+<img src="linked_list_deletion_2.jpg" alt="Linked List Deletion" />
+<p>We need to use the deleted node we can keep that in memory otherwise we can simply deallocate memory and wipe off the target node completely.</p>
+<img src="linked_list_deletion_3.jpg" alt="Linked List Deletion" />
+<br><br><br><br><br><br><br>
+</body>
+</html>

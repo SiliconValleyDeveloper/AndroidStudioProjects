@@ -1,0 +1,165 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+      overflow-x: scroll;
+      }
+   </style>
+</head>
+<h1>Hash Table Program in C</h1>
+<p>Hash Table is a data structure which store data in associative manner. In hash table, data is stored in array format where each data values has its own unique index value. Access of data becomes very fast if we know the index of desired data.</p>
+<h2>Implementation in C</h2>
+<pre class="prettyprint notranslate tryit">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+
+#define SIZE 20
+
+struct DataItem {
+   int data;   
+   int key;
+};
+
+struct DataItem* hashArray[SIZE]; 
+struct DataItem* dummyItem;
+struct DataItem* item;
+
+int hashCode(int key){
+   return key % SIZE;
+}
+
+struct DataItem *search(int key){               
+   //get the hash 
+   int hashIndex = hashCode(key);  
+	
+   //move in array until an empty 
+   while(hashArray[hashIndex] != NULL){
+	
+      if(hashArray[hashIndex]-&gt;key == key)
+         return hashArray[hashIndex]; 
+			
+      //go to next cell
+      ++hashIndex;
+		
+      //wrap around the table
+      hashIndex %= SIZE;
+   }        
+	
+   return NULL;        
+}
+
+void insert(int key,int data){
+
+   struct DataItem *item = (struct DataItem*) malloc(sizeof(struct DataItem));
+   item-&gt;data = data;  
+   item-&gt;key = key;     
+
+   //get the hash 
+   int hashIndex = hashCode(key);
+
+   //move in array until an empty or deleted cell
+   while(hashArray[hashIndex] != NULL &amp;&amp; hashArray[hashIndex]-&gt;key != -1){
+      //go to next cell
+      ++hashIndex;
+		
+      //wrap around the table
+      hashIndex %= SIZE;
+   }
+	
+   hashArray[hashIndex] = item;        
+}
+
+struct DataItem* delete(struct DataItem* item){
+   int key = item-&gt;key;
+
+   //get the hash 
+   int hashIndex = hashCode(key);
+
+   //move in array until an empty 
+   while(hashArray[hashIndex] != NULL){
+	
+      if(hashArray[hashIndex]-&gt;key == key){
+         struct DataItem* temp = hashArray[hashIndex]; 
+			
+         //assign a dummy item at deleted position
+         hashArray[hashIndex] = dummyItem; 
+         return temp;
+      }
+		
+      //go to next cell
+      ++hashIndex;
+		
+      //wrap around the table
+      hashIndex %= SIZE;
+   }      
+	
+   return NULL;        
+}
+
+void display(){
+   int i = 0;
+	
+   for(i = 0; i&lt;SIZE; i++) {
+	
+      if(hashArray[i] != NULL)
+         printf(" (%d,%d)",hashArray[i]-&gt;key,hashArray[i]-&gt;data);
+      else
+         printf(" ~~ ");
+   }
+	
+   printf("\n");
+}
+
+int main(){
+   
+   dummyItem = (struct DataItem*) malloc(sizeof(struct DataItem));
+   dummyItem-&gt;data = -1;  
+   dummyItem-&gt;key = -1; 
+
+   insert(1, 20);
+   insert(2, 70);
+   insert(42, 80);
+   insert(4, 25);
+   insert(12, 44);
+   insert(14, 32);
+   insert(17, 11);
+   insert(13, 78);
+   insert(37, 97);
+
+   display();
+
+   item = search(37);
+
+   if(item != NULL){
+      printf("Element found: %d\n", item-&gt;data);
+   }else {
+      printf("Element not found\n");
+   }
+
+   delete(item);
+
+   item = search(37);
+
+   if(item != NULL){
+      printf("Element found: %d\n", item-&gt;data);
+   }else {
+      printf("Element not found\n");
+   }
+}
+</pre>
+<p>If we compile and run the above program then it would produce following result &minus;</p>
+<h2>Output</h2>
+<pre class="result notranslate">
+ ~~  (1,20)  (2,70)  (42,80)  (4,25)  ~~  ~~  ~~  ~~  ~~  ~~  ~~ (12,44)  (13,78)  (14,32)  ~~  ~~  (17,11)  (37,97)  ~~ 
+Element found: 97
+Element not found
+</pre>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

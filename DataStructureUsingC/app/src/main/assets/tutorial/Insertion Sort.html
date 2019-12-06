@@ -1,0 +1,85 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+   </style>
+</head>
+<h1>Insertion Sort</h1>
+<p>This is a in-place comparison based sorting algorithm. Here, a sub-list is maintained which is always sorted. For example, the lower part of an array is maintained to be sorted. A element which is to be 'insert'ed in this sorted sub-list, has to find its appropriate place and insert it there. Hence the name <b>insertion sort</b>.
+<p>The array is searched sequentially and unsorted items are moved and inserted into sorted sub-list (in the same array). This algorithm is not suitable for large data sets as its average and worst case complexity are of &Omicron;(n<sup>2</sup>) where n are no. of items.</p>
+<h2>How insertion sort works?</h2>
+<p>We take an unsorted array for our example.</p>
+<img src="unsorted_array.jpg" alt="Unsorted Array" />
+<p>Insertion sort compares the first two elements.</p>
+<img src="insertion_sort_1.jpg" alt="Insertion Sort" />
+<p>It finds that both 14 and 33 are already in ascending order. For now, 14 is in sorted sub-list.</p>
+<img src="insertion_sort_2.jpg" alt="Insertion Sort" />
+<p>Insertion sort moves ahead and compares 33 with 27.</p>
+<img src="insertion_sort_3.jpg" alt="Insertion Sort" />
+<p>And finds that 33 is not in correct position.</p>
+<img src="insertion_sort_4.jpg" alt="Insertion Sort" />
+<p>It swaps 33 with 27. Also it checks with all the elements of sorted sublist. Here we see that sorted sub-list has only one element 14 and 27 is greater than 14. Hence sorted sub-list remain sorted after swapping.</p>
+<img src="insertion_sort_5.jpg" alt="Insertion Sort" />
+<p>By now we have 14 and 27 in the sorted sublist. Next it compares 33 with 10,.</p>
+<img src="insertion_sort_6.jpg" alt="Insertion Sort" />
+<p>These values are not in sorted order.</p>
+<img src="insertion_sort_7.jpg" alt="Insertion Sort" />
+<p>So we swap them.</p>
+<img src="insertion_sort_8.jpg" alt="Insertion Sort" />
+<p>But swapping makes 27 and 10 unsorted.</p>
+<img src="insertion_sort_9.jpg" alt="Insertion Sort" />
+<p>So we swap them too.</p>
+<img src="insertion_sort_10.jpg" alt="Insertion Sort" />
+<p>Again we find 14 and 10 in unsorted order.</p>
+<img src="insertion_sort_11.jpg" alt="Insertion Sort" />
+<p>And we swap them. By the end of third iteration we have a sorted sublist of 4 items.</p>
+<img src="insertion_sort_12.jpg" alt="Insertion Sort" />
+<p>This process goes until all the unsorted values are covered in sorted sublist. And now we shall see some programming aspects of insertion sort.</p>
+<h2>Algorithm</h2>
+<p>Now we have a bigger picture of how this sorting technique works, so we can derive simple steps by which we can achieve insertion sort.</p>
+<pre class="result notranslate">
+<b>Step 1</b> &minus; If it is the first element, it is already sorted. return 1;
+<b>Step 2</b> &minus; Pick next element
+<b>Step 3</b> &minus; Compare with all elements in the sorted sub-list
+<b>Step 4</b> &minus; Shift all the elements in the sorted sub-list that is greater than the value to be sorted
+<b>Step 5</b> &minus; Insert the value
+<b>Step 6</b> &minus; Repeat until list is sorted
+</pre>
+<h2>Pseudocode</h2>
+<pre class="prettyprint notranslate">
+procedure insertionSort( A : array of items )
+   int holePosition
+   int valueToInsert
+
+   for i = 1 to length(A) inclusive do:
+
+      /* select value to be inserted */
+      valueToInsert = A[i]
+      holePosition = i
+
+      /*locate hole position for the element to be inserted */
+
+      while holePosition &gt; 0 and A[holePosition-1] &gt; valueToInsert do:
+         A[holePosition] = A[holePosition-1]
+         holePosition = holePosition -1
+      end while
+
+      /* insert the number at hole position */
+      A[holePosition] = valueToInsert
+
+   end for
+
+end procedure
+</pre>
+<br><br><br><br><br><br><br>
+</body>
+</html>

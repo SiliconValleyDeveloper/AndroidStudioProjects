@@ -1,0 +1,88 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        margin:8px;
+
+
+        }
+
+
+h1 {
+    margin:8px;
+    padding: 8px;
+    border-bottom: 3px solid Black;
+
+}
+
+    </style>
+</head>
+<h1>Comb Sort</h1>
+<p>
+Comb sort is sorting algorithm and it is a variant of Bubble sort, the Comb Sort increases the gap used in comparisons and exchanges.
+</p>
+
+<pre>
+
+void CombSort(int* data, int count) {
+	double gap = count;
+	bool swaps = true;
+
+	while (gap > 1 || swaps)
+	{
+		gap /= 1.247330950103979;
+
+		if (gap < 1)
+			gap = 1;
+
+		int i = 0;
+		swaps = false;
+
+		while (i + gap < count)
+		{
+			int igap = i + (int)gap;
+
+			if (data[i] > data[igap])
+			{
+				int temp = data[i];
+				data[i] = data[igap];
+				data[igap] = temp;
+				swaps = true;
+			}
+
+			++i;
+		}
+	}
+}
+
+
+</pre>
+
+Example
+
+<pre>
+int data[] = { -1, 25, -58964, 8547, -119, 0, 78596 };
+CombSort(data, 7);
+
+
+
+
+Output
+
+
+-58964
+-119
+-1
+0
+25
+8547
+78596
+</pre>

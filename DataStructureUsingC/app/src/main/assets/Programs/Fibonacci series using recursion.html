@@ -1,0 +1,31 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int Fibonacci(int);<br><br>
+ 
+main()<br>
+{<br>
+   &nbsp int n, i = 0, c;<br><br>
+   &nbsp printf("Enter the number of terms ");<br>
+   &nbsp scanf("%d",&n);<br><br>
+ 
+   &nbsp printf("First %d terms of Fibonacci series are :-\n", n);<br><br>
+ 
+   &nbsp for ( c = 1 ; c &lt = n ; c++ )<br>
+   &nbsp {<br>
+      &nbsp printf("%d\n", Fibonacci(i));<br>
+      &nbsp i++; <br>
+   &nbsp }<br><br>
+ 
+   &nbsp return 0;<br>
+}<br><br>
+ 
+int Fibonacci(int n)<br>
+{<br>
+   &nbsp if ( n == 0 )<br>
+      &nbsp return 0;<br>
+   &nbsp else if ( n == 1 )<br>
+      &nbsp return 1;<br>
+   &nbsp else<br>
+      &nbsp return ( Fibonacci(n-1) + Fibonacci(n-2) );<br>
+      &nbsp <font color="#888888">/*adding Fibonacci of (n-1) & (n-2) by recursive calling it*/</font><br>
+} 

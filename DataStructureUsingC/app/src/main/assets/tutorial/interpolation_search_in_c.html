@@ -1,0 +1,90 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+      overflow-x: scroll;
+      }
+   </style>
+</head>
+<h1>Interpolation Search Program in C</h1>
+<p>Interpolation search is an improved variant of binary search. This search algorithm works on the probing position of required value. For this algorithm to work properly the data collection should be in sorted and equally distributed form.</p>
+<p>It's runtime complexity is <b>log<small><sub>2</sub></small>(log<small><sub>2</sub></small> n)</b>.</p>
+<h2>Implementation in C</h2>
+<pre class="prettyprint notranslate tryit">
+#include&lt;stdio.h&gt;
+
+#define MAX 10
+
+// array of items on which linear search will be conducted. 
+int list[MAX] = { 10, 14, 19, 26, 27, 31, 33, 35, 42, 44 };
+
+int find(int data) {
+   int lo = 0;
+   int hi = MAX - 1;
+   int mid = -1;
+   int comparisons = 1;      
+   int index = -1;
+
+   while(lo &lt;= hi) {
+      printf("\nComparison %d  \n" , comparisons ) ;
+      printf("lo : %d, list[%d] = %d\n", lo, lo, list[lo]);
+      printf("hi : %d, list[%d] = %d\n", hi, hi, list[hi]);
+      
+      comparisons++;
+
+      // probe the mid point 
+      mid = lo + (((double)(hi - lo) / (list[hi] - list[lo])) * (data - list[lo]));
+      printf("mid = %d\n",mid);
+
+      // data found 
+      if(list[mid] == data) {
+         index = mid;
+         break;
+      }else {
+         if(list[mid] &lt; data) {
+            // if data is larger, data is in upper half 
+            lo = mid + 1;
+         }else {
+            // if data is smaller, data is in lower half 
+            hi = mid - 1;
+         }
+      }               
+   }
+   
+   printf("\nTotal comparisons made: %d", --comparisons);
+   return index;
+}
+
+int main() {
+   //find location of 33
+   int location = find(33);
+
+   // if element was found 
+   if(location != -1)
+      printf("\nElement found at location: %d" ,(location+1));
+   else
+      printf("Element not found.");
+   
+   return 0;
+}
+</pre>
+<h2>Output</h2>
+<p>The following should be the output of the program &minus;</p>
+<pre class="result notranslate">
+Searching 33
+Comparison 1
+lo : 0, list[0] = 10
+hi : 9, list[9] = 44
+mid = 6
+
+Total comparisons made: 1
+Element found at location: 7
+</pre>
+<p>You can change the search value and execute the program to test it.</p>
+<br><br><br><br><br><br><br>
+</body>
+</html>

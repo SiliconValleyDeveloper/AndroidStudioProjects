@@ -1,0 +1,57 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Heap Sort</h1>
+<p>Heap is a special case of balanced binary tree data structure where root-node key is compared with its children and arranged accordingly. If &alpha; has child node &beta; then &minus;</p>
+<p style="text-align:center; font-weight:bold;">key(&alpha;) &ge; key(&beta;)</p>
+<p>As the value of parent is greater than that of child, this property generates <b>Max Heap</b>. Based on this criteria a heap can be of two types &minus;</p>
+<pre class="result notranslate">
+For Input &rarr; 35 33 42 10 14 19 27 44 26 31
+</pre>
+<ul class="list">
+<li><p><b>Min-Heap</b> &minus; where the value of root node is less than or equal to either of its children.</p></li>
+</ul>
+<img src="min_heap_example.jpg" alt="Max Heap Example" />
+<ul class="list">
+<li><p><b>Max-Heap</b> &minus; where the value of root node is greater than or equal to either of its children.</p></li>
+</ul>
+<img src="max_heap_example.jpg" alt="Max Heap Example" />
+<p>Both trees are constructed using the same input and order of arrival.</p>
+<h2>Max Heap Construction Algorithm</h2>
+<p>We shall use the same example to demonstrate how a Max Heap is created. The procedure to create Min Heap is similar but we go for min values instead of max ones.</p>
+<p>We are going to derive an algorithm for max-heap by inserting one element at a time. At any point of time, heap must maintain its property. While insertion, we also assume that we are inserting a node in already heapified tree.</p>
+<pre class="result notranslate">
+<b>Step 1 &minus;</b> Create a new node at the end of heap.
+<b>Step 2 &minus;</b> Assign new value to the node.
+<b>Step 3 &minus;</b> Compare the value of this child node with its parent.
+<b>Step 4 &minus;</b> If value of parent is less than child, then swap them.
+<b>Step 5 &minus;</b> Repeat step 3 &amp; 4 until Heap property holds.
+</pre>
+<p><b>Note</b> &minus; In Min Heap construction algorithm we expect the value of parent node to be less than that of child node.</p>
+<p>Let's understand Max Heap construction by an animated illustration. We take the same input sample that we use earlier.</p>
+<img src="max_heap_animation.gif" alt="Max Heap Animated Example" />
+<h2>Max Heap Deletion Algorithm</h2>
+<p>Lets derive an algorithm to delete from max-heap. Deletion in Max (or Min) Heap is always happen at the root to remove the Maximum (or minimum) value.</p>
+<pre class="result notranslate">
+<b>Step 1 &minus;</b> Remove root node.
+<b>Step 2 &minus;</b> Move the last element of last level to root.
+<b>Step 3 &minus;</b> Compare the value of this child node with its parent.
+<b>Step 4 &minus;</b> If value of parent is less than child, then swap them.
+<b>Step 5 &minus;</b> Repeat step 3 &amp; 4 until Heap property holds.
+</pre>
+<img src="max_heap_deletion_animation.gif" alt="Max Heap Deletion Animated Example" />
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

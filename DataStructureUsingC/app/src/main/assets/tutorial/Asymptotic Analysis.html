@@ -1,0 +1,104 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Asymptotic Analysis</h1>
+<p>Asymptotic analysis of an algorithm, refers to defining the mathematical boundation/framing of its run-time performance. Using asymptotic analysis, we can very well conclude the best case, average case and worst case scenario of an algorithm.</p>
+<p>Asymptotic analysis are input bound i.e., if there's no input to the algorithm it is concluded to work in a constant time. Other than the "input" all other factors are considered constant.</p>
+<p>Asymptotic analysis refers to computing the running time of any operation in mathematical units of computation. For example, running time of one operation is computed as <i>f</i>(n) and may be for another operation it is computed as <i>g</i>(n<sup>2</sup>). Which means first operation running time will increase linearly with the increase in n and running time of second operation will increase exponentially when n increases. Similarly the running time of both operations will be nearly same if n is significantly small.</p>
+<p>Usually, time required by an algorithm falls under three types &minus;</p>
+<ul class="list">
+<li><p><b>Best Case</b> &minus; Minimum time required for program execution.</p></li>
+<li><p><b>Average Case</b> &minus; Average time required for program execution.</p></li>
+<li><p><b>Worst Case</b> &minus; Maximum time required for program execution.</p></li>
+</ul>
+<h2>Asymptotic Notations</h2>
+<p>Following are commonly used asymptotic notations used in calculating running time complexity of an algorithm.</p>
+<ul class="list">
+<li><p>&Omicron; Notation</p></li>
+<li><p>&Omega; Notation</p></li>
+<li><p>&theta; Notation</p></li>
+</ul>
+<h3>Big Oh Notation, &Omicron;</h3>
+<p>The &Omicron;(n) is the formal way to express the upper bound of an algorithm's running time. It measures the worst case time complexity or longest amount of time an algorithm can possibly take to complete.</p>
+<img src="big_o_notation.jpg" alt="Big O Notation" />
+<p>For example, for a function <i>f</i>(n)</p>
+<pre class="prettyprint notranslate">
+&Omicron;(<i>f</i>(n)) = { <i>g</i>(n) : there exists c &gt; 0 and n<sub>0</sub> such that <i>g</i>(n) &le; c.<i>f</i>(n) for all n &gt; n<sub>0</sub>. }
+</pre>
+<h3>Omega Notation, &Omega;</h3>
+<p>The &Omega;(n) is the formal way to express the lower bound of an algorithm's running time. It measures the best case time complexity or best amount of time an algorithm can possibly take to complete.</p>
+<img src="omega_notation.jpg" alt="Omega Notation" />
+<p>For example, for a function <i>f</i>(n)</p>
+<pre class="prettyprint notranslate">
+&Omega;(<i>f</i>(n)) &ge; { <i>g</i>(n) : there exists c &gt; 0 and n<sub>0</sub> such that <i>g</i>(n) &le; c.<i>f</i>(n) for all n &gt; n<sub>0</sub>. }
+</pre>
+<h3>Theta Notation, &theta;</h3>
+<p>The &theta;(n) is the formal way to express both the lower bound and upper bound of an algorithm's running time. It is represented as following &minus;</p>
+<img src="theta_notation.jpg" alt="Theta Notation" />
+<pre class="prettyprint notranslate">
+&theta;(<i>f</i>(n)) = { <i>g</i>(n) if and only if <i>g</i>(n) =  &Omicron;(<i>f</i>(n)) and <i>g</i>(n) = &Omega;(<i>f</i>(n)) for all n &gt; n<sub>0</sub>. }
+</pre>
+<h2>Common Asymptotic Notations</h2>
+<table style="border:none;" class="table table-bordered">
+<tr>
+<td style="text-align:right">constant</td>
+<td style="text-align:center">&minus;</td>
+<td style="text-align:left">&Omicron;(1)</td>
+</tr>
+<tr>
+<td style="text-align:right">logarithmic</td>
+<td style="text-align:center">&minus;</td>
+<td>&Omicron;(log n)</td>
+</tr>
+<tr>
+<td style="text-align:right">linear</td>
+<td style="text-align:center">&minus;</td>
+<td>&Omicron;(n)</td>
+</tr>
+<tr>
+<td style="text-align:right">n log n</td>
+<td style="text-align:center">&minus;</td>
+<td>&Omicron;(n log n)</td>
+</tr>
+<tr>
+<td style="text-align:right">quadratic</td>
+<td style="text-align:center">&minus;</td>
+<td>&Omicron;(n<sup>2</sup>)</td>
+</tr>
+<tr>
+<td style="text-align:right">cubic</td>
+<td style="text-align:center">&minus;</td>
+<td>&Omicron;(n<sup>3</sup>)</td>
+</tr>
+<tr>
+<td style="text-align:right">polynomial</td>
+<td style="text-align:center">&minus;</td>
+<td>n<sup>&Omicron;(1)</sup></td>
+</tr>
+<tr>
+<td style="text-align:right">exponential</td>
+<td style="text-align:center">&minus;</td>
+<td>2<sup>&Omicron;(n)</sup></td>
+</tr>
+</table>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

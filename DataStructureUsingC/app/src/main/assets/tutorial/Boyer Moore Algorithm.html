@@ -1,0 +1,97 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Boyer Moore Algorithm</h1>
+  <br><br>
+The Boyer-Moore algorithm is considered as the most efficient string-matching algorithm in usual applications. A simplified version of it or the entire algorithm is often implemented in text editors for the search and substitute commands.
+<br><br>
+The algorithm scans the characters of the pattern from right to left beginning with the rightmost one. In case of a mismatch (or a complete match of the whole pattern) it uses two precomputed functions to shift the window to the right. These two shift functions are called the good-suffix shift (also called matching shift and the bad-character shift (also called the occurrence shift).
+
+<pre>
+void preBmBc(char *x, int m, int bmBc[]) {
+   int i;
+
+   for (i = 0; i < ASIZE; ++i)
+      bmBc[i] = m;
+   for (i = 0; i < m - 1; ++i)
+      bmBc[x[i]] = m - i - 1;
+}
+
+
+void suffixes(char *x, int m, int *suff) {
+   int f, g, i;
+
+   suff[m - 1] = m;
+   g = m - 1;
+   for (i = m - 2; i >= 0; --i) {
+      if (i > g && suff[i + m - 1 - f] < i - g)
+         suff[i] = suff[i + m - 1 - f];
+      else {
+         if (i < g)
+            g = i;
+         f = i;
+         while (g >= 0 && x[g] == x[g + m - 1 - f])
+            --g;
+         suff[i] = f - g;
+      }
+   }
+}
+
+void preBmGs(char *x, int m, int bmGs[]) {
+   int i, j, suff[XSIZE];
+
+   suffixes(x, m, suff);
+
+   for (i = 0; i < m; ++i)
+      bmGs[i] = m;
+   j = 0;
+   for (i = m - 1; i >= 0; --i)
+      if (suff[i] == i + 1)
+         for (; j < m - 1 - i; ++j)
+            if (bmGs[j] == m)
+               bmGs[j] = m - 1 - i;
+   for (i = 0; i <= m - 2; ++i)
+      bmGs[m - 1 - suff[i]] = m - 1 - i;
+}
+
+
+void BM(char *x, int m, char *y, int n) {
+   int i, j, bmGs[XSIZE], bmBc[ASIZE];
+
+   /* Preprocessing */
+   preBmGs(x, m, bmGs);
+   preBmBc(x, m, bmBc);
+
+   /* Searching */
+   j = 0;
+   while (j <= n - m) {
+      for (i = m - 1; i >= 0 && x[i] == y[i + j]; --i);
+      if (i < 0) {
+         OUTPUT(j);
+         j += bmGs[0];
+      }
+      else
+         j += MAX(bmGs[i], bmBc[y[i + j]] - m + 1 + i);
+   }
+}
+
+</pre>
+</html>

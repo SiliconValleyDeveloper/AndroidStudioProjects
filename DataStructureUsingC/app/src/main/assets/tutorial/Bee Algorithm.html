@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Bee Algorithm</h1>
+<p>
+the bees algorithm is a population-based search algorithm which was developed in 2005.<br><br>
+It mimics the food foraging behaviour of honey bee colonies. In its basic version the algorithm performs a kind of neighbourhood search combined with global search, and can be used for both combinatorial optimization and continuous optimization. The only condition for the application of the bees algorithm is that some measure of topological distance between the solutions is defined. The effectiveness and specific abilities of the bees algorithm have been proven in a number of studies
+</p>
+<pre>
+Pseudocode for the standard bees algorithm:
+   1 for i=1,…,ns
+       i  scout[i]=Initialise_scout()
+       ii flower_patch[i]=Initialise_flower_patch(scout[i])
+   2 do until stopping_condition=TRUE
+       i   Recruitment()
+       ii  for i =1,...,nb
+             1 flower_patch[i]=Local_search(flower_patch[i])
+             2 flower_patch[i]=Site_abandonment(flower_patch[i])
+             3 flower_patch[i]=Neighbourhood_shrinking(flower_patch[i])
+       iii for i = nb,...,ns
+             1 flower_patch[i]=Global_search(flower_patch[i])}
+
+</pre>
+</html>

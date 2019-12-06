@@ -1,0 +1,66 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Tree Traversal</h1>
+<p>Traversal is a process to visit all the nodes of a tree and may print their values too. Because, all nodes are connected via edges (links) we always start from the root (head) node. That is, we cannot random access a node in tree. There are three ways which we use to traverse a tree &minus;</p>
+<ul class="list">
+<li>In-order Traversal</li>
+<li>Pre-order Traversal</li>
+<li>Post-order Traversal</li>
+</ul>
+<p>Generally we traverse a tree to search or locate given item or key in the tree or to print all the values it contains.</p>
+<h2>Inorder Traversal</h2>
+<p>In this traversal method, the left left-subtree is visited first, then root and then the right sub-tree. We should always remember that every node may represent a subtree itself.</p>
+<p>If a binary tree is traversed <b>inorder</b>, the output will produce sorted key values in ascending order.</p>
+<img src="inorder_traversal.jpg" alt="In Order Traversal" />
+<p>We start from <b>A</b>, and following in-order traversal, we move to its left subtree <b>B</b>. <b>B</b> is also traversed in-ordered. And the process goes on until all the nodes are visited. The output of in-order traversal of this tree will be &minus;</p>
+<p style="text-align:center;"><b><i>D &rarr; B &rarr; E &rarr; A &rarr; F &rarr; C &rarr; G</i></b></p>
+<h3>Algorithm</h3>
+<pre class="result notranslate">
+Until all nodes are traversed &minus;
+<b>Step 1</b> &minus; Recursively traverse left subtree.
+<b>Step 2</b> &minus; Visit root node.
+<b>Step 3</b> &minus; Recursively traverse right subtree.
+</pre>
+<h2>Preorder Traversal</h2>
+<p>In this traversal method, the root node is visited first, then left subtree and finally right sub-tree.</p>
+<img src="preorder_traversal.jpg" alt="Pre Order Traversal" />
+<p>We start from <b>A</b>, and following pre-order traversal, we first visit <b>A</b> itself and then move to its left subtree <b>B</b>. <b>B</b> is also traversed pre-ordered. And the process goes on until all the nodes are visited. The output of pre-order traversal of this tree will be &minus;</p>
+<p style="text-align:center;"><b><i>A &rarr; B &rarr; D &rarr; E &rarr; C &rarr; F &rarr; G</i></b></p>
+<h3>Algorithm</h3>
+<pre class="result notranslate">
+Until all nodes are traversed &minus;
+<b>Step 1</b> &minus; Visit root node.
+<b>Step 2</b> &minus; Recursively traverse left subtree.
+<b>Step 3</b> &minus; Recursively traverse right subtree.
+</pre>
+<h2>Postorder Traversal</h2>
+<p>In this traversal method, the root node is visited last, hence the name. First we traverse left subtree, then right subtree and finally root.</p>
+<img src="postorder_traversal.jpg" alt="Post Order Traversal" />
+<p>We start from <b>A</b>, and following pre-order traversal, we first visit left subtree <b>B</b>. <b>B</b> is also traversed post-ordered. And the process goes on until all the nodes are visited. The output of post-order traversal of this tree will be &minus;</p>
+<p style="text-align:center;"><b><i>D &rarr; E &rarr; B &rarr; F &rarr; G &rarr; C &rarr; A</i></b></p>
+<h3>Algorithm</h3>
+<pre class="result notranslate">
+Until all nodes are traversed &minus;
+<b>Step 1</b> &minus; Recursively traverse left subtree.
+<b>Step 2</b> &minus; Recursively traverse right subtree.
+<b>Step 3</b> &minus; Visit root node.
+</pre>
+<br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Quick Sort</h1>
+<p>Quick sort is a highly efficient sorting algorithm and is based on partitioning of array of data into smaller arrays. A large array is partitioned into two arrays one of which holds values smaller than specified value say pivot based on which the partition is made and another array holds values greater than pivot value.</p>
+<p>The quick sort partitions an array and then calls itself recursively twice to sort the resulting two subarray. This algorithm is quite efficient for large sized data sets as its average and worst case complexity are of O(nlogn) where n are no. of items.</p>
+<h2>Partition in Quicksort</h2>
+<p>The below given animated representation explains how to find pivot value in the array.</p>
+<img src="quick_sort_partition_animation.gif" alt="Quick Sort Partition Animation" />
+<p>The pivot value divides the list in to two parts. And recursively we find pivot for each sub-lists until all lists contains only one element.</p>
+<h2>QuickSort Pivot Algorithm </h2>
+<p>Based on our understanding of partitioning in quicksort, we should now try to write an algorithm for it here.</p>
+<pre class="result notranslate">
+<b>Step 1</b> &minus; Choose the highest index value has pivot
+<b>Step 2</b> &minus; Take two variables to point left and right of the list excluding pivot
+<b>Step 3</b> &minus; left points to the low index
+<b>Step 4</b> &minus; right points to the high
+<b>Step 5</b> &minus; while value at left is less than pivot move right
+<b>Step 6</b> &minus; while value at right is greater than pivot move left
+<b>Step 7</b> &minus; if both step 5 and step 6 does not match swap left and right
+<b>Step 8</b> &minus; if left &ge; right, the point where they met is new pivot
+</pre>
+<h2>QuickSort Pivot Pseudocode</h2>
+<p>The pseudocode for the above algorithm can be derived as &minus;</p>
+<pre class="prettyprint notranslate">
+function partitionFunc(left, right, pivot)
+   leftPointer = left -1
+   rightPointer = right
+
+   while True do
+      while A[++leftPointer] &lt; pivot do
+         //do-nothing
+      end while
+
+      while rightPointer &gt; 0 &amp;&amp; A[--rightPointer] &gt; pivot do
+         //do-nothing
+      end while
+
+      if leftPointer &gt;= rightPointer
+         break
+      else
+         swap leftPointer,rightPointer
+      end if
+
+   end while
+
+   swap leftPointer,right
+   return leftPointer
+
+end function
+</pre>
+<h2>QuickSort Algorithm</h2>
+<p>Using pivot algorithm recursively we end-up with smaller possible partitions. Each partition then processed for quick sort. We define recursive algorithm for quicksort as below &minus;</p>
+<pre class="result notranslate">
+<b>Step 1</b> &minus; Make the right-most index value pivot
+<b>Step 2</b> &minus; partition the array using pivot value
+<b>Step 3</b> &minus; quicksort left partition recursively
+<b>Step 4</b> &minus; quicksort right partition recursively
+</pre>
+<h2>QuickSort Pseudocode</h2>
+<p>To get more into it, let see the pseudocode for quick sort algorithm &minus;</p>
+<pre class="prettyprint notranslate">
+procedure quickSort(left, right)
+
+   if right-left &lt;= 0
+      return
+   else
+      pivot = A[right]
+      partition = partitionFunc(left, right, pivot)
+      quickSort(left,partition-1)
+      quickSort(partition+1,right)
+   end if
+
+end procedure
+</pre>
+<br><br><br><br><br><br><br>
+</body>
+</html>

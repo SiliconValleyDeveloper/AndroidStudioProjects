@@ -1,0 +1,82 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Beam Search Algorithm </h1>
+
+<b>Objectives</b>
+<p>
+
+To show how the Beam Search Algorithm uses a heuristic function and a given beam width in an attempt to simulate the Breadth-First Search in a memory-efficient way.<br>
+To emphasize the importance of limiting a graph-search's memory consumption when finding solutions to large problem spaces.<br>
+To demonstrate the strengths and weaknesses of the Beam Search Algorithm.<br><br>
+
+<b>Preparation</b><br>
+
+In order to understand this algorithm, you must be familiar with the concept of a graph as a group of nodes/vertices and edges connecting these nodes. It is also helpful to understand the how a search tree can be used to show the progress of a graph search. Additionally, knowledge of the Breadth-First Search Algorithm is required because Beam Search is a modification of this algorithm.
+<br><br>
+Beam Search Algorithm
+<br><br>
+Even though the Breadth-First Search Algorithm is guaranteed to find the shortest path from a start node to a goal node in an unweighted graph, it is infeasible to use this algorithm on large search spaces because its memory consumption is exponential. This causes the algorithm run out of main memory before a solution can be found to most large, nontrivial problems. For this reason, Beam Search was developed in an attempt to achieve the optimal solution found by the Breadth-First Search Algorithm without consuming too much memory.
+
+In order to accomplish this goal, Beam Search utilizes a heuristic function, h, to estimate the cost to reach the goal from a given node. It also uses a beam width, B, which specifies the number of nodes that are stored at each level of the Breadth-First Search. Thus, while the Breadth-First Search stores all the frontier nodes (the nodes connected to the closing vertices) in memory, the Beam Search Algorithm only stores the B nodes with the best heuristic values at each level of the search. The idea is that the heuristic function will allow the algorithm to select nodes that will lead it to the goal node, and the beam width will cause the algorithm to store only these important nodes in memory and avoid running out of memory before finding the goal state.
+
+Instead of the open list used by the Breadth-First Search Algorithm, the Beam Search Algorithm uses the BEAM to store the nodes that are to be expanded in the next loop of the algorithm. A hash table is used to store nodes that have been visited, similar to the closed list used in the Breadth-First Search. Beam Search initially adds the starting node to the BEAM and the hash table. Then, each time through the main loop of the algorithm, Beam Search adds all of the nodes connected to the nodes in the BEAM to its SET of successor nodes and then adds the B nodes with the best heuristic values from the SET to the BEAM and the hash table. Note that a node that is already in the hash table is not added to the BEAM because a shorter path to that node has already been found. This process continues until the goal node is found, the hash table becomes full (indicating that the memory available has been exhausted), or the BEAM is empty after the main loop has completed (indicating a dead end in the search).
+
+The Beam Search Algorithm is shown by the pseudocode below. This pseudocode assumes that the Beam Search is used on an unweighted graph so the variable g is used to keep track of the depth of the search, which is the cost of reaching a node at that level.
+</p>
+Pseudocode for the Beam Search Algorithm
+<pre>
+/* initialization */
+g = 0;
+hash_table = { start };
+BEAM = { start };
+
+/* main loop */
+while(BEAM ≠ ∅){                             // loop until the BEAM contains no nodes
+  SET = ∅;                                   // the empty set
+
+  /* generate the SET nodes */
+  for(each state in BEAM){
+    for(each successor of state){
+      if(successor == goal) return g + 1;
+      SET = SET ∪ { successor };             // add successor to SET
+    }
+  }
+
+  BEAM = ∅;                                  // the empty set
+  g = g + 1;
+
+  /* fill the BEAM for the next loop */
+  while((SET ≠ ∅) AND (B > |BEAM|)){         // set is not empty and the number of nodes in BEAM is less than B
+    state = successor in SET with smallest h value;
+    SET = SET \ { state };                   // remove state from SET
+    if(state ∉ hash_table){                  // state is not in the hash_table
+      if(hash_table is full) return ∞;
+      hash_table = hash_table ∪ { state };   // add state to hash_table
+      BEAM = BEAM ∪ { state };               // add state to BEAM
+    }
+  }
+}
+
+// goal was not found, and BEAM is empty - Beam Search failed to find the goal
+return ∞;
+</pre>
+</html>

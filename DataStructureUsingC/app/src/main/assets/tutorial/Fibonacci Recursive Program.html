@@ -1,0 +1,66 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Fibonacci Recursive Program in C</h1>
+<h2>Fibonacci Program in C</h2>
+<pre class="prettyprint notranslate tryit">
+#include &lt;stdio.h&gt;
+
+int factorial(int n){
+   //base case
+   if(n == 0){
+      return 1;
+   }else {
+      return n * factorial(n-1);
+   }
+}
+
+int fibbonacci(int n){
+   if(n == 0){
+      return 0;
+   }else if(n == 1){
+      return 1;
+   }else {
+      return (fibbonacci(n-1) + fibbonacci(n-2));
+   }
+}
+
+main(){
+   int n = 5;
+   int i;
+
+   printf("Factorial of %d: %d\n" , n , factorial(n));
+   printf("Fibbonacci of %d: " , n);
+
+   for(i = 0;i&lt;n;i++){
+      printf("%d ",fibbonacci(i));
+   }
+
+}
+</pre>
+<p>If we compile and run the above program then it would produce following result &minus;</p>
+<pre class="result notranslate">
+Factorial of 5: 120
+Fibbonacci of 5: 0 1 1 2 3
+</pre>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

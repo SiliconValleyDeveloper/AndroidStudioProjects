@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Data Structure Using C</string>
+
+
+    <string name="information">"1.Every Question Contain Equal Marks\n2.Every set Contain Equal Number of Questions\n3.Choose the best answer from the choices given .choose only one answer.Each question are contain 10 Marks\n4.Every Question Contain 2 min 30 sec to solve and choose Answer."
+    </string>
+
+</resources>

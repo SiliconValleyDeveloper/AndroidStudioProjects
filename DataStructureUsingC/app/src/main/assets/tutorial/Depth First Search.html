@@ -1,0 +1,77 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Depth First Traversal</h1>
+<p>Depth First Search algorithm(DFS) traverses a graph in a depthward motion and uses a stack to remember to get the next vertex to start a search when a dead end occurs in any iteration.</p>
+<img src="depth_first_traversal.jpg" alt="Depth First Travesal" />
+<p>As in example given above, DFS algorithm traverses from A to B to C to D first then to E, then to F and lastly to G. It employs following rules.</p>
+<ul class="list">
+<li><p><b>Rule 1</b> &minus; Visit adjacent unvisited vertex. Mark it visited. Display it. Push it in a stack.</p></li>
+<li><p><b>Rule 2</b> &minus; If no adjacent vertex found, pop up a vertex from stack. (It will pop up all the vertices from the stack which do not have adjacent vertices.)</p></li>
+<li><p><b>Rule 3</b> &minus; Repeat Rule 1 and Rule 2 until stack is empty.</p></li>
+</ul>
+<table class="table table-bordered">
+<tr>
+<th>Step</th>
+<th>Traversal</th>
+<th>Description</th>
+</tr>
+<tr>
+<td width="5%">1.</td>
+<td width="50%"><img src="dfs_one.jpg" alt="Depth First Search Step One" /></td>
+<td>Initialize the stack</td>
+</tr>
+<tr>
+<td width="5%">2.</td>
+<td width="50%"><img src="dfs_two.jpg" alt="Depth First Search Step Two" /></td>
+<td>Mark <b>S</b> as visited and put it onto the stack. Explore any unvisited adjacent node from <b>S</b>. We have three nodes and we can pick any of them. For this example, we shall take the node in alphabetical order.</td>
+</tr>
+<tr>
+<td width="5%">3.</td>
+<td width="50%"><img src="dfs_three.jpg" alt="Depth First Search Step Three" /></td>
+<td>Mark <b>A</b> as visited and put it onto the stack. Explore any unvisited adjacent node from A. Both <b>S</b> and <b>D</b> are adjacent to <b>A</b> but we are concerned for unvisited nodes only.</td>
+</tr>
+<tr>
+<td width="5%">4.</td>
+<td width="50%"><img src="dfs_four.jpg" alt="Depth First Search Step Four" /></td>
+<td>Visit <b>D</b> and mark it visited and put onto the stack. Here we have <b>B</b> and <b>C</b> nodes which are adjacent to <b>D</b> and both are unvisited. But we shall again choose in alphabetical order.</td>
+</tr>
+<tr>
+<td width="5%">5.</td>
+<td width="50%"><img src="dfs_five.jpg" alt="Depth First Search Step Five" /></td>
+<td>We choose <b>B</b>, mark it visited and put onto stack. Here <b>B</b> does not have any unvisited adjacent node. So we pop <b>B</b> from the stack.</td>
+</tr>
+<tr>
+<td width="5%">6.</td>
+<td width="50%"><img src="dfs_six.jpg" alt="Depth First Search Step Six" /></td>
+<td>We check stack top for return to previous node and check if it has any unvisited nodes. Here, we find <b>D</b> to be on the top of stack.</td>
+</tr>
+<tr>
+<td width="5%">7.</td>
+<td width="50%"><img src="dfs_seven.jpg" alt="Depth First Search Step Seven" /></td>
+<td>Only unvisited adjacent node is from <b>D</b> is <b>C</b> now. So we visit <b>C</b>, mark it visited and put it onto the stack.</td>
+</tr>
+</table>
+<p>As <b>C</b> does not have any unvisited adjacent node so we keep popping the stack until we find a node which has unvisited adjacent node. In this case, there's none and we keep popping until stack is empty.</p>
+
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

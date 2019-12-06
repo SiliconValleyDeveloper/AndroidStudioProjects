@@ -1,0 +1,85 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+
+          font-size: 12px;
+          font-family: "Times New Roman";
+        width: 100%;
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Stooge sort</h1>
+<p>
+Stooge sort is a recursive sorting algorithm with a time complexity of O(nlog 3 / log 1.5 ) = O(n2.7095...). The running time of the algorithm is thus slower compared to efficient sorting algorithms, such as Merge sort, and is even slower than Bubble sort, a canonical example of a fairly inefficient and simple sort.
+<br>
+The algorithm is defined as follows:
+<pre>
+If the value at the end is smaller than the value at the start, swap them.
+If there are 3 or more elements in the list, then:
+Stooge sort the initial 2/3 of the list
+Stooge sort the final 2/3 of the list
+Stooge sort the initial 2/3 of the list again
+else: exit the procedure
+</pre>
+
+It is important to get the integer sort size used in the recursive calls by rounding the 2/3 upwards, e.g. rounding 2/3 of 5 should give 4 rather than 3, as otherwise the sort can fail on certain data. However, if the code is written to end on a base case of size 1, rather than terminating on either size 1 or size 2, rounding the 2/3 of 2 upwards gives an infinite number of calls.
+
+
+
+
+Show the   Stooge Sort   for an array of integers.
+<br>
+
+The Stooge Sort algorithm is as follows:
+</p>
+
+<pre>
+algorithm stoogesort(array L, i = 0, j = length(L)-1)
+     if L[j] < L[i] then
+         L[i] ↔ L[j]
+     if j - i > 1 then
+         t := (j - i + 1)/3
+         stoogesort(L, i  , j-t)
+         stoogesort(L, i+t, j  )
+         stoogesort(L, i  , j-t)
+     return L
+
+
+     #include <stdio.h>
+
+#define SWAP(r,s)  do{ t=r; r=s; s=t; } while(0)
+
+void StoogeSort(int a[], int i, int j)
+{
+   int t;
+
+   if (a[j] < a[i]) SWAP(a[i], a[j]);
+   if (j - i > 1)
+   {
+       t = (j - i + 1) / 3;
+       StoogeSort(a, i, j - t);
+       StoogeSort(a, i + t, j);
+       StoogeSort(a, i, j - t);
+   }
+}
+
+int main(int argc, char *argv[])
+{
+   int nums[] = {1, 4, 5, 3, -6, 3, 7, 10, -2, -5, 7, 5, 9, -3, 7};
+   int i, n;
+
+   n = sizeof(nums)/sizeof(int);
+   StoogeSort(nums, 0, n-1);
+
+   for(i = 0; i <= n-1; i++)
+      printf("%5d", nums[i]);
+
+   return 0;
+}
+</pre>
+</html>

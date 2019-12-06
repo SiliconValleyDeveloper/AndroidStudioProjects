@@ -1,0 +1,128 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Doubly Linked List</h1>
+<p>Doubly Linked List is a variation of Linked list in which navigation is possible in both ways either forward and backward easily as compared to Single Linked List. Following are important terms to understand the concepts of doubly Linked List</p>
+<ul class="list">
+<li><p><b>Link</b> &minus; Each Link of a linked list can store a data called an element.</p></li>
+<li><p><b>Next</b> &minus; Each Link of a linked list contain a link to next link called Next.</p></li>
+<li><p><b>Prev</b> &minus; Each Link of a linked list contain a link to previous link called Prev.</p></li>
+<li><p><b>LinkedList</b> &minus; A LinkedList contains the connection link to the first Link called First and to the last link called Last.</p></li>
+</ul>
+<h2>Doubly Linked List Representation</h2>
+<img src="doubly_linked_list.jpg" alt="Doubly Linked List" />
+<p>As per above shown illustration, following are the important points to be considered.</p>
+<ul class="list">
+<li>Doubly LinkedList contains an link element called first and last.</li>
+<li>Each Link carries a data field(s) and a Link Field called next.</li>
+<li>Each Link is linked with its next link using its next link.</li>
+<li>Each Link is linked with its previous link using its prev link.</li>
+<li>Last Link carries a Link as null to mark the end of the list.</li>
+</ul>
+<h2>Basic Operations</h2>
+<p>Following are the basic operations supported by an list.</p>
+<ul class="list">
+<li><p><b>Insertion</b> &minus; add an element at the beginning of the list.</p></li>
+<li><p><b>Deletion</b> &minus; delete an element at the beginning of the list.</p></li>
+<li><p><b>Insert Last</b> &minus; add an element in the end of the list.</p></li>
+<li><p><b>Delete Last</b> &minus; delete an element from the end of the list.</p></li>
+<li><p><b>Insert After</b> &minus; add an element after an item of the list.</p></li>
+<li><p><b>Delete</b> &minus; delete an element from the list using key.</p></li>
+<li><p><b>Display forward</b> &minus; displaying complete list in forward manner.</p></li>
+<li><p><b>Display backward</b> &minus; displaying complete list in backward manner.</p></li>
+</ul>
+<h2>Insertion Operation</h2>
+<p>Following code demonstrate insertion operation at beginning in a doubly linked list.</p>
+<pre class="prettyprint notranslate">
+//insert link at the first location
+void insertFirst(int key, int data) {
+
+   //create a link
+   struct node *link = (struct node*) malloc(sizeof(struct node));
+   link-&gt;key = key;
+   link-&gt;data = data;
+
+   if(isEmpty()) {
+      //make it the last link
+      last = link;
+   }else {
+      //update first prev link
+      head-&gt;prev = link;
+   }
+
+   //point it to old first link
+   link-&gt;next = head;
+
+   //point first to new first link
+   head = link;
+}
+</pre>
+<h2>Deletion Operation</h2>
+<p>Following code demonstrate deletion operation at beginning in a doubly linked list.</p>
+<pre class="prettyprint notranslate">
+//delete first item
+struct node* deleteFirst() {
+
+   //save reference to first link
+   struct node *tempLink = head;
+
+   //if only one link
+   if(head-&gt;next == NULL) {
+      last = NULL;
+   }else {
+      head-&gt;next-&gt;prev = NULL;
+   }
+
+   head = head-&gt;next;
+
+   //return the deleted link
+   return tempLink;
+}
+</pre>
+<h2>Insertion at End Operation</h2>
+<p>Following code demonstrate insertion operation at last position in a doubly linked list.</p>
+<pre class="prettyprint notranslate">
+//insert link at the last location
+void insertLast(int key, int data) {
+
+   //create a link
+   struct node *link = (struct node*) malloc(sizeof(struct node));
+   link-&gt;key = key;
+   link-&gt;data = data;
+
+   if(isEmpty()) {
+      //make it the last link
+      last = link;
+   }else {
+      //make link a new last link
+      last-&gt;next = link;
+      //mark old last node as prev of new link
+      link-&gt;prev = last;
+   }
+
+   //point last to new last node
+   last = link;
+}
+</pre>
+
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

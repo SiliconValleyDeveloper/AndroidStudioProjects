@@ -1,0 +1,175 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Backtracking</h1>
+
+ Backtracking is a general algorithm for finding all (or some) solutions to some computational problems, notably constraint satisfaction problems, that incrementally builds candidates to the solutions, and abandons each partial candidate c ("backtracks") as soon as it determines that c cannot possibly be completed to a valid solution.
+<br><br>
+The classic textbook example of the use of backtracking is the eight queens puzzle, that asks for all arrangements of eight chess queens on a standard chessboard so that no queen attacks any other. In the common backtracking approach, the partial candidates are arrangements of k queens in the first k rows of the board, all in different rows and columns. Any partial solution that contains two mutually attacking queens can be abandoned.
+<br><br>
+Backtracking can be applied only for problems which admit the concept of a "partial candidate solution" and a relatively quick test of whether it can possibly be completed to a valid solution. It is useless, for example, for locating a given value in an unordered table. When it is applicable, however, backtracking is often much faster than brute force enumeration of all complete candidates, since it can eliminate a large number of candidates with a single test.
+<br><br>
+Backtracking is an important tool for solving constraint satisfaction problems, such as crosswords, verbal arithmetic, Sudoku, and many other puzzles. It is often the most convenient (if not the most efficient[citation needed]) technique for parsing, for the knapsack problem and other combinatorial optimization problems. It is also the basis of the so-called logic programming languages such as Icon, Planner and Prolog.
+<br><br>
+Backtracking depends on user-given "black box procedures" that define the problem to be solved, the nature of the partial candidates, and how they are extended into complete candidates. It is therefore a metaheuristic rather than a specific algorithm – although, unlike many other meta-heuristics, it is guaranteed to find all solutions to a finite problem in a bounded amount of time.
+
+<br><br>
+<b>The backtracking algorithm.</b>
+<br><br>
+Here is the algorithm (in pseudocode) for doing backtracking from a given node n:
+<pre>
+boolean solve(Node n) {
+    if n is a leaf node {
+        if the leaf is a goal node, return true
+        else return false
+    } else {
+        for each child c of n {
+            if solve(c) succeeds, return true
+        }
+        return false
+    }
+}
+
+</pre>
+<pre>
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* macro to define limits*/
+#define MAX_X 4
+#define MAX_Y 9
+
+#define END_X 3
+#define END_Y 8
+
+/* define structure for one point
+   with coordinate x and y */
+typedef struct P{int x,y;};
+
+/* functions to present path through matrix,
+   check if next move is valid
+   with backtrack technique */
+void presentPath(P[],int);
+int tryC(int m[][MAX_Y],int,int);
+void checkPaths(int m[][MAX_Y],int,int,P[],int);
+
+int
+main()
+{
+/* declare start position and
+   matrix we are searching paths*/
+  int sX=0, sY=0,
+  	m[MAX_X][MAX_Y]=
+     {
+      {0,0,0,1,1,1,0,0,0},
+  	{1,1,0,0,0,0,0,0,0},
+  	{1,0,1,0,0,1,0,1,0},
+  	{0,0,1,1,0,1,1,1,0}
+     };
+
+  /* array that will serve to memorize the each path */
+  P Path[MAX_X+MAX_Y+1];
+
+  /* lets go and look for all paths */
+  checkPaths(m,sX,sY,Path,0);
+
+  return 0;
+}
+
+void
+presentPath(P   Path[MAX_X+MAX_Y+1],
+			int k)
+{
+  for(int i=0; i<k; i++)
+    printf("%d, %d",Path[i].x,Path[i].y);
+
+  printf("\n\n");
+}
+
+int tryC(int m[MAX_X][MAX_Y],int x, int y)
+{return ((x>=0)&&(x<MAX_X)&&(y>=0)&&(y<MAX_Y)&&m[x][y]==0);}
+
+void
+checkPaths(int m[MAX_X][MAX_Y],
+		   int c_x, int c_y,
+		   P Path[MAX_X+MAX_Y+1],int l)
+{
+  /* will abandon path beyond wall
+   and path where we hit the wall.
+   your position is at the current
+   x and y location*/
+  if(!tryC(m,c_x,c_y)) return ;
+
+  /* mark the path and memorize */
+  m[c_x][c_y]=2;
+  Path[l].x=c_x;Path[l].y=c_y;
+
+  /* are we at the searched position
+  or check new potential candidates */
+  if((c_x==END_X)&&(c_y==END_Y))
+  	presentPath(Path,l+1);
+  else
+  {
+  	/* we will try to move down, right and down-right*/
+  	checkPaths(m,c_x+1,c_y+1,Path,l+1);
+  	checkPaths(m,c_x+1,c_y,Path,l+1);
+  	checkPaths(m,c_x,c_y+1,Path,l+1);
+  }
+
+  /* clear the position that has been marked */
+  m[c_x][c_y]=0;
+}
+</pre>
+</pre>
+<b>Explanation of the Above Backtracking Code</b>
+<br><br>
+At the beginning of program we have few macros that will be used for limits and if you try to change some of the dimensions it would be easy to change the values in macros.
+<br><br>
+In our program we declare one data type, which is declared as typedef and it will be used to store the locations of a dot that has two coordinates: x and y. It is very logical to use x and y because you have analogy to coordinates in two dimensions.
+<br><br>
+Then we forward the functions we will use in our program.
+<br><br>
+First functions is presentPath, which is used to present the path on the screen. It has array as input value, that array is of P type, as you remember it is a struct, beside that we will need to know how many steps we have stored in that array, so we will have the one more information handed to the function.
+<br><br>
+Next thing we will use is function that will check if we have bounced into the wall or have we crossed beyond the limits of our matrix. This is very interesting function because it is very compact, and it will return appropriate value.
+<br><br>
+One more thing in our program is the checkPaths function which will try to find all paths from one location to another with already explained method of backtracking.
+<br><br>
+We have used recursion because this is one of the moments when it is so logical to use it, but if you would like to experiment with out it you are very welcome.
+<br><br>
+The argument for our function are : one matrix that will be used to store the configuration of the landscape, next we have to int variables that are used to store current location, then we have array that is used to store path, and also we would need the length of the path.
+<br><br>
+When we analyse the function first thing we have is test of current location, if it is not promising it will not be considered any more, if location is crossing left boarders of matrix it will not be tested as promising candidate. If the current location with coordinates c_x and c_y is considered it will be marked with 2, so that we could know where the location was filled, after it will be cleared with adequate operation.
+<br><br>
+Because we wish to present the dot we are currently at, we store that path in array that is used to store path we are travelling.
+<br><br>
+It is important to explain this if else command. If we have reached the end point of our travel we will present one of the possible paths.
+<br><br>
+If we are not at end location we will check down-right firs, because that could potentially generate the shortest path first, next we will try to move across x for one place, after we will try to move across y for one place.
+<br><br>
+This will check all possible paths: down-right, right and down.
+<br><br>
+There is one more thing left to be done we need to clear the occupied location in matrix.
+<br><br>
+In main function we will fill the matrix with some zeros and ones, and we will call our function that will in collaboration with other functions find shortest path, without testing paths that are not promising.
+<br><br><br><br><br><br>
+</html>

@@ -1,0 +1,249 @@
+<html>
+<head>
+		<style type="text/css">
+		h3{
+					color: #800080;
+					font-family: "Times New Roman";
+					 border-bottom: 2px solid Black;
+
+			}
+			pre {
+					margin:8px;
+					padding: 8px;
+					font-family: "Times New Roman";
+				 font-size: 12px;
+
+			}
+	</style>
+</head>
+<body lang="en-US" dir="LTR">
+	<h3>/*SINGLY CIRCULAR LINKED LIST*/</h3>
+<pre class="western">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+
+
+struct node
+{
+    int data;
+    struct node *next;
+}*start=NULL,*q,*t;
+
+int count = 0 ;
+int main()
+{
+   int ch;
+    void insert_beg();
+    void insert_end();
+    int insert_pos();
+    void display();
+    void delete_beg();
+    void delete_end();
+    int delete_pos();
+
+
+    while(1)
+    {
+        printf("\n\n---- Singly Linked List(SLL) Menu ----");
+        printf("\n1.Insert at begining \n2.Insert at End\n3.Insert at position \n4.Display\n5.Delete at begining\n6.Delete at end\n7.Delete at position   \n8.Exit\n\n");
+        printf("Enter your choice: ");
+        scanf("%d",&amp;ch);
+
+        switch(ch)
+        {
+            case 1:
+               insert_beg();
+                break;
+            case 2: insert_end();
+                break;
+            case 3: insert_pos();
+                break;
+            case 4: display();
+                    break;
+            case 5: delete_beg();
+                    break;
+            case 6: delete_end();
+                    break;
+            case 7: delete_pos();
+                    break;
+            case 8: exit(0);
+                    break;
+           default: printf("Wrong Choice!!");
+
+                    break;
+
+  }
+}
+    return 0;
+}
+
+void insert_beg()
+{
+    int num;
+    t=(struct node*)malloc(sizeof(struct node));
+    printf("Enter data:");
+    scanf("%d",&amp;num);
+    t-&gt;data=num;
+    count++;
+
+    if(start==NULL)        //If list is empty
+    {
+        t-&gt;next=NULL;
+        start=t;
+    }
+    else
+    {
+        t-&gt;next=start;
+        start=t;
+    }
+}
+
+void insert_end()
+{
+    int num;
+    t=(struct node*)malloc(sizeof(struct node));
+    printf("Enter data:");
+    scanf("%d",&amp;num);
+    t-&gt;data=num;
+    t-&gt;next=NULL;
+
+    if(start==NULL)        //If list is empty
+    {
+        start=t;
+    }
+    else
+    {
+        q=start;
+        while(q-&gt;next!=NULL)
+        q=q-&gt;next;
+        q-&gt;next=t;
+    }
+}
+
+int insert_pos()
+{
+    int pos,i,num;
+    if(start==NULL)
+    {
+        printf("List is empty!!");
+        return 0;
+    }
+
+    t=(struct node*)malloc(sizeof(struct node));
+    printf("Enter data:");
+    scanf("%d",&amp;num);
+    printf("Enter position to insert:");
+    scanf("%d",&amp;pos);
+    t-&gt;data=num;
+
+    q=start;
+    for(i=1;i&lt;pos-1;i++)
+    {
+        if(q-&gt;next==NULL)
+        {
+            printf("There are less elements!!");
+            return 0;
+        }
+
+        q=q-&gt;next;
+    }
+
+    t-&gt;next=q-&gt;next;
+    q-&gt;next=t;
+    return 0;
+}
+
+void display()
+{
+  struct node *t;
+
+   t = start;
+    if(t==NULL)
+    {
+        printf("List is empty!!");
+    }
+   printf("There are %d elements in linked list.\n", count);
+
+        q=start;
+        printf("The linked list is:\n");
+        while(q!=NULL)
+        {
+            printf("%d-&gt;",q-&gt;data);
+            q=q-&gt;next;
+        }
+
+}
+
+void delete_beg()
+{
+    if(start==NULL)
+    {
+        printf("The list is empty!!");
+    }
+    else
+    {
+        q=start;
+        start=start-&gt;next;
+        printf("Deleted element is %d",q-&gt;data);
+        free(q);
+    }
+}
+
+void delete_end()
+{
+    if(start==NULL)
+    {
+        printf("The list is empty!!");
+    }
+    else
+    {
+        q=start;
+        while(q-&gt;next-&gt;next!=NULL)
+        q=q-&gt;next;
+
+        t=q-&gt;next;
+        q-&gt;next=NULL;
+        printf("Deleted element is %d",t-&gt;data);
+        free(t);
+    }
+}
+
+int delete_pos()
+{
+    int pos,i;
+
+    if(start==NULL)
+    {
+        printf("List is empty!!");
+        return 0;
+    }
+
+    printf("Enter position to delete:");
+    scanf("%d",&amp;pos);
+
+    if(pos==1){
+      q=start;
+      start=start-&gt;next;
+      printf("Deleted element is %d ",q-&gt;data);
+      free(q);
+    }
+
+    q=start;
+    for(i=1;i&lt;pos-1;i++)
+    {
+        if(q-&gt;next==NULL)
+        {
+            printf("There are less elements!!");
+            return 0;
+        }
+        q=q-&gt;next;
+    }
+
+    t=q-&gt;next;
+    q-&gt;next=t-&gt;next;
+    printf("Deleted element is %d",t-&gt;data);
+    free(t);
+
+    return 0;
+}</pre>
+
+</body></html>

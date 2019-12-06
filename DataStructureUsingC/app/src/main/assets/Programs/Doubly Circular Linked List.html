@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0091)http://dw.convertfiles.com/files/0231176001534429096/doubly%20circular%20linked%20list.html -->
+<html><head>
+	<style type="text/css">
+	h3 {
+
+      color: #800080;
+			font-family: "Times New Roman";
+
+			 border-bottom: 2px solid Black;
+	}
+	pre {
+			margin:8px;
+			padding: 8px;
+			font-family: "Times New Roman";
+		 font-size: 12px;
+
+	}
+	</style>
+</head>
+<body lang="en-US" dir="LTR">
+	<h3>/*DOUBLY CIRCULAR LINKED LIST*/</h3>
+<pre class="western">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct node
+{
+    int val;
+    struct node *next;
+    struct node *prev;
+
+};
+typedef struct node n;
+
+n* create_node(int);
+void add_node();
+void insert_at_first();
+void insert_at_end();
+void Display();
+void insert_at_position();
+void display_in_rev();
+void Delete_at_beg();
+void Delete_at_end();
+void Delete_at_position();
+n *new, *ptr, *prev;
+n *first = NULL, *last = NULL;
+int number = 0;
+
+void main()
+{
+    int ch;
+
+    printf("\n Doubly Circular linked List\n");
+    printf("\n1. Insert at beginning ");
+    printf("\n2. Insert at End ");
+    printf("\n3. Insert at position ");
+    printf("\n4. Delete at beginning ");
+    printf("\n5. Delete at End ");
+    printf("\n6. Delete at position ");
+    printf("\n7. Display Linked List ");
+    printf("\n8. Display in Reverse ");
+    printf("\n9. Search data at Linked List");
+    while (1)
+    {
+
+        printf("\nEnter your choice:");
+        scanf("%d", &amp;ch);
+        switch (ch)
+        {
+        case 1 :
+        insert_at_first();
+        break;
+        case 2 :
+        insert_at_end();
+        break;
+        case 3 :
+        insert_at_position();
+        break;
+        case 4:
+        Delete_at_beg();
+        break;
+        case 5:
+        Delete_at_end();
+        break;
+        case 6 :
+        Delete_at_position();
+        break;
+        case 7 :
+        Display();
+        break;
+        case 8 :
+        display_in_rev();
+        default:
+            printf("\nInvalid choice");
+        }
+    }
+}
+n* create_node(int info)
+{
+    number++;
+    new = (n *)malloc(sizeof(n));
+    new-&gt;val = info;
+    new-&gt;next = NULL;
+    new-&gt;prev = NULL;
+    return new;
+}
+
+void add_node()
+{
+
+    int info;
+
+    printf("\nEnter the value you would like to add:");
+    scanf("%d", &amp;info);
+    new = create_node(info);
+
+    if (first == last &amp;&amp; first == NULL)
+    {
+
+        first = last = new;
+        first-&gt;next = last-&gt;next = NULL;
+        first-&gt;prev = last-&gt;prev = NULL;
+    }
+    else
+    {
+        last-&gt;next = new;
+        new-&gt;prev = last;
+        last = new;
+        last-&gt;next = first;
+        first-&gt;prev = last;
+    }
+}
+
+void insert_at_first()
+{
+
+    int info;
+
+    printf("\nEnter the value to inserted at first:");
+    scanf("%d",&amp;info);
+    new = create_node(info);
+
+    if (first == last &amp;&amp; first == NULL)
+    {
+        printf("\nInserted is done");
+        first = last = new;
+        first-&gt;next = last-&gt;next = NULL;
+        first-&gt;prev = last-&gt;prev = NULL;
+    }
+    else
+    {
+        new-&gt;next = first;
+        first-&gt;prev = new;
+        first = new;
+        first-&gt;prev = last;
+        last-&gt;next = first;
+        printf("\n Inserted is done at begining position");
+    }
+}
+void insert_at_end()
+{
+
+    int info;
+
+    printf("\nEnter the value to Inserted at last:");
+    scanf("%d", &amp;info);
+    new = create_node(info);
+
+    if (first == last &amp;&amp; first == NULL)
+    {
+        printf("\nInserted at End is done ");
+        first = last = new;
+        first-&gt;next = last-&gt;next = NULL;
+        first-&gt;prev = last-&gt;prev = NULL;
+    }
+    else
+    {
+      printf("\n Inserted at End is Done.! " );
+        last-&gt;next = new;
+        new-&gt;prev = last;
+        last = new;
+        first-&gt;prev = last;
+        last-&gt;next = first;
+    }
+}
+void Display()
+{
+    int i;
+    if (first == last &amp;&amp; first == NULL)
+        printf("\nList is empty no elemnts");
+    else
+    {
+        printf("\n %d Number of nodes are there", number);
+        for (ptr = first, i = 0;i &lt; number;i++,ptr = ptr-&gt;next)
+            printf("\n %d", ptr-&gt;val);
+    }
+}
+void insert_at_position(){
+
+  int info , pos,i;
+  n *prevnode;
+  printf("\nEnter the value to Insert :");
+  scanf("%d",&amp;info);
+  printf("\nEnter the position to Insert the value : " );
+  scanf("%d",&amp;pos);
+   new = create_node(info);
+   if(first == last &amp;&amp; first == NULL){
+     if (pos==1) {
+       first = last = new;
+       first-&gt;next = last-&gt;next = NULL;
+        first-&gt;prev = last-&gt;next = NULL;
+
+       /* code */
+     }
+     else{
+       printf("\n Empty linked list you cant insert at that particular position");
+     }
+   }else{
+     if (number &lt; pos)
+         printf("\n node cant be inserted as position is exceeding the linkedlist length");
+         else{
+           for (ptr = first, i = 1;i &lt;= number;i++){
+             prevnode = ptr;
+             ptr = ptr-&gt;next;
+             if(i = pos -1){
+               prevnode-&gt;next = new;
+               new-&gt;prev = prevnode;
+               new-&gt;next = ptr;
+               ptr-&gt;prev = new;
+               printf("Insert value at position %d",pos );
+               break;
+             }
+
+           }
+         }
+
+   }
+}
+
+void display_in_rev()
+{
+    int i;
+    if (first == last &amp;&amp; first == NULL)
+        printf("\nlist is empty there are no elments");
+    else
+    {
+        for (ptr = last, i = 0;i &lt; number;i++,ptr = ptr-&gt;prev)
+        {
+            printf("\n%d", ptr-&gt;val);
+        }
+    }
+}
+
+void Delete_at_beg() {
+  n* prevnode;
+  int pos = 1 , i ;
+  if (first == last &amp;&amp; first == NULL)
+      printf("\n Empty linked list you cant delete");
+      else{
+        for (ptr = first,i = 1;i &lt;= number;i++)
+        {
+            prevnode = ptr;
+            ptr = ptr-&gt;next;
+            if (pos == 1)
+            {
+                number--;
+                last-&gt;next = prevnode-&gt;next;
+                ptr-&gt;prev = prevnode-&gt;prev;
+                first = ptr;
+                printf("%d is deleted", prevnode-&gt;val);
+                free(prevnode);
+                break;
+            }
+          }
+        }
+      }
+void Delete_at_end(){
+    int pos, count = 0, i;
+    n *temp, *prevnode;
+
+
+
+    if (first == last &amp;&amp; first == NULL)
+        printf("\n Empty linked list you cant delete");
+
+
+     else
+        {
+            for (ptr = first,i = 1;i &lt;= number;i++)
+            {
+                prevnode = ptr;
+                ptr = ptr-&gt;next;
+
+
+               if (i == number-1)
+                {
+                    number--;
+                    prevnode-&gt;next = ptr-&gt;next;
+                    ptr-&gt;next-&gt;prev = prevnode;
+                    printf("%d is deleted", ptr-&gt;val);
+                    free(ptr);
+                    break;
+                }
+
+                if (1 == 1)
+                {
+                    number--;
+                    last-&gt;next = prevnode-&gt;next;
+                    ptr-&gt;prev = prevnode-&gt;prev;
+                    first = ptr;
+                    printf("%d is deleted", prevnode-&gt;val);
+                    free(prevnode);
+                    break;
+                }
+
+
+            }
+        }
+
+
+  }
+
+void Delete_at_position(){
+  int pos, count = 0, i;
+  n *temp, *prevnode;
+
+  printf("\n enter the position which u wanted to delete:");
+  scanf("%d", &amp;pos);
+
+  if (first == last &amp;&amp; first == NULL)
+      printf("\n empty linked list you cant delete");
+
+  else
+  {
+      if (number &lt; pos)
+          printf("\n node cant be deleted at position as it is exceeding the linkedlist length");
+
+      else
+      {
+          for (ptr = first,i = 1;i &lt;= number;i++)
+          {
+              prevnode = ptr;
+              ptr = ptr-&gt;next;
+              if (pos == 1)
+              {
+                  number--;
+                  last-&gt;next = prevnode-&gt;next;
+                  ptr-&gt;prev = prevnode-&gt;prev;
+                  first = ptr;
+                  printf("%d is deleted", prevnode-&gt;val);
+                  free(prevnode);
+                  break;
+              }
+              else if (i == pos - 1)
+              {
+                  number--;
+                  prevnode-&gt;next = ptr-&gt;next;
+                  ptr-&gt;next-&gt;prev = prevnode;
+                  printf("%d is deleted", ptr-&gt;val);
+                  free(ptr);
+                  break;
+              }
+          }
+      }
+  }
+
+}</pre>
+
+</body></html>

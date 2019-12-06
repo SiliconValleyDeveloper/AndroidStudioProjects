@@ -1,0 +1,187 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Stack</h1>
+<p>A stack is an abstract data type (ADT), commonly used in most programming languages.  It is named stack as it behaves like a real-world stack, for example &minus; deck of cards or pile of plates etc.</p>
+<img src="stack_example.jpg" alt="Stack Example" />
+<p>A real-world stack allows operations at one end only. For example, we can place or remove a card or plate from top of the stack only. Likewise, Stack ADT allows all data operations at one end only. At any given time, We can only access the top element of a stack.</p>
+<p>This feature makes it LIFO data structure. LIFO stands for Last-in-first-out. Here, the element which is placed (inserted or added) last, is accessed first. In stack terminology, insertion operation is called <b>PUSH</b> operation and removal operation is called <b>POP</b> operation.</p>
+<h2>Stack Representation</h2>
+<p>Below given diagram tries to depict a stack and its operations &minus;</p>
+<img src="stack_representation.jpg" alt="Stack Representation" />
+<p>A stack can be implemented by means of Array, Structure, Pointer and Linked-List. Stack can either be a fixed size one or it may have a sense of dynamic resizing. Here, we are going to implement stack using arrays which makes it a fixed size stack implementation.</p>
+<h2>Basic Operations</h2>
+<p>Stack operations may involve initializing the stack, using it and then de-initializing it. Apart from these basic stuffs, a stack is used for the following two primary operations &minus;</p>
+<ul class="list">
+<li><p><b>push()</b> &minus; pushing (storing) an element on the stack.</p></li>
+<li><p><b>pop()</b> &minus; removing (accessing) an element from the stack.</p></li>
+</ul>
+<p>When data is PUSHed onto stack.</p>
+<p>To use a stack efficiently we need to check status of stack as well. For the same purpose, the following functionality is added to stacks &minus;</p>
+<ul class="list">
+<li><p><b>peek()</b> &minus; get the top data element of the stack, without removing it.</p></li>
+<li><p><b>isFull()</b> &minus; check if stack is full.</p></li>
+<li><p><b>isEmpty()</b> &minus; check if stack is empty.</p></li>
+</ul>
+<p>At all times, we maintain a pointer to the last PUSHed data on the stack. As this pointer always represents the top of the stack, hence named <b>top</b>. The <b>top</b> pointer provides top value of the stack without actually removing it.</p>
+<p>First we should learn about procedures to support stack functions &minus;</p>
+<h3>peek()</h3>
+<p>Algorithm of peek() function &minus;</p>
+<pre class="prettyprint notranslate">
+begin procedure peek
+
+   return stack[top]
+
+end procedure
+</pre>
+<p>Implementation of peek() function in C programming language &minus;</p>
+<pre class="prettyprint notranslate" id="peek">
+int peek() {
+   return stack[top];
+}
+</pre>
+<h3>isfull()</h3>
+<p>Algorithm of isfull() function &minus;</p>
+<pre class="prettyprint notranslate">
+begin procedure isfull
+
+   if <b>top</b> equals to MAXSIZE
+      return true
+   else
+      return false
+   endif
+
+end procedure
+</pre>
+<p>Implementation of isfull() function in C programming language &minus;</p>
+<pre class="prettyprint notranslate" id="isfull">
+bool isfull() {
+   if(top == MAXSIZE)
+      return true;
+   else
+      return false;
+}
+</pre>
+<h3>isempty()</h3>
+<p>Algorithm of isempty() function &minus;</p>
+<pre class="prettyprint notranslate">
+begin procedure isempty
+
+   if <b>top</b> less than 1
+      return true
+   else
+      return false
+   endif
+
+end procedure
+</pre>
+<p>Implementation of isempty() function in C programming language is slightly different. We initialize top at -1, as index in array starts from 0. So we check if top is below zero or -1 to determine if stack is empty. Here's the code &minus;</p>
+<pre class="prettyprint notranslate" id="isempty">
+bool isempty() {
+   if(top == -1)
+      return true;
+   else
+      return false;
+}
+</pre>
+<h2>PUSH Operation</h2>
+<p>The process of putting a new data element onto stack is known as <b>PUSH</b> Operation. Push operation involves series of steps &minus;</p>
+<ul class="list">
+<li><p><b>Step 1</b> &minus; Check if stack is full.</p></li>
+<li><p><b>Step 2</b> &minus; If stack is full, produce error and exit.</p></li>
+<li><p><b>Step 3</b> &minus; If stack is not full, increment <b>top</b> to point next empty space.</p></li>
+<li><p><b>Step 4</b> &minus; Add data element to the stack location, where top is pointing.</p></li>
+<li><p><b>Step 5</b> &minus; return success.</p></li>
+</ul>
+<!--   <p>Whenever an element is pushed into stack, stack stores that element at the top of the storage and increments the top index for later use. If storage is full then an error message is usually shown.</p>-->
+<img src="stack_push_operation.jpg" alt="Stack Push Operation" />
+<p>if linked-list is used to implement stack, then in step 3, we need to allocate space dynamically.</p>
+<h3>Algorithm for PUSH operation</h3>
+<p>A simple algorithm for Push operation can be derived as follows &minus;</p>
+<pre class="prettyprint notranslate">
+begin procedure push: stack, data
+
+   if stack is full
+      return null
+   endif
+
+   top &larr; top + 1
+
+   stack[top] &larr; data
+
+end procedure
+</pre>
+<p>Implementation of this algorithm in C, is very easy. See the below code &minus;</p>
+<pre class="prettyprint notranslate" id="push">
+void push(int data) {
+   if(!isFull()) {
+      top = top + 1;
+      stack[top] = data;
+   }else {
+      printf("Could not insert data, Stack is full.\n");
+   }
+}
+</pre>
+<h2>Pop Operation</h2>
+<p>Accessing the content while removing it from stack, is known as pop operation. In array implementation of pop() operation, data element is not actually removed, instead <b>top</b> is decremented to a lower position in stack to point to next value. But in linked-list implementation, pop() actually removes data element and deallocates memory space.</p>
+<p>A <b>POP</b> operation may involve the following steps &minus;</p>
+<ul class="list">
+<li><p><b>Step 1</b> &minus; Check if stack is empty.</p></li>
+<li><p><b>Step 2</b> &minus; If stack is empty, produce error and exit.</p></li>
+<li><p><b>Step 3</b> &minus; If stack is not empty, access the data element at which <b>top</b> is pointing.</p></li>
+<li><p><b>Step 4</b> &minus; Decrease the value of top by 1.</p></li>
+<li><p><b>Step 5</b> &minus; return success.</p></li>
+</ul>
+<img src="stack_pop_operation.jpg" alt="Stack Pop Operation" />
+<h3>Algorithm for POP operation</h3>
+<p>A simple algorithm for Pop operation can be derived as follows &minus;</p>
+<pre class="prettyprint notranslate">
+begin procedure pop: stack
+
+   if stack is empty
+      return null
+   endif
+
+   data &larr; stack[top]
+
+   top &larr; top - 1
+
+   return data
+
+end procedure
+</pre>
+<p>Implementation of this algorithm in C, is shown below &minus;</p>
+<pre class="prettyprint notranslate" id="pop">
+int pop(int data) {
+
+   if(!isempty()) {
+      data = stack[top];
+      top = top - 1;
+      return data;
+   }else {
+      printf("Could not retrieve data, Stack is empty.\n");
+   }
+}
+</pre>
+
+<br><br><br><br><br><br><br>
+</body>
+</html>

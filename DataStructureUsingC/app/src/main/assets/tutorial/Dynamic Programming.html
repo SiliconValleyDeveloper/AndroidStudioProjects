@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Dynamic Programming</h1>
+<p>Dynamic programming approach is similar to divide and conquer in breaking down the problem in smaller and yet smaller possible sub-problems. But unlike, divide and conquer, these sub-problems are not solved independently. Rather, results of these smaller sub-problems are remembered and used for similar or overlapping sub-problems.</p>
+<p>Dynamic programming is used where we have problems which can be divided in similar sub-problems, so that their results can be re-used. Mostly, these algorithms are used for optimization. Before solving the in-hand sub-problem, dynamic algorithm will try to examine the results of previously solved sub-problems. The solutions of sub-problems are combined in order to achieve the best solution.</p>
+<p>So we can say that &minus;</p>
+<ul class="list">
+<li><p>The problem should be able to be divided in to smaller overlapping sub-problem.</p></li>
+<li><p>The optimum solution can be achieved by using optimum solution of smaller sub-problems.</p></li>
+<li><p>Dynamic algorithms use memoization.</p></li>
+</ul>
+<h2>Comparison</h2>
+<p>In contrast to greedy algorithms, where local optimization is addressed, dynamic algorithms are motivated for overall optimization of the problem.</p>
+<p>In contrast to divide and conquer algorithms, where solutions are combined to achieve overall solution, dynamic algorithms uses the output of smaller sub-problem and then try to optimize bigger sub-problem. Dynamic algorithms uses memoization to remember the output of already solved sub-problems.</p>
+<h2>Example</h2>
+<p>The following computer problems can be solved using dynamic programming approach &minus;</p>
+<ul class="list">
+<li>Fibonacci number series</li>
+<li>Knapsack problem</li>
+<li>Tower of Hanoi</li>
+<li>All pair shortest path by Floyd-Warshall</li>
+<li>Shortest path by Dijkstra</li>
+<li>Project scheduling</li>
+</ul>
+<p>Dynamic programming can be used in both top-down and bottom-up manner. And ofcourse, most of the times, referring to previous solution output is cheaper than re-computing in terms of CPU cycles.</p>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

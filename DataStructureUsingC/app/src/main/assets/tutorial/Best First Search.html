@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Best first search</h1>
+<p>
+Best-first search is an algorithm that traverses a graph in search of one or more goal nodes. As we will discover in a few weeks, a maze is a special instance of the mathematical object known as a "graph". In the meantime, however, we will use "maze" and "graph" interchangeably.
+
+The defining characteristic of this search is that, unlike DFS or BFS (which blindly examines/expands a cell without knowing anything about it or its properties), best-first search uses an evalutation function (sometimes called a "heuristic") to determine which object is the most promising, and then examines this object. This "best first" behaviour is implemented with a PriorityQueue.</p>
+
+The algorithm for best-first search is thus:
+<pre>
+Best-First-Search( Maze m )
+    Insert( m.StartNode )
+    Until PriorityQueue is empty
+        c <- PriorityQueue.DeleteMin
+        If c is the goal
+            Exit
+        Else
+            Foreach neighbor n of c
+                If n "Unvisited"
+                    Mark n "Visited"
+                    Insert( n )
+            Mark c "Examined"
+End procedure
+
+</pre>

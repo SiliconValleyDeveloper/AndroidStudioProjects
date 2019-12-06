@@ -1,0 +1,89 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+      width: 100%;
+      overflow-x: scroll;
+      }
+   </style>
+</head>
+<h1>Merge Sort Algorithm</h1>
+<p>Merge sort is a sorting technique based on divide and conquer technique. With worst-case time complexity being &Omicron;(n log n), it is one of the most respected algorithms.</p>
+<p>Merge sort first divides the array into equal halves and then combines them in a sorted manner.</p>
+<h2>How merge sort works</h2>
+<p>To understand merge sort, we take an unsorted array as depicted below &minus;</p>
+<img src="unsorted_array.jpg" alt="Unsorted Array" />
+<p>We know that merge sort first divides the whole array iteratively into equal halves unless the atomic values are achieved. We see here that an array of 8 items is divided into two arrays of size 4.</p>
+<img src="merge_sort_divide_1.jpg" alt="Merge Sort Division" />
+<p>This does not change the sequence of appearance of items in the original. Now we divide these two arrays into halves.</p>
+<img src="merge_sort_divide_2.jpg" alt="Merge Sort Division" />
+<p>We further divide these arrays and we achieve atomic value which can no more be divided.</p>
+<img src="merge_sort_divide_3.jpg" alt="Merge Sort Division" />
+<p>Now, we combine them in exactly same manner they were broken down. Please note the color codes given to these lists.</p>
+<p>We first compare the element for each list and then combine them into another list in sorted manner. We see that 14 and 33 are in sorted positions. We compare 27 and 10 and in the target list of 2 values we put 10 first, followed by 27. We change the order 19 and 35. 42 and 44 are placed sequentially.</p>
+<img src="merge_sort_combine_1.jpg" alt="Merge Sort Combine" />
+<p>In next iteration of combining phase, we compare lists of two data values, and merge them into a list of foud data values placing all in sorted order.</p>
+<img src="merge_sort_combine_2.jpg" alt="Merge Sort Combine" />
+<p>After final merging, the list should look like this &minus;</p>
+<img src="merge_sort.jpg" alt="Merge Sort" />
+<p>Now we should learn some programming aspects of merge sorting.</p>
+<h2>Algorithm</h2>
+<p>Merge sort keeps on dividing the list into equal halves until it can no more be divided. By definition, if it is only one element in the list, it is sorted. Then merge sort combines smaller sorted lists keeping the new list sorted too.</p>
+<pre class="result notranslate">
+<b>Step 1</b> &minus; if it is only one element in the list it is already sorted, return.
+<b>Step 2</b> &minus; divide the list recursively into two halves until it can no more be divided.
+<b>Step 3</b> &minus; merge the smaller lists into new list in sorted order.
+</pre>
+<h2>Pseudocode</h2>
+<p>We shall now see the pseudocodes for merge-sort functions. As our algorithms points out two main functions &minus; divide &amp; merge.</p>
+<p>Merge sort works with recursion and we shall see our implementation in the same way</p>
+<pre class="prettyprint notranslate">
+procedure mergesort( var a as array )
+   if ( n == 1 ) return a
+
+   var l1 as array = a[0] ... a[n/2]
+   var l2 as array = a[n/2+1] ... a[n]
+
+   l1 = mergesort( l1 )
+   l2 = mergesort( l2 )
+
+   return merge( l1, l2 )
+end procedure
+
+procedure merge( var a as array, var b as array )
+
+   var c as array
+
+   while ( a and b have elements )
+      if ( a[0] > b[0] )
+         add b[0] to the end of c
+         remove b[0] from b
+      else
+         add a[0] to the end of c
+         remove a[0] from a
+      end if
+   end while
+
+   while ( a has elements )
+      add a[0] to the end of c
+      remove a[0] from a
+   end while
+
+   while ( b has elements )
+      add b[0] to the end of c
+      remove b[0] from b
+   end while
+
+   return c
+
+end procedure
+</pre>
+<br><br><br><br><br><br><br>
+</body>
+</html>

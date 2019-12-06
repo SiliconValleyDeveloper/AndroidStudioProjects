@@ -1,0 +1,77 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>Breadth First Traversal</h1>
+<p>Breadth First Search algorithm(BFS) traverses a graph in a breadthwards motion and uses a queue to remember to get the next vertex to start a search when a dead end occurs in any iteration.</p>
+<img src="breadth_first_traversal.jpg" alt="Breadth First Traversal" />
+<p>As in example given above, BFS algorithm traverses from A to B to E to F first then to C and G lastly to D. It employs following rules.</p>
+<ul class="list">
+<li><p><b>Rule 1</b> &minus; Visit adjacent unvisited vertex. Mark it visited. Display it. Insert it in a queue.</p></li>
+<li><p><b>Rule 2</b> &minus; If no adjacent vertex found, remove the first vertex from queue.</p></li>
+<li><p><b>Rule 3</b> &minus; Repeat Rule 1 and Rule 2 until queue is empty.</p></li>
+</ul>
+<table class="table table-bordered">
+<tr>
+<th>Step</th>
+<th>Traversal</th>
+<th>Description</th>
+</tr>
+<tr>
+<td width="5%">1.</td>
+<td width="50%"><img src="bfs_one.jpg" alt="Breadth First Search Step One" /></td>
+<td>Initialize the queue.</td>
+</tr>
+<tr>
+<td width="5%">2.</td>
+<td width="50%"><img src="bfs_two.jpg" alt="Breadth First Search Step Two" /></td>
+<td>We start from visiting <b>S</b> (starting node), and mark it visited.</td>
+</tr>
+<tr>
+<td width="5%">3.</td>
+<td width="50%"><img src="bfs_three.jpg" alt="Breadth First Search Step Three" /></td>
+<td>We then see unvisited adjacent node from <b>S</b>. In this example, we have three nodes but alphabetically we choose <b>A</b> mark it visited and enqueue it.</td>
+</tr>
+<tr>
+<td width="5%">4.</td>
+<td width="50%"><img src="bfs_four.jpg" alt="Breadth First Search Step Four" /></td>
+<td>Next unvisited adjacent node from <b>S</b> is <b>B</b>. We mark it visited and enqueue it.</td>
+</tr>
+<tr>
+<td width="5%">5.</td>
+<td width="50%"><img src="bfs_five.jpg" alt="Breadth First Search Step Five" /></td>
+<td>Next unvisited adjacent node from <b>S</b> is <b>C</b>. We mark it visited and enqueue it.</td>
+</tr>
+<tr>
+<td width="5%">6.</td>
+<td width="50%"><img src="bfs_six.jpg" alt="Breadth First Search Step Six" /></td>
+<td>Now <b>S</b> is left with no unvisited adjacent nodes. So we dequeue and find <b>A</b>.</td>
+</tr>
+<tr>
+<td width="5%">7.</td>
+<td width="50%"><img src="bfs_seven.jpg" alt="Breadth First Search Step Seven" /></td>
+<td>From <b>A</b> we have <b>D</b> as unvisited adjacent node. We mark it visited and enqueue it.</td>
+</tr>
+</table>
+<p>At this stage we are left with no unmarked (unvisited) nodes. But as per algorithm we keep on dequeuing in order to get all unvisited nodes. When the queue gets emptied the program is over.</p>
+
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

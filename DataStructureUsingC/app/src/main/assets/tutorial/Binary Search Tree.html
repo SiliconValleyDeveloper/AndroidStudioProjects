@@ -1,0 +1,130 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Binary Search Tree</h1>
+<p>A binary search tree (BST) is a tree in which all nodes follows the below mentioned properties &minus;</p>
+<ul class="list">
+<li><p>The left sub-tree of a node has key less than or equal to its parent node's key.</p></li>
+<li><p>The right sub-tree of a node has key greater than or equal to its parent node's key.</p></li>
+</ul>
+<p>Thus, a binary search tree (BST) divides all its sub-trees into two segments; <i>left</i> sub-tree and <i>right</i> sub-tree and can be defined as &minus;</p>
+<pre class="result notranslate" style="text-align:center;">
+left_subtree (keys)  <big>&le;</big>  node (key)  <big>&le;</big>  right_subtree (keys)
+</pre>
+<h2>Representation</h2>
+<p>BST is a collection of nodes arranged in a way where they maintain BST properties.  Each node has key and associated value. While searching, the desired key is compared to the keys in BST and if found, the associated value is retrieved.</p>
+<p>An example of BST &minus;</p>
+<img src="binary_search_tree.jpg" alt="Binary Search Tree" />
+<p>We observe that the root node key (27) has all less-valued keys on the left sub-tree and higher valued keys on the right sub-tree.</p>
+<h2>Basic Operations</h2>
+<p>Following are basic primary operations of a tree which are following.</p>
+<ul class="list">
+<li><p><b>Search</b> &minus; search an element in a tree.</p></li>
+<li><p><b>Insert</b> &minus; insert an element in a tree.</p></li>
+<li><p><b>Preorder Traversal</b> &minus; traverse a tree in a preorder manner.</p></li>
+<li><p><b>Inorder Traversal</b> &minus; traverse a tree in an inorder manner.</p></li>
+<li><p><b>Postorder Traversal</b> &minus; traverse a tree in a postorder manner.</p></li>
+</ul>
+<h2>Node</h2>
+<p>Define a node having some data, references to its left and right child nodes.</p>
+<pre class="prettyprint notranslate">
+struct node {
+   int data;
+   struct node *leftChild;
+   struct node *rightChild;
+};
+</pre>
+<h2>Search Operation</h2>
+<p>Whenever an element is to be search. Start search from root node then if data is less than key value, search element in left subtree otherwise search element in right subtree. Follow the same algorithm for each node.</p>
+<pre class="prettyprint notranslate">
+struct node* search(int data){
+   struct node *current = root;
+   printf("Visiting elements: ");
+
+   while(current-&gt;data != data){
+
+      if(current != NULL) {
+         printf("%d ",current-&gt;data);
+
+         //go to left tree
+         if(current-&gt;data &gt; data){
+            current = current-&gt;leftChild;
+         }//else go to right tree
+         else {
+            current = current-&gt;rightChild;
+         }
+
+         //not found
+         if(current == NULL){
+            return NULL;
+         }
+      }
+   }
+   return current;
+}
+</pre>
+<h2>Insert Operation</h2>
+<p>Whenever an element is to be inserted. First locate its proper location.  Start search from root node then if data is less than key value, search empty location in left subtree and insert the data. Otherwise search empty location in right subtree and insert the data.</p>
+<pre class="prettyprint notranslate">
+void insert(int data){
+   struct node *tempNode = (struct node*) malloc(sizeof(struct node));
+   struct node *current;
+   struct node *parent;
+
+   tempNode-&gt;data = data;
+   tempNode-&gt;leftChild = NULL;
+   tempNode-&gt;rightChild = NULL;
+
+   //if tree is empty
+   if(root == NULL){
+      root = tempNode;
+   }else {
+      current = root;
+      parent = NULL;
+
+      while(1){
+         parent = current;
+
+         //go to left of the tree
+         if(data &lt; parent-&gt;data){
+            current = current-&gt;leftChild;
+            //insert to the left
+
+            if(current == NULL){
+               parent-&gt;leftChild = tempNode;
+               return;
+            }
+         }//go to right of the tree
+         else{
+            current = current-&gt;rightChild;
+            //insert to the right
+            if(current == NULL){
+               parent-&gt;rightChild = tempNode;
+               return;
+            }
+         }
+      }
+   }
+}
+</pre>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

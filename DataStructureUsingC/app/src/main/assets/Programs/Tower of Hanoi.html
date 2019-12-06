@@ -1,0 +1,71 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+         font-size: 12px;
+        	font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Tower of Hanoi in C</h1>
+
+
+<b>C Program to Solve Tower-of-Hanoi Problem using Recursion</b><br><br>
+
+This C Program uses recursive function & solves the tower of hanoi. The tower of hanoi is a mathematical puzzle.<br><br>
+It consists of threerods, and a number of disks of different sizes which can slideonto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top. We have to obtain the same stack on the third rod.
+Here is the source code of the C program for solving towers of hanoi. <br><br>
+The C Program is successfully compiled and run on a Linux system. The program output is also shown below.
+<br>
+<pre>
+/*
+* C program for Tower of Hanoi using Recursion
+*/
+#include <stdio.h>
+
+    void towers(int, char, char, char);
+
+    int main()
+    {
+    int num;
+
+    printf("Enter the number of disks : ");
+    scanf("%d", &num);
+    printf("The sequence of moves involved in the Tower of Hanoi are :\n");
+    towers(num, 'A', 'C', 'B');
+    return 0;
+    }
+    void towers(int num, char frompeg, char topeg, char auxpeg)
+    {
+    if (num == 1)
+    {
+    printf("\n Move disk 1 from peg %c to peg %c", frompeg, topeg);
+    return;
+    }
+    towers(num - 1, frompeg, auxpeg, topeg);
+    printf("\n Move disk %d from peg %c to peg %c", num, frompeg, topeg);
+    towers(num - 1, auxpeg, topeg, frompeg);
+    }
+</pre>
+<b>Output</b><br><br>
+<pre>
+
+Enter the number of disks : 3
+The sequence of moves involved in the Tower of Hanoi are :
+
+Move disk 1 from peg A to peg C
+Move disk 2 from peg A to peg B
+Move disk 1 from peg C to peg B
+Move disk 3 from peg A to peg C
+Move disk 1 from peg B to peg A
+Move disk 2 from peg B to peg C
+Move disk 1 from peg A to peg C
+</pre>
+<br><br><br><br><br><br><br>
+</body>
+</html>

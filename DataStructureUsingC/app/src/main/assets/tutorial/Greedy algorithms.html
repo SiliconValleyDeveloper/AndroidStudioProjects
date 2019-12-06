@@ -1,0 +1,45 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Greedy Algorithms</h1>
+<p>An algorithm is designed to achieve optimum solution for given problem. In greedy algorithm approach, decisions are made from the given solution domain. As being greedy, the closest solution that seems to provide optimum solution is chosen.</p>
+<p>Greedy algorithms tries to find localized optimum solution which may eventually land in globally optimized solutions. But generally greedy algorithms do not provide globally optimized solutions.</p>
+<h2>Counting Coins</h2>
+<p>This problem is to count to a desired value by chosing least possible coins and greedy approach forces the algorithm to pick the largest possible coin. If we are provided coins of &euro; 1, 2, 5 and 10 and we are asked to count &euro; 18 then the greedy procedure will be &minus;</p>
+<ul class="list">
+<li><p><b>1 &minus;</b> Select one &euro; 10 coin, remaining count is 8</p></li>
+<li><p><b>2 &minus;</b> Then select one &euro; 5 coin, remaining count is 3</p></li>
+<li><p><b>3 &minus;</b> Then select one &euro; 2 coin, remaining count is 1</p></li>
+<li><p><b>3 &minus;</b> And finally selection of one &euro; 1 coins solves the problem</p></li>
+</ul>
+<p>Though, it seems to be working fine, for this count we need to pick only 4 coins.  But if we slightly change the problem then the same approach may not be able to produce the same optimum result.</p>
+<p>For currency system, where we have coins of 1, 7, 10 value, counting coins for value 18 will be absolutely optimum but for count like 15, it may use more coins then necessary. For example &minus; greedy approach will use 10 + 1 + 1 + 1 + 1 + 1 total 6 coins. Where the same problem could be solved by using only 3 coins (7 + 7 + 1)</p>
+<p>Hence, we may conclude that greedy approach picks immediate optimized solution and may fail where global optimization is major concern.</p>
+<h2>Examples</h2>
+<p>Most networking algorithms uses greedy approach. Here is the list of few of them &minus;</p>
+<ul class="list">
+<li>Travelling Salesman Problem</li>
+<li>Prim's Minimal Spanning Tree Algorithm</li>
+<li>Kruskal's Minimal Spanning Tree Algorithm</li>
+<li>Dijkstra's Minimal Spanning Tree Algorithm</li>
+<li>Graph - Map Coloring</li>
+<li>Graph - Vertex Cover</li>
+<li>Knapsack Problem</li>
+<li>Job Scheduling Problem</li>
+</ul>
+<p>These and there are lots of similar problems which uses greedy approach to find an optimum solution.</p>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

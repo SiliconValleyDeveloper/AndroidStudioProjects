@@ -1,0 +1,71 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+      h1 {
+          margin:8px;
+          padding: 8px;
+          border-bottom: 2px solid Black;
+
+      }
+   </style>
+</head>
+<h1>Tower of Hanoi</h1>
+<p>Tower of Hanoi, is a mathematical puzzle which consists of three tower (pegs) and more than one rings; as depicted below &minus;</p>
+<img src="tower_of_hanoi.jpg" alt="Tower Of Hanoi" />
+<p>These rings are of different sizes and stacked upon in ascending order i.e. the smaller one sits over the larger one. There are other variations of puzzle where the number of disks increase, but the tower count remains the same.</p>
+<h2>Rules</h2>
+<p>The mission is to move all the disks to some another tower without violating the sequence of arrangement. The below mentioned are few rules which are to be followed for tower of hanoi &minus;</p>
+<ul class="list">
+<li>Only one disk can be moved among the towers at any given time.</li>
+<li>Only the "top" disk can be removed.</li>
+<li>No large disk can sit over a small disk.</li>
+</ul>
+<p>Here is an animated representation of solving a tower of hanoi puzzle with three disks &minus;</p>
+<img src="tower_of_hanoii.gif" alt="Tower Of Hanoi" />
+<p>Tower of hanoi puzzle with <code><b>n</b></code> disks can be solved in minimum <code><b>2<sup>n</sup>&minus;1</b></code> steps. This presentation shows that a puzzle with 3 disks has taken <code><b>2<sup>3</sup>&minus;1</b> = 7</code> steps.</p>
+<h2>Algorithm</h2>
+<p>To write an algorithm for Tower of Hanoi, first we need to learn how to solve this problem with lesser amount of disks, say &rarr; 1 or 2. We mark three towers with name, <code>source</code>, <code>destination</code> and <code>aux</code> (only to help moving disks). If we have only one disk, then it can easily be moved from <code>source</code> to <code>destination</code> peg.</p>
+<p>If we have 2 disks &minus;</p>
+<ul class="list">
+<li>First we move the smaller one (top) disk to <code>aux</code> peg</li>
+<li>Then we move the larger one (bottom) disk to <code>destination</code> peg</li>
+<li>And finally, we move the smaller one from <code>aux</code> to <code>destination</code> peg.</li>
+</ul>
+<img src="tower_of_hanoi_two_disks.gif" alt="Tower Of Hanoi with Two Disks" />
+<p>So now we are in a position to design algorithm for Tower of Hanoi with more than two disks. We divide the stack of disks in two parts. The largest disk (n<sup>th</sup> disk) is in one part and all other (n-1) disks are in second part.</p>
+<p>Our ultimate aim is to move disk <code>n</code> from source to destination and then put all other (n-1) disks onto it. Now we can imagine to apply the same in recursive way for all given set of disks.</p>
+<p>So steps to follow are &minus;</p>
+<pre class="result notranslate">
+<b>Step 1 &minus;</b> Move n-1 disks from <code><b>source</b></code> to <code><b>aux</b></code>
+<b>Step 2 &minus;</b> Move n<sup>th</sup> disk from <code><b>source</b></code> to <code><b>dest</b></code>
+<b>Step 3 &minus;</b> Move n-1 disks from <code><b>aux</b></code> to <code><b>dest</b></code>
+</pre>
+<p>A recursive algorithm for Tower of Hanoi can be driven as follows &minus;</p>
+<pre class="prettyprint notranslate">
+START
+Procedure Hanoi(disk, source, dest, aux)
+
+   IF disk == 0, THEN
+      move disk from source to dest
+   ELSE
+      Hanoi(disk - 1, source, aux, dest)     <small>// Step 1</small>
+      move disk from source to dest          <small>// Step 2</small>
+      Hanoi(disk - 1, aux, dest, source)     <small>// Step 3</small>
+   END IF
+
+END Procedure
+STOP
+</pre>
+<br><br><br><br><br><br><br>
+</body>
+</html>

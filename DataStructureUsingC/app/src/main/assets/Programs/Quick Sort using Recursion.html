@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0090)http://dw.convertfiles.com/files/0427644001534506364/quick%20sort%20using%20recursion.html -->
+<html><head>
+	<style type="text/css">
+	  h3{
+				color: #800080;
+				font-family: "Times New Roman";
+				 font-style: italic;
+				 border-bottom: 2px solid Black;
+
+		}
+		pre {
+				margin:8px;
+				padding: 8px;
+				font-family: "Times New Roman";
+			 font-size: 12px;
+
+		}
+	</style>
+</head>
+<body lang="en-US" dir="LTR">
+<h3>/*
+*C Program to Perform Quick Sort on a set of Entries
+*using Recursion
+*/</h3>
+<pre class="western">
+#include &lt;stdio.h&gt;
+
+void quicksort (int [], int, int);
+
+int main()
+{
+    int list[50];
+    int size, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &amp;size);
+    printf("Enter the elements to be sorted:\n");
+    for (i = 0; i &lt; size; i++)
+    {
+        scanf("%d", &amp;list[i]);
+    }
+    quicksort(list, 0, size - 1);
+    printf("After applying quick sort\n");
+    for (i = 0; i &lt; size; i++)
+    {
+        printf("%d ", list[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+void quicksort(int list[], int low, int high)
+{
+    int pivot, i, j, temp;
+    if (low &lt; high)
+    {
+        pivot = low;
+        i = low;
+        j = high;
+        while (i &lt; j)
+        {
+            while (list[i] &lt;= list[pivot] &amp;&amp; i &lt;= high)
+            {
+                i++;
+            }
+            while (list[j] &gt; list[pivot] &amp;&amp; j &gt;= low)
+            {
+                j--;
+            }
+            if (i &lt; j)
+            {
+                temp = list[i];
+                list[i] = list[j];
+                list[j] = temp;
+            }
+        }
+        temp = list[j];
+        list[j] = list[pivot];
+        list[pivot] = temp;
+        quicksort(list, low, j - 1);
+        quicksort(list, j + 1, high);
+    }
+}
+
+
+Output:
+
+    Enter the number of elements: 6
+    Enter the elements to be sorted:
+    67
+    45
+    24
+    98
+    12
+    38
+    After applying quick sort
+    12 24 38 45 67 98</pre>
+
+</body></html>

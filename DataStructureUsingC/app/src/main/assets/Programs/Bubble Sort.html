@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0071)http://dw.convertfiles.com/files/0135377001534505989/bubble%20sort.html -->
+<html><head>
+	<style type="text/css">
+	p {
+
+      color: #800080;
+			font-family: "Times New Roman";
+		   font-style: italic;
+			 font-size: 15px;
+			 border-bottom: 2px solid Black;
+	}
+	pre {
+			margin:8px;
+			padding: 8px;
+			font-family: "Times New Roman";
+		 font-size: 12px;
+
+	}
+	</style>
+</head>
+<body lang="en-US" dir="LTR">
+<p>/*
+*C program to sort N numbers in ascending order
+*using Bubble sort
+*and print both the given and the sorted array
+*/</p>
+<pre class="western">
+#include &lt;stdio.h&gt;
+#define MAXSIZE 10
+
+void main()
+{
+    int array[MAXSIZE];
+    int i, j, num, temp;
+
+    printf("Enter the value of num \n");
+    scanf("%d", &amp;num);
+    printf("Enter the elements one by one \n");
+    for (i = 0; i &lt; num; i++)
+    {
+        scanf("%d", &amp;array[i]);
+    }
+    printf("Input array is \n");
+    for (i = 0; i &lt; num; i++)
+    {
+        printf("%d\n", array[i]);
+    }
+    /*   Bubble sorting begins */
+    for (i = 0; i &lt; num; i++)
+    {
+        for (j = 0; j &lt; (num - i - 1); j++)
+        {
+            if (array[j] &gt; array[j + 1])
+            {
+                temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+    printf("Sorted array is...\n");
+    for (i = 0; i &lt; num; i++)
+    {
+        printf("%d\n", array[i]);
+    }
+}
+advertisements
+
+Output:
+
+    Enter the value of num
+    6
+    Enter the elements one by one
+    23
+    45
+    67
+    89
+    12
+    34
+    Input array is
+    23
+    45
+    67
+    89
+    12
+    34
+    Sorted array is...
+    12
+    23
+    34
+    45
+    67
+    89</pre>
+
+</body></html>

@@ -1,0 +1,270 @@
+<!doctype html>
+<head>
+   <style>
+      img {
+      width: 100%;
+      }
+      pre {
+      width: 100%;
+
+      font-size: 12px;
+      font-family: "Times New Roman";
+      overflow-x: scroll;
+      }
+   </style>
+</head>
+<h1>Hash Table</h1>
+<p>Hash Table is a data structure which store data in associative manner. In hash table, data is stored in array format where each data values has its own unique index value. Access of data becomes very fast if we know the index of desired data.</p>
+<p>Thus, it becomes a data structure in which insertion and search operations are very fast irrespective of size of data. Hash Table uses array as a storage medium and uses hash technique to generate index where an element is to be inserted or to be located from.</p>
+<h2>Hashing</h2>
+<p>Hashing is a technique to convert a range of key values into a range of indexes of an array. We're going to use modulo operator to get a range of key values. Consider an example of hashtable of size 20, and following items are to be stored. Item are in (key,value) format.</p>
+<img src="hash_function.jpg" alt="Hash Function" />
+<ul class="list">
+<li>(1,20)</li>
+<li>(2,70)</li>
+<li>(42,80)</li>
+<li>(4,25)</li>
+<li>(12,44)</li>
+<li>(14,32)</li>
+<li>(17,11)</li>
+<li>(13,78)</li>
+<li>(37,98)</li>
+</ul>
+<table class="table table-bordered">
+<tr>
+<th style="text-align:center;">S.n.</th>
+<th style="text-align:center;">Key</th>
+<th style="text-align:center;">Hash</th>
+<th style="text-align:center;">Array Index</th>
+</tr>
+<tr style="text-align:center;">
+<td>1</td>
+<td>1</td>
+<td>1 % 20 = 1</td>
+<td>1</td>
+</tr>
+<tr style="text-align:center;">
+<td>2</td>
+<td>2</td>
+<td>2 % 20 = 2</td>
+<td>2</td>
+</tr>
+<tr style="text-align:center;">
+<td>3</td>
+<td>42</td>
+<td>42 % 20 = 2</td>
+<td>2</td>
+</tr>
+<tr style="text-align:center;">
+<td>4</td>
+<td>4</td>
+<td>4 % 20 = 4</td>
+<td>4</td>
+</tr>
+<tr style="text-align:center;">
+<td>5</td>
+<td>12</td>
+<td>12 % 20 = 12</td>
+<td>12</td>
+</tr>
+<tr style="text-align:center;">
+<td>6</td>
+<td>14</td>
+<td>14 % 20 = 14</td>
+<td>14</td>
+</tr>
+<tr style="text-align:center;">
+<td>7</td>
+<td>17</td>
+<td>17 % 20 = 17</td>
+<td>17</td>
+</tr>
+<tr style="text-align:center;">
+<td>8</td>
+<td>13</td>
+<td>13 % 20 = 13</td>
+<td>13</td>
+</tr>
+<tr style="text-align:center;">
+<td>9</td>
+<td>37</td>
+<td>37 % 20 = 17</td>
+<td>17</td>
+</tr>
+</table>
+<h2>Linear Probing</h2>
+<p>As we can see, it may happen that the hashing technique used create already used index of the array. In such case, we can search the next empty location in the array by looking into the next cell until we found an empty cell. This technique is called linear probing.</p>
+<table class="table table-bordered">
+<tr>
+<th>S.n.</th>
+<th>Key</th>
+<th>Hash</th>
+<th>Array Index</th>
+<th>After Linear Probing, Array Index</th>
+</tr>
+<tr style="text-align:center;">
+<td>1</td>
+<td>1</td>
+<td>1 % 20 = 1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr style="text-align:center;">
+<td>2</td>
+<td>2</td>
+<td>2 % 20 = 2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr style="text-align:center;">
+<td>3</td>
+<td>42</td>
+<td>42 % 20 = 2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr style="text-align:center;">
+<td>4</td>
+<td>4</td>
+<td>4 % 20 = 4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr style="text-align:center;">
+<td>5</td>
+<td>12</td>
+<td>12 % 20 = 12</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr style="text-align:center;">
+<td>6</td>
+<td>14</td>
+<td>14 % 20 = 14</td>
+<td>14</td>
+<td>14</td>
+</tr>
+<tr style="text-align:center;">
+<td>7</td>
+<td>17</td>
+<td>17 % 20 = 17</td>
+<td>17</td>
+<td>17</td>
+</tr>
+<tr style="text-align:center;">
+<td>8</td>
+<td>13</td>
+<td>13 % 20 = 13</td>
+<td>13</td>
+<td>13</td>
+</tr>
+<tr style="text-align:center;">
+<td>9</td>
+<td>37</td>
+<td>37 % 20 = 17</td>
+<td>17</td>
+<td>18</td>
+</tr>
+</table>
+<h2>Basic Operations</h2>
+<p>Following are basic primary operations of a hashtable which are following.</p>
+<ul class="list">
+<li><p><b>Search</b> &minus; search an element in a hashtable.</p></li>
+<li><p><b>Insert</b> &minus; insert an element in a hashtable.</p></li>
+<li><p><b>delete</b> &minus; delete an element from a hashtable.</p></li>
+</ul>
+<h2>DataItem</h2>
+<p>Define a data item having some data, and key based on which search is to be conducted in hashtable.</p>
+<pre class="prettyprint notranslate">
+struct DataItem {
+   int data;
+   int key;
+};
+</pre>
+<h2>Hash Method</h2>
+<p>Define a hashing method to compute the hash code of the key of the data item.</p>
+<pre class="prettyprint notranslate">
+int hashCode(int key){
+   return key % SIZE;
+}
+</pre>
+<h2>Search Operation</h2>
+<p>Whenever an element is to be searched. Compute the hash code of the key passed and locate the element using that hashcode as index in the array. Use linear probing to get element ahead if element not found at computed hash code.</p>
+<pre class="prettyprint notranslate">
+struct DataItem *search(int key){
+   //get the hash
+   int hashIndex = hashCode(key);
+
+   //move in array until an empty
+   while(hashArray[hashIndex] != NULL){
+
+      if(hashArray[hashIndex]-&gt;key == key)
+         return hashArray[hashIndex];
+
+      //go to next cell
+      ++hashIndex;
+
+      //wrap around the table
+      hashIndex %= SIZE;
+   }
+
+   return NULL;
+}
+</pre>
+<h2>Insert Operation</h2>
+<p>Whenever an element is to be inserted. Compute the hash code of the key passed and locate the index using that hashcode as index in the array. Use linear probing for empty location if an element is found at computed hash code.</p>
+<pre class="prettyprint notranslate">
+void insert(int key,int data){
+   struct DataItem *item = (struct DataItem*) malloc(sizeof(struct DataItem));
+   item-&gt;data = data;
+   item-&gt;key = key;
+
+   //get the hash
+   int hashIndex = hashCode(key);
+
+   //move in array until an empty or deleted cell
+   while(hashArray[hashIndex] != NULL &amp;&amp; hashArray[hashIndex]-&gt;key != -1){
+      //go to next cell
+      ++hashIndex;
+
+      //wrap around the table
+      hashIndex %= SIZE;
+   }
+
+   hashArray[hashIndex] = item;
+}
+</pre>
+<h2>Delete Operation</h2>
+<p>Whenever an element is to be deleted. Compute the hash code of the key passed and locate the index using that hashcode as index in the array. Use linear probing to get element ahead if an element is not found at computed hash code. When found, store a dummy item there to keep performance of hashtable intact.</p>
+<pre class="prettyprint notranslate">
+struct DataItem* delete(struct DataItem* item){
+   int key = item-&gt;key;
+
+   //get the hash
+   int hashIndex = hashCode(key);
+
+   //move in array until an empty
+   while(hashArray[hashIndex] !=NULL){
+
+      if(hashArray[hashIndex]-&gt;key == key){
+         struct DataItem* temp = hashArray[hashIndex];
+
+         //assign a dummy item at deleted position
+         hashArray[hashIndex] = dummyItem;
+         return temp;
+      }
+
+      //go to next cell
+      ++hashIndex;
+
+      //wrap around the table
+      hashIndex %= SIZE;
+   }
+
+   return NULL;
+}
+</pre>
+
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

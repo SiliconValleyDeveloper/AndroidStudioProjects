@@ -1,0 +1,354 @@
+
+<html><head>
+	<style type="text/css">
+	p {
+
+      color: #800080;
+			font-family: "Times New Roman";
+		   font-style: italic;
+			 font-size: 12px;
+			 border-bottom: 2px solid Black;
+	}
+	pre {
+			margin:8px;
+			padding: 8px;
+			font-family: "Times New Roman";
+		 font-size: 12px;
+
+	}
+	</style>
+</head>
+<body lang="en-US" dir="LTR">
+<pre class="western"><p>/*
+*C Program to Construct a Binary Search Tree and
+*perform deletion, inorder traversal on it
+*/</p>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct btnode
+{
+    int value;
+    struct btnode *l;
+    struct btnode *r;
+}*root = NULL, *temp = NULL, *t2, *t1;
+
+void delete1();
+void insert();
+void delete();
+void inorder(struct btnode *t);
+void create();
+void search(struct btnode *t);
+void preorder(struct btnode *t);
+void postorder(struct btnode *t);
+void search1(struct btnode *t,int data);
+int smallest(struct btnode *t);
+int largest(struct btnode *t);
+
+int flag = 1;
+
+void main()
+{
+    int ch;
+
+    printf("\nOPERATIONS ---");
+    printf("\n1 - Insert an element into tree\n");
+    printf("2 - Delete an element from the tree\n");
+    printf("3 - Inorder Traversal\n");
+    printf("4 - Preorder Traversal\n");
+    printf("5 - Postorder Traversal\n");
+    printf("6 - Exit\n");
+    while(1)
+    {
+        printf("\nEnter your choice : ");
+        scanf("%d", &amp;ch);
+        switch (ch)
+        {
+        case 1:
+            insert();
+            break;
+        case 2:
+            delete();
+            break;
+        case 3:
+            inorder(root);
+            break;
+        case 4:
+            preorder(root);
+            break;
+        case 5:
+            postorder(root);
+            break;
+        case 6:
+            exit(0);
+        default :
+            printf("Wrong choice, Please enter correct choice  ");
+            break;
+        }
+    }
+}
+
+/* To insert a node in the tree */
+void insert()
+{
+    create();
+    if (root == NULL)
+        root = temp;
+    else
+        search(root);
+}
+
+/* To create a node */
+void create()
+{
+    int data;
+
+    printf("Enter data of node to be inserted : ");
+    scanf("%d", &amp;data);
+    temp = (struct btnode *)malloc(1*sizeof(struct btnode));
+    temp-&gt;value = data;
+    temp-&gt;l = temp-&gt;r = NULL;
+}
+
+/* Function to search the appropriate position to insert the new node */
+void search(struct btnode *t)
+{
+    if ((temp-&gt;value &gt; t-&gt;value) &amp;&amp; (t-&gt;r != NULL))      /* value more than root node value insert at right */
+        search(t-&gt;r);
+    else if ((temp-&gt;value &gt; t-&gt;value) &amp;&amp; (t-&gt;r == NULL))
+        t-&gt;r = temp;
+    else if ((temp-&gt;value &lt; t-&gt;value) &amp;&amp; (t-&gt;l != NULL))    /* value less than root node value insert at left */
+        search(t-&gt;l);
+    else if ((temp-&gt;value &lt; t-&gt;value) &amp;&amp; (t-&gt;l == NULL))
+        t-&gt;l = temp;
+}
+
+/* recursive function to perform inorder traversal of tree */
+void inorder(struct btnode *t)
+{
+    if (root == NULL)
+    {
+        printf("No elements in a tree to display");
+        return;
+    }
+    if (t-&gt;l != NULL)
+        inorder(t-&gt;l);
+    printf("%d -&gt; ", t-&gt;value);
+    if (t-&gt;r != NULL)
+        inorder(t-&gt;r);
+}
+
+/* To check for the deleted node */
+void delete()
+{
+    int data;
+
+    if (root == NULL)
+    {
+        printf("No elements in a tree to delete");
+        return;
+    }
+    printf("Enter the data to be deleted : ");
+    scanf("%d", &amp;data);
+    t1 = root;
+    t2 = root;
+    search1(root, data);
+}
+
+/* To find the preorder traversal */
+void preorder(struct btnode *t)
+{
+    if (root == NULL)
+    {
+        printf("No elements in a tree to display");
+        return;
+    }
+    printf("%d -&gt; ", t-&gt;value);
+    if (t-&gt;l != NULL)
+        preorder(t-&gt;l);
+    if (t-&gt;r != NULL)
+        preorder(t-&gt;r);
+}
+
+/* To find the postorder traversal */
+void postorder(struct btnode *t)
+{
+    if (root == NULL)
+    {
+        printf("No elements in a tree to display ");
+        return;
+    }
+    if (t-&gt;l != NULL)
+        postorder(t-&gt;l);
+    if (t-&gt;r != NULL)
+        postorder(t-&gt;r);
+    printf("%d -&gt; ", t-&gt;value);
+}
+
+/* Search for the appropriate position to insert the new node */
+void search1(struct btnode *t, int data)
+{
+    if ((data&gt;t-&gt;value))
+    {
+        t1 = t;
+        search1(t-&gt;r, data);
+    }
+    else if ((data &lt; t-&gt;value))
+    {
+        t1 = t;
+        search1(t-&gt;l, data);
+    }
+    else if ((data==t-&gt;value))
+    {
+        delete1(t);
+    }
+}
+
+/* To delete a node */
+void delete1(struct btnode *t)
+{
+    int k;
+
+    /* To delete leaf node */
+    if ((t-&gt;l == NULL) &amp;&amp; (t-&gt;r == NULL))
+    {
+        if (t1-&gt;l == t)
+        {
+            t1-&gt;l = NULL;
+        }
+        else
+        {
+            t1-&gt;r = NULL;
+        }
+        t = NULL;
+        free(t);
+        return;
+    }
+
+    /* To delete node having one left hand child */
+    else if ((t-&gt;r == NULL))
+    {
+        if (t1 == t)
+        {
+            root = t-&gt;l;
+            t1 = root;
+        }
+        else if (t1-&gt;l == t)
+        {
+            t1-&gt;l = t-&gt;l;
+
+        }
+        else
+        {
+            t1-&gt;r = t-&gt;l;
+        }
+        t = NULL;
+        free(t);
+        return;
+    }
+
+    /* To delete node having right hand child */
+    else if (t-&gt;l == NULL)
+    {
+        if (t1 == t)
+        {
+            root = t-&gt;r;
+            t1 = root;
+        }
+        else if (t1-&gt;r == t)
+            t1-&gt;r = t-&gt;r;
+        else
+            t1-&gt;l = t-&gt;r;
+        t == NULL;
+        free(t);
+        return;
+    }
+
+    /* To delete node having two child */
+    else if ((t-&gt;l != NULL) &amp;&amp; (t-&gt;r != NULL))
+    {
+        t2 = root;
+        if (t-&gt;r != NULL)
+        {
+            k = smallest(t-&gt;r);
+            flag = 1;
+        }
+        else
+        {
+            k =largest(t-&gt;l);
+            flag = 2;
+        }
+        search1(root, k);
+        t-&gt;value = k;
+    }
+
+}
+
+/* To find the smallest element in the right sub tree */
+int smallest(struct btnode *t)
+{
+    t2 = t;
+    if (t-&gt;l != NULL)
+    {
+        t2 = t;
+        return(smallest(t-&gt;l));
+    }
+    else
+        return (t-&gt;value);
+}
+
+/* To find the largest element in the left sub tree */
+int largest(struct btnode *t)
+{
+    if (t-&gt;r != NULL)
+    {
+        t2 = t;
+        return(largest(t-&gt;r));
+    }
+    else
+        return(t-&gt;value);
+}
+
+/*OPERATIONS ---
+1 - Insert an element into tree
+2 - Delete an element from the tree
+3 - Inorder Traversal
+4 - Preorder Traversal
+5 - Postorder Traversal
+6 - Exit
+
+Enter your choice : 1
+Enter data of node to be inserted : 40
+
+Enter your choice : 1
+Enter data of node to be inserted : 20
+
+Enter your choice : 1
+Enter data of node to be inserted : 10
+
+Enter your choice : 1
+Enter data of node to be inserted : 30
+
+Enter your choice : 1
+Enter data of node to be inserted : 60
+
+Enter your choice : 1
+Enter data of node to be inserted : 80
+
+Enter your choice : 1
+Enter data of node to be inserted : 90
+
+Enter your choice : 3
+10 -&gt; 20 -&gt; 30 -&gt; 40 -&gt; 60 -&gt; 80 -&gt; 90 -&gt;
+
+            40
+            /\
+           /  \
+         20    60
+         / \    \
+       10  30   80
+                  \
+                  90
+*/</pre>
+
+</body></html>

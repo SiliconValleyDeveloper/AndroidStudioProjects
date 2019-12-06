@@ -1,0 +1,63 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+
+    </style>
+</head>
+<h1>Bidirectional Search</h1>
+
+Bidirectional search is a neat trick that can often take an exponential algorithm and make it run on
+problems that are twice the size of those it could previously solve.
+<br><br>
+Bidirectional search is a graph search algorithm that finds a shortest path from an initial vertex to a goal vertex in a directed graph. It runs two simultaneous searches: one forward from the initial state, and one backward from the goal, stopping when the two meet in the middle. The reason for this approach is that in many cases it is faster: for instance, in a simplified model of search problem complexity in which both searches expand a tree with branching factor b, and the distance from start to goal is d, each of the two searches has complexity O(bd/2) (in Big O notation), and the sum of these two search times is much less than the O(bd) complexity that would result from a single search from the beginning to the goal.
+<br><br>
+As in A* search, bi-directional search can be guided by a heuristic estimate of the remaining distance to the goal (in the forward tree) or from the start (in the backward tree).
+<br><br>
+Bidirectional Search, as the name implies, searches in two directions at the same time: one forward from the initial state and the other backward from the goal. This is usually done by expanding tree with branching factor b and the distance from start to goal is d. The search stops when searches from both directions meet in the middle. Bidirectional search is a brute-force search algorithm that requires an explicit goal state instead of simply a test for a goal condition. Once the search is over, the path from the initial state is then concatenated with the inverse of the path from the goal state to form the complete solution path.
+<br><br>
+Bidirectional search still guarantees optimal solutions. Assuring that the comparisons for identifying a common state between the two frontiers can be done in constant time per node by hashing. The time complexity of Bidirectional Search is O(b^d/2) since each search need only proceed to half the solution path. Since at least one of the searches must be breadth-first in order to find a common state, the space complexity of bidirectional search is also O(b^d/2). As a result, it is space bound in practice.
+<br><br>
+<b>ADVANTAGES</b><br><br>
+
+The merit of bidirectional search is its speed. Sum of the time taken by two searches (forward and backward) is much less than the O(bd) complexity.
+It requires less memory.<br><br>
+
+<b>DISADVANTAGES</b><br><br>
+
+Implementation of bidirectional search algorithm is difficult because additional logic must be included to decide which search tree to extend at each step.
+One should have known the goal state in advance.
+The algorithm must be too efficient to find the intersection of the two search trees.
+It is not always possible to search backward through possible states.
+<br>
+<h2>Performance Measure:</h2>
+<b>Completeness:</b><br>
+Bidirectional search is complete when we use BFS in both searches, the search that starts from the initial state and the other from the goal state.<br><br>
+<b>Optimality:</b><br>
+Like the completeness, bidirectional search is optimal when BFS is used and paths are of a uniform cost – all steps of the same cost.
+Other search strategies can be used like DFS, but this will sacrifice the optimality and completeness, any other combination than BFS may lead to a sacrifice in optimality or completeness or may be both of them.<br><br>
+<b>Time and Space Complexity:</b><br>
+May be the most attractive thing in bidirectional search is its performance, because both searches will run the same amount of time meeting in the middle of the graph, thus each search expands O(bd/2) node, in total both searches expand O(bd/2 + bd/2) node which is too far better than the O(bd + 1) of BFS.
+If a problem with b = 10, has a solution at depth d = 6, and each direction runs with BFS, then at the worst case they meet at depth d = 3, yielding 22200 nodes compared with 11111100 for a standard BFS.
+We can say that the time and space complexity of bidirectional search is O(bd/2).<br><br>
+<b>Conclusion:</b><br>
+Bidirectional search seems attractive for its O(bd/2) performance, but things are not that easy, especially the implementation part.
+It is not that easy to formulate a problem such that each state can be reversed, that is going from the head to the tail is like going from the tail to the head.
+It should be efficient to compute the predecessor of any state so that we can run the search from the goal.
+<br><br><br><br><br><br>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Golden Section Search Algorithm</h1>
+<p>
+The golden section search is a technique for finding the extremum (minimum or maximum) of a strictly unimodal function by successively narrowing the range of values inside which the extremum is known to exist. The technique derives its name from the fact that the algorithm maintains the function values for triples of points whose distances form a golden ratio. The algorithm is the limit of Fibonacci search (also described below) for a large number of function evaluations. Fibonacci search and Golden section search were discovered by Kiefer.
+</p>
+<b>Recursive algorithm</b>
+<br>
+<br>
+<pre>
+double phi = (1 + Math.sqrt(5)) / 2;
+double resphi = 2 - phi;
+
+// a and c are the current bounds; the minimum is between them.
+// b is a center point
+// f(x) is some mathematical function elsewhere defined
+// a corresponds to x1; b corresponds to x2; c corresponds to x3
+// x corresponds to x4
+// tau is a tolerance parameter; see above
+
+public double goldenSectionSearch(double a, double b, double c, double tau) {
+    double x;
+    if (b < c)
+      x = b + resphi * (c - b);
+    else
+      x = b - resphi * (b - a);
+    if (Math.abs(c - a) < tau * (Math.abs(b) + Math.abs(x)))
+      return (c + a) / 2;
+    assert(f(x) != f(b));
+    if (f(x) < f(b))
+      return (b < c) ? goldenSectionSearch(b, x, c, tau) : goldenSectionSearch(a, x, b, tau);
+    else
+      return (b < c) ? goldenSectionSearch(a, b, x, tau) : goldenSectionSearch(x, b, c, tau);
+  }
+</pre>
+</html>

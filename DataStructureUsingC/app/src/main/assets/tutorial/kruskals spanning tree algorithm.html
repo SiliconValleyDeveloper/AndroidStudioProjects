@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+        overflow-x: scroll;
+        }
+    </style>
+</head>
+<h1>Kruskal's Spanning Tree Algorithm</h1>
+<p>Kruskal's algorithm to find minimum cost spanning tree uses greedy approach. This algorithm treats the graph as a forest and every node it as an individual tree. A tree connects to another only and only if it has least cost among all available options and does not violate MST properties.</p>
+<p>To understand Kruskal's algorithm we shall take the following example &minus;</p>
+<img src="mst_graph.jpg" alt="MST Graph" />
+<h2>Step 1 - Remove all loops &amp; Parallel Edges</h2>
+<p>Remove all loops and parallel edges from the given graph.</p>
+<img src="mst_with_loops.jpg" alt="MST Graph with loops" />
+<p>In case of parallel edges, keep the one which has least cost associated and remove all others.</p>
+<img src="mst_without_loops.jpg" alt="MST Graph without loops" />
+<h2>Step 2 - Arrange all edges in their increasing order of weight</h2>
+<p>Next step is to create a set of edges &amp; weight and arrange them in ascending order of weightage (cost).</p>
+<img src="ascending_weightage.jpg" alt="MST ascending weightage" />  
+<h2>Step 3 - Add the edge which has least weightage</h2>
+<p>Now we start adding edges to graph beginning from the one which has least weight. At all time, we shall keep checking that the spanning properties are remain intact. In case, by adding one edge, the spanning tree property does not hold then we shall consider not to include the edge in graph.</p>
+<img src="mst_graph_step_one.jpg" alt="MST Graph step one" />  
+<p>The least cost is 2 and edges involved are B,D and D,T so we add them. Adding them does not violate spanning tree properties so we continue to our next edge selection.</p>
+<p>Next cost is 3, and associated edges are A,C and C,D. So we add them &minus;</p>
+<img src="mst_graph_step_two.jpg" alt="MST Graph step two" />  
+<p>Next cost in the table is 4, and we observe that adding it will create a circuit in the graph &minus;</p>
+<img src="mst_graph_step_three.jpg" alt="MST Graph step three" />  
+<p>...and we ignore it.  And in the process we shall ignore/avoid all edges which create circuit.</p>
+<img src="mst_graph_step_four.jpg" alt="MST Graph step four" />  
+<p>We observe that edges with cost 5 and 6 also create circuits and we ignore them and move on.</p>
+<img src="mst_graph_step_five.jpg" alt="MST Graph step five" />  
+<p>Now we are left with only one node to be added. Between two least cost edges available 7, 8 we shall add the edge with cost 7.</p>
+<img src="mst_kruskals_algorithm.jpg" alt="MST Kruskals Algorithm" />  
+<p>By adding edge S,A we have included all the nodes of the graph and we have minimum cost spanning tree.</p>
+<br><br><br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<h1>cocktailsort</h1>
+
+<p>Shaker sort (cocktail sort, shake sort) is a stable sorting algorithm with quadratic asymptotic complexity O(n^{2}). Shakersort is a bidirectional version of bubble sort.<p>
+
+<h2>Description</h2>
+<p>
+Shaker sort unlike bubble sort orders the array in both directions. Hence every iteration of the algorithm consists of two phases. In the first one the lightest bubble ascends to the end of the array, in the second phase the heaviest bubble descends to the beginning of the array.
+
+This way an imperfection of bubble sort – the problem of rabbits and turtles – is mitigated. The problem of rabbits and turtles is a situation in bubble sort, when a heavy bubble is placed at the end of the array. While the light bubbles (rabbits) are ascending rapidly, the heavy bubble (turtle) descends only one position per each iteration.
+</p>
+<pre>
+#include <stdio.h>
+
+// can be any swap function. This swap is optimized for numbers.
+void swap(int *x, int *y) {
+	if(x == y)
+		return;
+	*x ^= *y;
+	*y ^= *x;
+	*x ^= *y;
+}
+void cocktailsort(int *a, size_t n) {
+	while(1) {
+		// packing two similar loops into one
+		char flag;
+		size_t start[2] = {1, n - 1},
+			   end[2] = {n, 0},
+			   inc[2] = {1, -1};
+		for(int it = 0; it < 2; ++it) {
+			flag = 1;
+			for(int i = start[it]; i != end[it]; i += inc[it])
+				if(a[i - 1] > a[i]) {
+					swap(a + i - 1, a + i);
+					flag = 0;
+				}
+			if(flag)
+				return;
+		}
+	}
+}
+
+int main(void) {
+	int a[] = { 5, -1, 101, -4, 0, 1, 8, 6, 2, 3 };
+	size_t n = sizeof(a)/sizeof(a[0]);
+
+	cocktailsort(a, n);
+	for (size_t i = 0; i < n; ++i)
+		printf("%d ", a[i]);
+	return 0;
+}
+</pre>
+
+<pre>
+Output:
+
+-4 -1 0 1 2 3 5 6 8 101
+</pre>
+<br><br><br><br><br><br>
+</html>

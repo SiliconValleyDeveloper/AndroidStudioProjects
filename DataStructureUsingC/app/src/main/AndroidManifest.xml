@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.changedsac">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/file"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/file_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2783298230694780~4073741065"/>
+
+
+
+        <activity android:name="com.changedsac.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.changedsac.BroadcastReceiver.AlarmReceiver"/>
+
+        <activity android:name="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.Questions"
+            android:parentActivityName="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.Programs"
+            android:parentActivityName="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.Online_Login"
+            android:parentActivityName="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.gds"
+            android:parentActivityName="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.open_program"
+            android:parentActivityName="com.changedsac.Programs" />
+        <activity
+            android:name="com.changedsac.open_algorithms"
+            android:parentActivityName="com.changedsac.Algorithm" />
+        <activity
+            android:name="com.changedsac.open_data_structure"
+            android:parentActivityName="com.changedsac.Data_Structure" />
+        <activity
+            android:name="com.changedsac.open_searching"
+            android:parentActivityName="com.changedsac.Searching" />
+        <activity
+            android:name="com.changedsac.open_storing"
+            android:parentActivityName="com.changedsac.Sorting" />
+        <activity android:name="com.changedsac.Home_Online" />
+        <activity android:name="com.changedsac.Start_Online" />
+        <activity android:name="com.changedsac.Online_Playing" />
+        <activity android:name="com.changedsac.Online_done" />
+        <activity android:name="com.changedsac.ScoreDetails" />
+        <activity
+            android:name="com.changedsac.Data_Structure"
+            android:parentActivityName="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.Sorting"
+            android:parentActivityName="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.Searching"
+            android:parentActivityName="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.Algorithm"
+            android:parentActivityName="com.changedsac.Start_activity" />
+        <activity
+            android:name="com.changedsac.open_gds"
+            android:parentActivityName="com.changedsac.gds" />
+        <activity android:name="com.changedsac.Point_to_remember" android:parentActivityName="com.changedsac.Start_activity" />
+        <activity android:name="com.changedsac.open_point_to_remember" android:parentActivityName="com.changedsac.Point_to_remember"></activity>
+
+
+
+    </application>
+
+</manifest>

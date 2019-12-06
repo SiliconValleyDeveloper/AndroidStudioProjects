@@ -1,0 +1,132 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+        width: 100%;
+
+        font-size: 12px;
+        font-family: "Times New Roman";
+        overflow-x: scroll;
+        }
+          h1 {
+                margin:8px;
+                padding: 8px;
+                border-bottom: 2px solid Black;
+
+            }
+    </style>
+</head>
+<h1>Expression Parsing</h1>
+<p>The way to write arithmetic expression is known as <b>notation</b>. An arithmetic expression can be written in three different but equivalent notations, i.e., without changing the essence or output of expression. These notations are &minus;</p>
+<ul class="list">
+<li>Infix Notation</li>
+<li>Prefix (Polish) Notation</li>
+<li>Postfix (Reverse-Polish) Notation</li>
+</ul>
+<p>These notations are named as how they use operator in expression. We shall learn the same here in this chapter.</p>
+<h2>Infix Notation</h2>
+<p>We write expression in <b>infix</b> notation, e.g. <code><b>a-b+c</b></code>, where operators are used <b>in</b>-between operands. It is easy for us humans to read, write and speak in infix notation but the same does not go well with computing devices. An algorithm to process infix notation could be difficult and costly in terms of time and space consumption.</p>
+<h2>Prefix Notation</h2>
+<p>In this notation, operator is <b>prefix</b>ed to operands, i.e. operator is written ahead of operands. For example <code><b> +ab</b></code>. This is equivalent to its infix notation <code><b>a+b</b></code>. Prefix notation is also known as <b>Polish Notation</b>.</p>
+<h2>Postfix Notation</h2>
+<p>This notation style is known as <b>Reversed Polish Notation</b>. In this notation style, operator is <b>postfix</b>ed to the operands i.e., operator is written after the operands. For example <code><b>ab+</b></code>. This is equivalent to its infix notation <code><b>a+b</b></code>.</p>
+<p>The below table briefly tries to show difference in all three notations &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th width="7%">S.n.</th>
+<th width="31%">Infix Notation</th>
+<th width="31%">Prefix Notation</th>
+<th>Postfix Notation</th>
+</tr>
+<tr>
+<td>1</td>
+<td><code>a + b</code></td>
+<td><code>+ a b</code></td>
+<td><code>a b +</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>(a + b) * c</code></td>
+<td><code>* + a b c</code></td>
+<td><code>a b + c *</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>a * (b + c)</code></td>
+<td><code>* a + b c</code></td>
+<td><code>a b c + *</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>a / b + c / d</code></td>
+<td><code>+ / a b / c d</code></td>
+<td><code>a b / c d / +</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>(a + b) * (c + d)</code></td>
+<td><code>* + a b + c d</code></td>
+<td><code>a b + c d + *</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>((a + b) * c) - d</code></td>
+<td><code>- * +  a b c d</code></td>
+<td><code>a b + c * d -</code></td>
+</tr>
+</table>
+<h2>Parsing Expressions</h2>
+<p>As we have discussed, it is not very efficient way to design an algorithm or program to parse infix notations. Instead, these infix notations are first converted into either postfix or prefix notations and then computated.</p>
+<p>To parse any arithmetic expression, we need to take care of operator precedence and associativity also.</p>
+<h3>Precedence</h3>
+<p>When an operand is in between two different operator, which operator will take the operand first, is decided by the precedence of an operator over others. For example &minus;</p>
+<img src="operator_precedence.jpg" alt="Operator Precendence" />
+<p>As multiplication operation has precedence over addition, <code><b>b * c</b></code> will be evaluated firs. A table of operator precedence is provided later.</p>
+<h3>Associativity</h3>
+<p>Associativity describes the rule where operators with same precedence appear in an expression. For example, in expression <code><b>a&plus;b&minus;c</b></code>, both &plus; and &minus; has same precedence, then which part of expression will be evaluated first, is determined by associativity of those operators. Here, both &plus; and &minus; are left associative, so the expression will be evaluated as <code><b>(a&plus;b)&minus;c</b></code>.</p>
+<p>Precedence and associativity, determines the order of evaluation of an expression. An operator precedence and associativity table is given below (highest to lowest) &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th width="7%">S.n.</th>
+<th>Operator</th>
+<th>Precedence</th>
+<th>Associativity</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Esponentiation <b>^</b></td>
+<td>Highest</td>
+<td>Right Associative</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Multiplication ( <b>*</b> ) &amp; Division ( <b>/</b> )</td>
+<td>Second Highest</td>
+<td>Left Associative</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Addition ( <b>+</b> ) &amp; Subtraction ( <b>&minus;</b> )</td>
+<td>Lowest</td>
+<td>Left Associative</td>
+</tr>
+</table>
+<p>The above table shows the default behavior of operators. At any point of time in expression evaluation, the order can be altered by using parenthesis. For example &minus;</p>
+<p>In <code><b>a&plus;b*c</b></code>, the expression part <code><b>b*c</b></code> will be evaluated first, as multiplication as precedence over addition.  We here use parenthesis to make <code><b>a+b</b></code> be evaluated first, like <code><b>(a&plus;b)*c</b></code>.</p>
+<h2>Postfix Evaluation Algorithm</h2>
+<p>We shall now look at the algorithm on how to evaluate postfix notation &minus;</p>
+<pre class="result notranslate">
+Step 1 &minus; scan the expression from left to right
+Step 2 &minus; if it is an operand push it to stack
+Step 3 &minus; if it is an operator pull operand from stack and perform operation
+Step 4 &minus; store the output of step 3, back to stack
+Step 5 &minus; scan the expression until all operands are consumed
+Step 6 &minus; pop the stack and perform operation
+</pre>
+
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

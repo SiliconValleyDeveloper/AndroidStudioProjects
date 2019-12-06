@@ -1,0 +1,110 @@
+<!doctype html>
+<head>
+    <style>
+        img {
+        width: 100%;
+        }
+        pre {
+
+
+        width: 100%;
+        overflow-x: scroll;
+        font-size: 12px;
+        font-family: "Times New Roman";
+        }
+        h1 {
+            margin:8px;
+            padding: 8px;
+
+            border-bottom: 2px solid Black;
+
+        }
+    </style>
+</head>
+<meta charset="utf-8">
+
+<h1> Algorithms Basics</h1>
+<p>Algorithm is a step by step procedure, which defines a set of instructions to be executed in certain order to get the desired output. Algorithms are generally created independent of underlying languages, i.e. an algorithm can be implemented in more than one programming language.</p>
+<p>From data structure point of view, following are some important categories of algorithms &minus;</p>
+<ul class="list">
+<li><p><b>Search</b> &minus; Algorithm to search an item in a datastructure.</p></li>
+<li><p><b>Sort</b> &minus; Algorithm to sort items in certain order</p></li>
+<li><p><b>Insert</b> &minus; Algorithm to insert item in a datastructure</p></li>
+<li><p><b>Update</b> &minus; Algorithm to update an existing item in a data structure</p></li>
+<li><p><b>Delete</b> &minus; Algorithm to delete an existing item from a data structure</p></li>
+</ul>
+<h2>Characteristics of an Algorithm</h2>
+<p>Not all procedures can be called an algorithm. An algorithm should have the below mentioned characteristics &minus;</p>
+<ul class="list">
+<li><p><b>Unambiguous</b> &minus; Algorithm should be clear and unambiguous. Each of its steps (or phases), and their input/outputs should be clear and must lead to only one meaning.</p></li>
+<li><p><b>Input</b> &minus; An algorithm should have 0 or more well defined inputs.</p></li>
+<li><p><b>Output</b> &minus; An algorithm should have 1 or more well defined outputs, and should match the desired output.</p></li>
+<li><p><b>Finiteness</b> &minus; Algorithms must terminate after a finite number of steps.</p></li>
+<li><p><b>Feasibility</b> &minus; Should be feasible with the available resources.</p></li>
+<li><p><b>Independent</b> &minus; An algorithm should have step-by-step directions which should be independent of any programming code.</p></li>
+</ul>
+<h2>How to write an algorithm?</h2>
+<p>There are no well-defined standards for writing algorithms. Rather, it is problem and resource dependent. Algorithms are never written to support a particular programming code.</p>
+<p>As we know that all programming languages share basic code constructs like loops (<code>do</code>, <code>for</code>, <code>while</code>), flow-control (<code>if-else</code>) etc. These common constructs <i>can</i> be used to write an algorithm.</p>
+<p>We write algorithms in step by step manner, but it is not always the case. Algorithm writing is a process and is executed after the problem domain is well-defined. That is, we should know the problem domain, for which we are designing a solution.</p>
+<h3>Example</h3>
+<p>Let's try to learn algorithm-writing by using an example.</p>
+<p><b>Problem</b> &minus; Design an algorithm to add two numbers and display result.</p>
+<pre class="result notranslate">
+<b>step 1</b> &minus; START
+<b>step 2</b> &minus; declare three integers <b>a</b>, <b>b</b> &amp; <b>c</b>
+<b>step 3</b> &minus; define values of <b>a</b> &amp; <b>b</b>
+<b>step 4</b> &minus; add values of <b>a</b> &amp; <b>b</b>
+<b>step 5</b> &minus; store output of <u>step 4</u> to <b>c</b>
+<b>step 6</b> &minus; print <b>c</b>
+<b>step 7</b> &minus; STOP
+</pre>
+<p>Algorithms tell the programmers how to code the program. Alternatively the algorithm can be written as &minus;</p>
+<pre class="result notranslate">
+<b>step 1</b> &minus; START ADD
+<b>step 2</b> &minus; get values of <b>a</b> &amp; <b>b</b>
+<b>step 3</b> &minus; c &larr; a + b
+<b>step 4</b> &minus; display c
+<b>step 5</b> &minus; STOP
+</pre>
+<p>In design and analysis of algorithms, usually the second method is used to describe an algorithm. It makes it easy of the analyst to analyze the algorithm ignoring all unwanted definitions. He can observe what operations are being used and how the process is flowing.</p>
+<p>Writing <b>step numbers</b>, is optional.</p>
+<p>We design an algorithm to get solution of a given problem. A problem can be solved in more than one ways.</p>
+
+<img src="problem_solutions.jpg" alt="one problem many solutions" />
+
+<p>Hence, many solution algorithms can be derived for a given problem. Next step is to analyze those proposed solution algorithms and implement the best suitable.</p>
+<h2>Algorithm Analysis</h2>
+<p>Efficiency of an algorithm can be analyzed at two different stages, before implementation and after implementation, as mentioned below &minus;</p>
+<ul class="list">
+<li><p><b><i>A priori</i> analysis</b> &minus; This is theoretical analysis of an algorithm. Efficiency of algorithm is measured by assuming that all other factors e.g. processor speed, are constant and have no effect on implementation.</p></li>
+<li><p><b><i>A posterior</i> analysis</b> &minus; This is empirical analysis of an algorithm. The selected algorithm is implemented using programming language. This is then executed on target computer machine. In this analysis, actual statistics like running time and space required, are collected.</p></li>
+</ul>
+<p>We shall learn here <b>a priori</b> algorithm analysis. Algorithm analysis deals with the execution or running time of various operations involved. Running time of an operation can be defined as no. of computer instructions executed per operation.</p>
+<h2>Algorithm Complexity</h2>
+<p>Suppose X is an algorithm and n is the size of input data, the time and space used by the Algorithm X are the two main factors which decide the efficiency of X.</p>
+<ul class="list">
+<li><p><b>Time Factor</b> &minus; The time is measured by counting the number of key operations such as comparisons in sorting algorithm</p></li>
+<li><p><b>Space Factor</b> &minus; The space is measured by counting the maximum memory space required by the algorithm.</p></li>
+</ul>
+<p>The complexity of an algorithm f(n) gives the running time and / or storage space required by the algorithm in terms of n as the size of input data.</p>
+<h2>Space Complexity</h2>
+<p>Space complexity of an algorithm represents the amount of memory space required by the algorithm in its life cycle. Space required by an algorithm is equal to the sum of the following two components &minus;</p>
+<ul class="list">
+<li><p>A fixed part that is a space required to store certain data and variables, that are independent of the size of the problem. For example simple variables &amp; constant used, program size etc.</p></li>
+<li><p>A variable part is a space required by variables, whose size depends on the size of the problem. For example dynamic memory allocation, recursion stack space etc.</p></li>
+</ul>
+<p>Space complexity <code><b>S(P)</b></code> of any algorithm <code><b>P</b></code> is <code><b>S(P) = C + SP(I)</b></code> Where <code><b>C</b></code> is the fixed part and <code><b>S(I)</b></code> is the variable part of the algorithm which depends on instance characteristic <code><b>I</b></code>. Following is a simple example that tries to explain the concept &minus;</p>
+<pre class="result notranslate">
+Algorithm: SUM(A, B)
+Step 1 -  START
+Step 2 -  C &larr; A + B + 10
+Step 3 -  Stop
+</pre>
+<p>Here we have three variables A, B and C and one constant. Hence <code><b>S(P) = 1+3</b></code>. Now space depends on data types of given variables and constant types and it will be multiplied accordingly.</p>
+<h2>Time Complexity</h2>
+<p>Time Complexity of an algorithm represents the amount of time required by the algorithm to run to completion. Time requirements can be defined as a numerical function <code><b>T(n)</b></code>, where <code><b>T(n)</b></code> can be measured as the number of steps, provided each step consumes constant time.</p>
+<p>For example, addition of two n-bit integers takes n steps. Consequently, the total computational time is <code><b>T(n) = c*n</b></code>, where <code><b>c</b></code> is the time taken for addition of two bits. Here, we observe that <code><b>T(n)</b></code> grows linearly as input size increases.</p>
+<br><br><br><br><br><br><br><br>
+</body>
+</html>

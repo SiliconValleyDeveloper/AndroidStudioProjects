@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.machinelearningdev">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".Open_Appendices" android:parentActivityName=".Appendices"></activity>
+        <activity android:name=".Appendices" android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".Open_project" android:parentActivityName=".Project" />
+        <activity android:name=".Project"  android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".Open_Code"  android:parentActivityName=".Code"/>
+        <activity android:name=".Code"  android:parentActivityName=".HomeActivity"/>
+        <activity android:name=".Open_tutorial" android:parentActivityName=".Tutorial" />
+        <activity android:name=".Tutorial" android:parentActivityName=".HomeActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--Sample AdMob App ID: ca-app-pub-7310538108571465~5502692326")-->
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2783298230694780~3373551847"/>
+    </application>
+
+</manifest>

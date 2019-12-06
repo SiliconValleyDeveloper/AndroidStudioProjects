@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="../../prism.js"></script>
+  <style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; 
+}
+p{font-size:medium;}
+    </style>
+</head>
+<body>
+  
+<div class="container">
+
+
+<br>
+<center><h5>k-means Clustering</h5></center>
+
+<p><span style="font-size: medium;"><strong>Features of dataset:</strong></span></p>
+<li><span style="font-size: medium;"><strong>eruptions - eruption time in minutes</strong></span></li>
+<li><span style="font-size: medium;"><strong>waiting - waiting time to next eruption in minutes.</strong></span></li>
+<p><span style="font-size: medium;">Given the data related to eruptions we need to cluster a particular eruption.&nbsp;</span>
+<br>
+
+<p><b>Import required libraries</b></p>
+<center>
+<pre><code class="language-python">
+# For mathematical calculation
+import numpy as np
+
+# For handling datasets
+import pandas as pd
+
+# For plotting graphs
+from matplotlib import pyplot as plt
+
+# Import the sklearn library for KMeans Clustering
+from sklearn.cluster import KMeans
+</code></pre>
+</center>
+
+
+<p><b>Import dataset</b></p>
+<center>
+<pre><code class="language-python">
+# Import the csv file
+df = pd.read_csv('data.csv')
+
+print df.head()
+'''
+Output:
+   eruptions  waiting
+0      3.600       79
+1      1.800       54
+2      3.333       74
+3      2.283       62
+4      4.533       85
+
+'''
+</code></pre>
+</center>
+
+<p><b>Train the model</b></p>
+<center>
+<pre><code class="language-python">
+# Assign the number of clusters
+k = 2
+
+kmeans = KMeans(n_clusters=k)
+
+# Train the model
+kmeans = kmeans.fit(df)
+
+# array that contains cluster number 
+labels = kmeans.labels_
+
+# array of size k with co-ordinates of 
+# centroids 
+centroids = kmeans.cluster_centers_
+</code></pre>
+</center>
+
+
+<p><b>Test the model</b></p>
+<center>
+<pre><code class="language-python">
+# Prepare the test data 
+x_test = [[4.671,67],[2.885,61],[1.666,90],
+          [5.623,54],[2.678,80],[1.875,60]]
+
+#Test the model(returns the cluster number)
+prediction = kmeans.predict(x_test)
+
+print prediction
+'''
+Output:
+[0 0 1 0 1 0]
+
+As value of k is 2 
+there are only two clusters 0 and 1.
+'''      
+</code></pre>
+</center>
+
+
+<p><b>Plot the clusters.</b></p>
+<center>
+<pre><code class="language-python">
+# Plot the points representing their cluster
+# cluster number 
+colors = ['blue','red','green','black']
+y = 0
+for x in labels:
+    # plot the points acc to their clusters
+    # and assign different colors
+    plt.scatter(df.iloc[y,0], df.iloc[y,1]
+              ,color=colors[x])
+    y+=1
+        
+for x in range(k):
+    #plot the centroids
+    lines = plt.plot(centroids[x,0]
+                  ,centroids[x,1],'kx')    
+    #make the centroid larger    
+    plt.setp(lines,ms=15.0)
+    plt.setp(lines,mew=2.0)
+    
+title = ('No of clusters (k) = {}').format(k)
+plt.title(title)
+plt.xlabel('eruptions (mins)')
+plt.ylabel('waiting (mins)')
+plt.show()   
+</code></pre>
+</center>
+<img src="1.png">
+<img src="2.png">
+<img src="3.png">
+
+<br><br><br><br><br><br><br><br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="../../prism.js"></script>
+	<style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; 
+}
+    </style>
+</head>
+<body>
+	
+<div class="container">
+<br>
+<center><h5>Matplotlib</h5></center>
+
+<li><a href="#1">Basic Plotting</a></li>
+<li><a href="#2">Legends, Labels, Colors, etc</a></li>
+<li><a href="#3">Bar plots and Histogram</a></li>
+<li><a href="#4">Scatter Plots</a></li>
+<li><a href="#5">Pie Chart</a></li>
+<li><a href="#6">Subplots</a></li>
+<li><a href="#7">3-d Plotting</a></li>
+
+
+<br>
+<div id="1">
+<p><b>Basic Plotting</b></p>
+<center>
+<pre><code class="language-python">
+# Import pyplot as convention
+import matplotlib.pyplot as plt
+
+# Plot some co-ordinates
+plt.plot([2.3,3.6,7.8],[4.2,1.7,7.4])
+
+plt.show()
+</code></pre>
+<img src="1.png">
+</center>
+</div>
+<br>
+
+
+<div id="2">
+<p><b>Legends, Labels, Colors, etc</b></p>
+<center>
+<pre><code class="language-python">
+# Line 1
+X1 = ([2,4,6,10])
+Y1 = ([4,6,6,8])
+
+# line 2
+X2 = ([2,4,6,10])
+Y2 = ([2,4,8,10])
+
+# Plotting, linestyle, color and legends
+plt.plot(X1,Y1,linestyle='--',c='g',
+                 label='Line 1')
+                
+plt.plot(X2,Y2,linestyle='-',c='r',
+                 label='Line 2')
+
+plt.legend()
+
+# Set title
+plt.title('Matplotlib Demo')
+
+# Set labels
+plt.xlabel('X - Value')  
+plt.ylabel('Y - Value')  
+
+# Set axis ticks
+plt.xticks([0,2,4,6,8,10,12])
+plt.yticks([0,2,4,6,8,10,12])
+
+plt.show()
+
+# Saving plots to file
+plt.savefig('plots.png')
+</code></pre>
+<img src="2.png">
+</center> 
+</div>
+<br>
+
+
+
+<div id="3">
+<p><b>Bar Plots and Histogram</b></p>
+<p>Bar Plots</p>
+    <center>
+<pre><code class="language-python">
+plt.bar([11,14,19,13,16],[0.2,0.4,0.6,0.8,1.0])
+
+plt.xticks(np.arange(11,20))
+
+plt.title('Bar Graph Example')
+
+plt.show()
+</code></pre>
+<img src="3.png">
+</center>
+
+<p>Histogram<p>
+    <center>
+<pre><code class="language-python">
+IQ = [85,92,115,121,72,102,104,99,110
+        ,120,121,122,90,115,119,92,98,110,138]
+        
+Age = [70,80,90,100,110,120,130,140,150]
+
+plt.hist(IQ, Age, histtype='bar', rwidth=0.8)
+
+plt.xlabel('IQ range')
+plt.ylabel('No. of Students')
+
+plt.title('Histogram Example')
+plt.legend()
+
+plt.show()
+</code></pre>
+<img src="4.png">
+</center>
+</div>
+<br>
+
+
+
+
+<div id="4">
+<p><b>Scatter Plots</b></p>
+<center>
+<pre><code class="language-python">
+#Get some random ponts
+x = np.random.randn(200)
+y = np.random.randn(200)
+
+plt.scatter(x,y,c='r')
+
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Scatter Plot Example')
+
+plt.show()
+</code></pre>
+<img src="5.png">
+</center>
+</div>
+<br>
+
+
+<div id="5">
+<p><b>Pie Chart</b></p>
+<center>
+<pre><code class="language-python">
+Programming_Languages = ["C","C++","Java",
+        "Python", "ruby","php"]
+        
+Usage = [10, 20, 40, 60, 20, 30]
+
+# Pie chart is oval by default
+# To make it a circle
+plt.axis("equal")
+
+plt.pie(Usage,labels=Programming_Languages,
+        shadow=True)
+        
+plt.title("Pie Chart Example")
+plt.show()      
+</code></pre>
+<img src="6.png">
+</center>
+</div>
+<br>
+
+
+<div id="6">
+<p><b>Subplots</b></p>
+<center>
+<pre><code class="language-python">
+# Figure object contains plots
+fig = plt.figure()
+
+# Create subplots using add_subplot()
+ax1 = fig.add_subplot(2,2,1)
+
+# Plot random numbers
+ax1.plot(randn(50),c='red')
+
+ax2 = fig.add_subplot(2,2,2)
+ax2.plot(randn(50),c='green')
+
+ax3 = fig.add_subplot(2,2,3)
+ax3.plot(randn(50),c='blue')
+
+ax4 = fig.add_subplot(2,2,4)
+ax4.plot(randn(50),c='black')      
+</code></pre>
+<img src="7.png">
+</center>
+</div>
+<br>
+
+
+
+<div id="7">
+<p><b>3-d Plotting</b></p>
+<p>3-d basic</p>
+    <center>
+<pre><code class="language-python">
+# Axes3D is used to plot 3d figures
+from mpl_toolkits.mplot3d import Axes3D
+
+fig = plt.figure()
+ax = Axes3D(fig)
+ax = fig.add_subplot(111, projection='3d')
+
+X = [11,13,14,16,17]
+Y = [1,11,4,6,0]
+Z = [0,6,0,6,0]
+
+ax.plot(X,Y,Z)
+
+ax.set_xlabel('x axis')
+ax.set_ylabel('y axis')
+ax.set_zlabel('z axis')
+
+plt.title('3-D Graph Plot')     
+</code></pre>
+<img src="8.png">
+</div>
+<br>
+
+
+<p>3-d Scatter Plot</p>
+<pre><code class="language-python">
+fig = plt.figure()
+ax = Axes3D(fig)
+
+X = np.random.randn(100)
+Y = np.random.randn(100)
+Z = np.random.randn(100)
+
+ax.scatter(X, Y, Z,c='b')
+
+plt.title('3-D Scatter Plot')      
+</code></pre>
+<img src="9.png">
+</center>
+</div>
+
+<br><br><br><br><br><br><br>
+
+</div>
+</body>
+</html>

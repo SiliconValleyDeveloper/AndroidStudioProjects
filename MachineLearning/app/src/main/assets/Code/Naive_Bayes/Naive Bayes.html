@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="../../prism.js"></script>
+	<style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+p{font-size:medium;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+
+<br>
+<center><h5>Naive Bayes</h5></center>
+<p><span style="font-size: medium;"><strong>Dataset of patients who had undergone surgery for breast cancer.</strong></span></p>
+<p><span style="font-size: medium;"><strong>Features of dataset:</strong></span></p>
+<li><span style="font-size: medium;"><strong>Age - Age of patient at time of operation.</strong></span><br></li>
+<li><span style="font-size: medium;"><strong>Year - Patient's year of operation (year - 1900).</strong></span><br></li>
+<li><span style="font-size: medium;"><strong>Nodes - Number of positive axillary nodes detected.</strong></span></font></li><br>
+<li><span style="font-size: medium;"><strong>Class(Survived):<br>
+1 - the patient survived 5 years or longer<br>
+2 - the patient died within 5 year</strong></span></li>
+<p><span style="font-size: medium;">Given the details of the patient we need to predict whether the patient survived or not.&nbsp;</span>
+<br>
+
+<p><b>Import required libraries</b></p>
+<center>
+<pre><code class="language-python">
+# For mathematical calculation
+import numpy as np
+
+# For handling datasets
+import pandas as pd
+
+# For plotting graphs
+from matplotlib import pyplot as plt
+
+# Import the sklearn library for Naive bayes
+from sklearn.naive_bayes import GaussianNB
+</code></pre>
+</center>
+
+
+<p><b>Import dataset</b></p>
+<center>
+<pre><code class="language-python">
+# Import the csv file
+df = pd.read_csv('data.csv')
+
+print df.head()
+'''
+Output:
+   Age  Year  Nodes  Survived
+0   30    64      1         1
+1   30    62      3         1
+2   30    65      0         1
+3   31    59      2         1
+4   31    65      4         1
+'''
+</code></pre>
+</center>
+
+
+<p><b>Plot the classes against features.</b></p>
+<center>
+<pre><code class="language-python">
+# We plot the data to see dependency of any
+# feature on the class
+plt.xlabel('Feature')
+plt.ylabel('Survived')
+
+X = df.loc[:,'Age']
+Y = df.loc[:,'Survived']
+plt.scatter(X, Y,color='blue',label='Age')
+
+X = df.loc[:,'Year']
+Y = df.loc[:,'Survived']
+plt.scatter(X, Y,color='green',label='Year')
+
+X = df.loc[:,'Nodes']
+Y = df.loc[:,'Survived']
+plt.scatter(X, Y,color='red',label='Nodes')
+
+plt.legend(loc=4, prop={'size': 7})
+plt.show()
+</code></pre>
+</center>
+
+<img src="nb.png">
+
+<p><b>Prepare data for training</b></p>
+<center>
+<pre><code class="language-python">
+# Prepare the training set
+X = df.loc[:,'Age':'Nodes']
+Y = df.loc[:,'Survived']
+</code></pre>
+</center>
+
+
+<p><b>Train the model</b></p>
+<center>
+<pre><code class="language-python">
+clf = GaussianNB()
+
+# Train the model
+clf.fit(X,Y)
+</code></pre>
+</center>
+
+
+<p><b>Test the model</b></p>
+<center>
+<pre><code class="language-python">
+# Test the model(returns the class)
+prediction = clf.predict([[12,70,12],
+                          [13,20,13]])
+
+print prediction
+'''
+Output:
+[1 2]
+'''
+</code></pre>
+</center>
+
+<br><br><br><br><br><br><br>
+
+</div>
+</body>
+</html>

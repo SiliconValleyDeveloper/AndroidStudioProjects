@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="../../prism.js"></script>
+	<style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; 
+}
+    </style>
+</head>
+<body>
+	
+<div class="container">
+<br>
+<center><h5>Pandas</h5></center>
+
+<li><a href="#1">Dataframe</a></li>
+<li><a href="#2">Indexing and Selection</a></li>
+<li><a href="#3">Descriptive Statistics</a></li>
+<li><a href="#4">Handling missing data</a></li>
+<li><a href="#5">Reading and Writing files</a></li>
+
+<br>
+<div id="1">
+<p><b>Dataframe</b></p>
+<center>
+<pre><code class="language-python">
+# Import pandas
+import pandas as pd
+
+# Using python dictionary prepare data
+data = {'Name':['Bill','Dan','Tony','Mark'],
+         'Age':[28,29,31,27],   
+         'Salary':[2000,2500,2100,2200]}
+         
+obj = pd.DataFrame(data)
+
+# Prints the dataframe in tabular form
+print obj   
+'''
+Output: 
+      
+   Age  Name  Salary
+0   28  Bill    2000
+1   29   Dan    2500
+2   31  Tony    2100
+3   27  Mark    2200
+'''
+
+
+# Prints the data of a specific column
+print obj['Age']   
+print obj.Age
+'''
+Output:
+
+0    28
+1    29
+2    31
+3    27
+Name: Age, dtype: int64
+'''
+
+# Prints the columns of the dataframe
+print obj.columns
+'''
+Output:
+
+Index([u'Age', u'Name', u'Salary']
+            , dtype='object')
+'''
+
+# Returns the data as a 2d array
+print obj.values
+'''
+Output:
+
+[[28L 'Bill' 2000L]
+ [29L 'Dan' 2500L]
+ [31L 'Tony' 2100L]
+ [27L 'Mark' 2200L]]
+'''
+
+# Drops a specific row
+print obj.drop(1)
+'''
+Output:
+
+   Age  Name  Salary
+0   28  Bill    2000
+2   31  Tony    2100
+3   27  Mark    2200
+'''
+
+# Drops a specific column
+print obj.drop('Age',axis=1)
+'''
+Output:
+
+   Name  Salary
+0  Bill    2000
+1   Dan    2500
+2  Tony    2100
+3  Mark    2200
+'''
+</code></pre>
+</center>
+</div>
+
+
+<div id="2">
+<p><b>Indexing and Selection</b></p>
+  <center>
+<pre><code class="language-python">
+# Gives specified indexing to your rows
+data = pd.DataFrame(data, 
+    index=['emp1','emp2','emp3','emp4'])
+
+print data
+'''
+Output:
+
+      Age  Name  Salary
+emp1   28  Bill    2000
+emp2   29   Dan    2500
+emp3   31  Tony    2100
+emp4   27  Mark    2200
+'''
+
+# Indexing format
+# data[rows,columns]
+
+# 1. Column selection
+
+# If we know the column name
+print data[['Age','Name']]
+print data.loc[:,['Age','Name']]
+print data.ix[:,['Age','Name']]
+
+# If we don't know the column name
+print data.iloc[:,[0,1]]
+
+'''
+Output:
+
+      Age  Name
+emp1   28  Bill
+emp2   29   Dan
+emp3   31  Tony
+emp4   27  Mark
+'''
+
+# 2. Row selection
+
+# If we know the index name
+# prints indexes 0,1,2
+print data.loc['emp1':'emp3',:]
+'''
+Output:
+
+      Age  Name  Salary
+emp1   28  Bill    2000
+emp2   29   Dan    2500
+emp3   31  Tony    2100
+'''
+# If we don't know index name
+# prints indexes 0 and 1 excludes the last one
+print data.iloc[0:2,:]
+'''
+Output:
+
+      Age  Name  Salary
+emp1   28  Bill    2000
+emp2   29   Dan    2500
+'''
+
+# 3. Mixed selection
+
+print data.loc['emp1':'emp3',['Name','Age']]
+'''
+Output:
+
+      Name  Age
+emp1  Bill   28
+emp2   Dan   29
+emp3  Tony   31
+'''
+
+# prints row no. 0,2,3 and column no. 0 and 2 
+print data.iloc[[0,2,3],[0,2]]
+'''
+Output:
+      Age  Salary
+emp1   28    2000
+emp3   31    2100
+emp4   27    2200
+'''
+
+# Filtering data
+
+# prints Name and Salary of those emloyees
+# whose age is greater than 28
+print data.loc[data.Age > 28,['Name','Salary']]
+'''
+Output:
+
+      Name  Salary
+emp2   Dan    2500
+emp3  Tony    2100
+'''
+</code></pre>
+</center> 
+</div>
+
+
+<div id="3">
+<p><b>Descriptive Statistics</b></p>
+<center>
+<pre><code class="language-python">
+# prints multiple statistics
+print data.describe()
+'''
+Output:
+
+             Age      Salary
+count   4.000000     4.00000
+mean   28.750000  2200.00000
+std     1.707825   216.02469
+min    27.000000  2000.00000
+25%    27.750000  2075.00000
+50%    28.500000  2150.00000
+75%    29.500000  2275.00000
+max    31.000000  2500.00000
+'''
+
+# prints mean of salaries
+print data.loc[:,'Salary'].mean()
+'''
+Output:
+
+2200.0
+'''
+
+# prints minimum age of employee
+print data.loc[:,'Age'].min()
+'''
+Output:
+
+27
+'''
+</code></pre>
+</center>
+</div>
+
+<div id="4">
+<p><b>Handling missing data</b></p>
+<center>
+<pre><code class="language-python">
+data = pd.DataFrame([[2.3,3.3,NaN],
+      [7.5,NaN,9.8],[NaN,2.2,6.8],
+      [5.6,9.2,7.4],[NaN,NaN,NaN]])
+
+# 1. Filtering missing data
+
+# Drop rows with null values
+print data.dropna()
+'''
+Output:
+
+     0    1    2
+3  5.6  9.2  7.4
+'''
+
+# Drop row with all null values
+print data.dropna(how='all')
+'''
+Output:
+
+     0    1    2
+0  2.3  3.3  NaN
+1  7.5  NaN  9.8
+2  NaN  2.2  6.8
+3  5.6  9.2  7.4
+'''
+
+# 2. Filling missing data
+
+# Fill null values with 0
+print data.fillna(0)
+'''
+Output:
+
+     0    1    2
+0  2.3  3.3  0.0
+1  7.5  0.0  9.8
+2  0.0  2.2  6.8
+3  5.6  9.2  7.4
+4  0.0  0.0  0.0
+'''
+
+# Fill null values with mean
+print data.fillna(mean(data))
+'''
+Output:
+    
+          0    1    2
+0  2.300000  3.3  8.0
+1  7.500000  4.9  9.8
+2  5.133333  2.2  6.8
+3  5.600000  9.2  7.4
+4  5.133333  4.9  8.0
+'''
+
+# Null values for specific column
+print data.fillna({0:2.5, 1:3.0, 2:5.5})
+'''
+Output:
+
+     0    1    2
+0  2.3  3.3  5.5
+1  7.5  3.0  9.8
+2  2.5  2.2  6.8
+3  5.6  9.2  7.4
+4  2.5  3.0  5.5
+'''
+</code></pre>
+</center>
+</div>
+
+<div id="5">
+<p><b>Reading and Writing files</b></p>
+<center>
+<pre><code class="language-python">
+# Reads csv file
+data = pd.read_csv('data.csv')
+
+# Prints top 5 rows
+print data.head()
+
+'''
+File Type     Reader
+
+CSV           read_csv
+JSON          read_json 
+MS Excel      read_excel
+SQL           read_sql
+HTML          read_html
+'''
+
+# Saves the dataframe to a csv file
+pd.DataFrame(data).to_csv('myfile.csv')      
+</code></pre>
+</center>
+</div>
+
+<br><br><br><br><br><br><br>
+
+</div>
+</body>
+</html>

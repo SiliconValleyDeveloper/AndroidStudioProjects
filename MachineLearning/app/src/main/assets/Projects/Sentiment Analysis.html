@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="../../prism.js"></script>
+	<style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; 
+}
+p{font-size:medium;}
+    </style>
+</head>
+<body>
+	
+<div class="container">
+
+
+<br>
+<center><h5>Sentiment Analysis</h5></center>
+
+<p><span style="font-size: medium;">Sentiment analysis is a method for identifying expression in a piece of text.</span></p>
+<span style="font-size: medium;">Here we are going to identify the sentiment of a text using textblob and categorize them into positive or negative.
+</span><br>
+
+
+<p><b>Python code:</b><p>
+<center>
+<pre><code class="language-python">
+# Import TextBlob
+from textblob import TextBlob
+
+text = "Python is a great tool"
+
+obj = TextBlob(text)
+
+# returns the sentiment of text,
+# value between -1.0 to 1.0
+sentiment = obj.sentiment.polarity
+
+print sentiment
+'''
+Output:
+0.8
+
++ve value indicates that the sentiment 
+is positive.
+'''
+</code></pre>
+</center>
+
+<p>This method can be used to track the reaction of people on a particular topic on social media by mining their posts(textual data).</p>
+
+<a href="https://textblob.readthedocs.io/en/dev/">TextBlob Documentation.</a>
+
+<br><br><br><br><br><br><br>
+
+</div>
+</body>
+</html>

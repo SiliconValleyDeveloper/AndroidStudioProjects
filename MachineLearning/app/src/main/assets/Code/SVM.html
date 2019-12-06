@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="../../prism.js"></script>
+	<style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+p{font-size:medium;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<br>
+<center><h5>SVM</h5></center>
+<p><span style="font-size: medium;"><strong>In this module we are creating our own dataset.</strong></span></p>
+<p><span style="font-size: medium;"><strong>Reference:
+<a href="http://scikit-learn.org/stable/auto_examples/svm/plot_svm_kernels.html">http://scikit-learn.org/stable/
+    auto_examples/svm/plot_svm_kernels.html</a> </strong></span></p>
+
+<p><b>Import required libraries</b></p>
+<center>
+<pre><code class="language-python">
+# For mathematical calculation
+import numpy as np
+
+# For plotting graphs
+import matplotlib.pyplot as plt
+
+# Import the sklearn for SVM
+from sklearn import svm
+
+# For creating datasets
+from sklearn.datasets import make_circles
+</code></pre>
+</center>
+
+
+<p><b>Create dataset</b></p>
+<center>
+<pre><code class="language-python">
+df, value = make_circles(n_samples=500,
+            noise=.05,factor=.5)
+</code></pre>
+</center>
+
+
+<p><b>Plot dataset</b></p>
+<center>
+<pre><code class="language-python">
+# Plot the dataset
+plt.scatter(df[:,0],df[:,1],c=value)
+plt.show()
+</code></pre>
+</center>
+
+<img src="SVM1.png">
+
+<p><b>Train and test the model.</b></p>
+<center>
+<pre><code class="language-python">
+# Calculate the higher dimension value
+x = df[:,0]
+y = df[:,1]
+z = x**2 + y**2
+
+kernals = ['linear','poly','rbf']
+training_set = np.c_[x,y]
+
+# Train and predict for each kernal
+for kernal in kernals:
+    clf=svm.SVC(kernel=kernal,gamma=2)
+
+    # Train the model
+    clf.fit(training_set,value)
+
+    # Test the model
+    prediction = clf.predict([[-0.4,-0.4]])
+
+    print prediction
+    '''
+    Output:
+    [0] - linear kernal
+    [1] - polynomial kernal
+    [1] - rbf kernal
+
+    '''
+
+    .
+    .
+    .
+</code></pre>
+</center>
+
+
+<p><b>Plot various kernals</b></p>
+<center>
+<pre><code class="language-python">
+
+    .
+    .
+    .
+
+    # plot the line, the points,
+    # and the nearest vectors to the plane
+    X = training_set
+    y = value
+    X0 = X[np.where(y == 0)]
+    X1 = X[np.where(y == 1)]
+    plt.figure()
+
+    x_min = X[:, 0].min()
+    x_max = X[:, 0].max()
+    y_min = X[:, 1].min()
+    y_max = X[:, 1].max()
+
+    XX, YY = np.mgrid[x_min:x_max:200j
+              , y_min:y_max:200j]
+
+    Z = clf.decision_function(np.c_[XX.ravel()
+                      , YY.ravel()])
+
+    # Put the result into a color plot
+    Z = Z.reshape(XX.shape)
+
+    plt.pcolormesh(XX, YY, Z > 0
+              , cmap=plt.cm.Paired)
+
+    plt.contour(XX, YY, Z, colors=['k', 'k', 'k'],
+            linestyles=['--', '-', '--'],
+            levels=[-.5, 0, .5])
+
+
+    plt.scatter(X0[:, 0], X0[:, 1], c='r',s=50)
+    plt.scatter(X1[:, 0], X1[:, 1], c='b',s=50)
+
+    title = ('SVC with {} kernal').format(kernal)
+    plt.title(title)
+    plt.show()
+</code></pre>
+</center>
+
+
+<img src="SVM2.png">
+<img src="SVM3.png">
+<img src="SVM4.png">
+<p><i>(See how rbf kernal clearly classifies the dataset)</i></p>
+<br><br><br><br><br><br><br><br>
+
+</div>
+</body>
+</html>

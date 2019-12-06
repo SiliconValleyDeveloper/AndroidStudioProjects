@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="../../prism.js"></script>
+	<style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; 
+}
+p{font-size:medium;}
+    </style>
+</head>
+<body>
+	
+<div class="container">
+
+
+<br>
+<center><h5>Web Scraping</h5></center>
+
+<p><span style="font-size: medium;">Web scraping is data scraping used for extracting data from websites.</span></p>
+<span style="font-size: medium;">
+Here we are going to scrape an html file and get the text for particular tag. The file contains some reviews of laptops and we are going to get the textual data.
+</span><br>
+<p><span style="font-size: medium;">We will be using BeautifulSoup.</span></font></p>
+
+<p><b>HTML file:</b><p>
+<center>
+<pre><code class="language-markup">
+
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>&lt;/head>
+&lt;body>
+
+&lt;div class="review">
+
+&lt;p>The laptop is best for students.&lt;/p>
+&lt;p>not happy with the delivery.&lt;/p>
+&lt;p>This is the best laptop.&lt;/p>
+&lt;p>Not very happy with the delivery.&lt;/p>
+&lt;p>It looks gorgeous but touch pad is not working.&lt;/p>
+&lt;p>product is not very efficient.&lt;/p>
+&lt;p>nice laptop.&lt;/p>
+
+&lt;/div>
+
+&lt;/body>
+&lt;/html>
+
+</code></pre>
+</center>
+
+<p><b>Python code:</b><p>
+<center>
+<pre><code class="language-python">
+# Import BeautifulSoup
+from bs4 import BeautifulSoup
+
+# Read the html file
+html_file = open('index.html', 'r')
+page = html_file.read() 
+
+# Create instance of BeautifulSoup to parse document
+soup = BeautifulSoup(page, 'html.parser')
+
+# Look for p tag
+reviews = soup.find_all('p')
+
+# Print each review
+for p in reviews:
+    print p.get_text()
+'''
+Output:
+The laptop is best for students.
+not happy with the delivery.
+This is the best laptop.
+Not very happy with the delivery.
+It looks gorgeous but touch pad is not working.
+product is not very efficient.
+nice laptop.
+'''
+</code></pre>
+</center>
+
+<p>We will use the reviews for sentiment analysis to check our customers reaction.</p>
+
+<p><b>Sentiment analysis</b></p>
+<center>
+<pre><code class="language-python">
+
+# Import TextBlob
+from textblob import TextBlob
+
+positive,negative = 0,0
+
+# Find sentiment of each review
+for p in reviews:
+    text = p.get_text()   
+    sentiment = TextBlob(text).sentiment.polarity
+    if(sentiment >= 0):
+        positive+=1
+    else:
+        negative+=1
+        
+print "Positive review :",positive       
+print "Negative review :",negative
+'''
+Output:
+Positive review : 4
+Negative review : 3
+'''
+</code></pre>
+</center>
+
+<p>This method can be used with twitter to check the reaction of people on a particular topic.</p>
+
+<a href="https://www.dataquest.io/blog/web-scraping-tutorial-python/">Best tutorial on BeautifulSoup</a>
+
+<br><br><br><br><br><br><br><br><br>
+
+</div>
+</body>
+</html>

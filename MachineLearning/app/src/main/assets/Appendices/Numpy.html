@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>    
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="../../prism.js"></script>
+	<style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; 
+}
+    </style>
+</head>
+<body>
+	
+<div class="container">
+<br>
+<center><h5>Numpy</h5></center>
+
+<li><a href="#1">Numpy ndarray</a></li>
+<li><a href="#2">Array operations</a></li>
+<li><a href="#3">Statistical methods</a></li>
+<li><a href="#4">Matrix class</a></li>
+
+<br>
+<div id="1">
+<p><b>Numpy ndarray</b></p>
+<center>
+<pre><code class="language-python">
+# Import numpy
+import numpy as np
+
+data = [[2, 6, 1, 3, 7],
+        [5, 10, 4, 9, 8]]
+        
+data = np.array(data)
+
+print data
+'''
+Output:
+
+[[2, 6, 1, 3, 7], [5, 10, 4, 9, 8]]
+'''
+
+print data.shape
+'''
+Output:
+
+(2, 5)
+'''
+
+# produce an array of all 0's
+print np.zeros((2,3))
+'''
+Output:
+
+[[ 0.  0.  0.]
+ [ 0.  0.  0.]]
+'''
+
+# produce an array of all 1's
+print np.ones((2,3))
+'''
+Output:
+
+[[ 1.  1.  1.]
+ [ 1.  1.  1.]]
+'''
+
+array = np.arange(10)
+print array
+'''
+Output:
+
+[0 1 2 3 4 5 6 7 8 9]
+'''
+
+print array[2:5]
+'''
+Output:
+
+[2 3 4]
+'''
+
+array[5:8] = 0
+print array
+'''
+Output:
+
+[0 1 2 3 4 0 0 0 8 9]
+'''
+</code></pre>
+</center>
+</div>
+
+
+<div id="2">
+<p><b>Array operations</b></p>
+  <center>
+<pre><code class="language-python">
+# 1. Arithmetic operations
+data = np.array([[5,6,7],
+                 [8,9,10]])
+
+print data + 5
+'''
+Output:
+
+[[10 11 12]
+ [13 14 15]]
+'''
+
+print data - 3
+'''
+Output:
+
+[[2 3 4]
+ [5 6 7]]
+'''
+
+print data * data
+'''
+Output:
+
+[[ 25  36  49]
+ [ 64  81 100]]
+'''
+
+# 2. Transposing  and swapping axis
+
+data = np.arange(16).reshape((4,4))
+print data
+'''
+Output:
+
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]]
+'''
+
+# Transpose of array
+print data.T
+'''
+Output:
+
+[[ 0  4  8 12]
+ [ 1  5  9 13]
+ [ 2  6 10 14]
+ [ 3  7 11 15]]
+'''
+
+x = np.random.randn(2,3)
+print x
+'''
+Output:
+
+[[ 0.37993325  0.60038379  0.18884729]
+ [ 1.23487005  0.07912221 -1.03242702]]
+'''
+</code></pre>
+</center> 
+</div>
+
+
+<div id="3">
+<p><b>Statistical Methods</b></p>
+<center>
+<pre><code class="language-python">
+# Random data
+data = np.random.randn(3,2)
+
+print data.mean()
+'''
+Output: 0.2428949
+'''
+
+print data.min()
+'''
+Output: -0.6057506
+'''
+
+print data.max()
+'''
+Output: 2.2677427
+'''
+</code></pre>
+</center>
+</div>
+
+<div id="4">
+<p><b>Matrix Class</b></p>
+<center>
+<pre><code class="language-python">
+X = np.random.randn(3,2)
+X = np.matrix(X)
+
+Y = np.random.randn(2,2)
+Y = np.matrix(Y)
+
+# Multiply the matrix
+print X * Y
+'''
+Output:
+
+[[-0.70717074  2.33580395]
+ [ 0.36777429 -1.75207365]
+ [ 0.06491743 -0.87368241]]
+'''
+</code></pre>
+</center>
+</div>
+
+<br><br><br><br><br><br><br>
+</div>
+</body>
+</html>

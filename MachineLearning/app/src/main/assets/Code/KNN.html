@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../../prism.css" rel="stylesheet" />
+      <link type="text/css" rel="stylesheet" href="../../materialize.css"  media="screen,projection"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script src="../../prism.js"></script>
+	<style type="text/css">
+    img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+p{font-size:medium;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+
+<br>
+<center><h5>KNN</h5></center>
+<p><span style="font-size: medium;"><strong>Features of dataset:</strong></span></p>
+<li><span style="font-size: medium;"><strong>sepal_length - sepal length in cm </strong></span></li>
+<li><span style="font-size: medium;"><strong>sepal_width - sepal width in cm </strong></span><br></li>
+<li><span style="font-size: medium;"><strong>petal_length - petal length in cm </strong></span></font></li>
+<li><span style="font-size: medium;"><strong>petal_width - petal width in cm </strong></span></font></li><br>
+<li><span style="font-size: medium;"><strong>Class:<br>
+1 - Iris Setosa <br>
+2 - Iris Versicolour<br>
+3 - Iris Virginica<br>
+</strong></span></font></li>
+<p><span style="font-size: medium;">Given the features of a flower we need to predict its class.&nbsp;</span>
+<br>
+
+<p><b>Import required libraries</b></p>
+<center>
+<pre><code class="language-python">
+# For handling datasets
+import pandas as pd
+
+# For plotting graphs
+from matplotlib import pyplot as plt
+
+# Import the sklearn library for KNN
+from sklearn.neighbors import KNeighborsClassifier
+</code></pre>
+</center>
+
+
+<p><b>Import dataset</b></p>
+<center>
+<pre><code class="language-python">
+# Import the csv file
+df = pd.read_csv('data.csv')
+
+print df.head()
+'''
+Output:
+   sepal_length  sepal_width  petal_length
+0           5.1          3.5           1.4
+1           4.9          3.0           1.4
+2           4.7          3.2           1.3
+3           4.6          3.1           1.5
+4           5.0          3.6           1.4
+
+petal_width  class
+        0.2      1
+        0.2      1
+        0.2      1
+        0.2      1
+        0.2      1
+'''
+</code></pre>
+</center>
+
+
+<p><b>Prepare data for training</b></p>
+<center>
+<pre><code class="language-python">
+# Prepare the training set
+X = df.loc[:,'sepal_length':'petal_width']
+Y = df.loc[:,'class']
+</code></pre>
+</center>
+
+
+<p><b>Train the model</b></p>
+<center>
+<pre><code class="language-python">
+knn = KNeighborsClassifier()
+
+# Train the model
+knn.fit(X,Y)
+</code></pre>
+</center>
+
+
+<p><b>Test the model</b></p>
+<center>
+<pre><code class="language-python">
+# Prepare the test data
+X_test = [[4.9,7.0,1.2,0.2],
+         [6.0,2.9,4.5,1.5],
+         [6.1,2.6,5.6,1.2]]
+
+# Test the model(returns the class)
+prediction = knn.predict(X_test)
+
+print prediction
+'''
+Output:
+[1 2 3]
+'''
+</code></pre>
+</center>
+
+
+<p><b>Plotting</b></p>
+<center>
+<pre><code class="language-python">
+# Plot the relation of each
+# feature with each class
+plt.xlabel('Feature')
+plt.ylabel('Class')
+
+X = df.loc[:,'sepal_length']
+Y = df.loc[:,'class']
+plt.scatter(X, Y,color='blue'
+        ,label='sepal_length')
+
+X = df.loc[:,'sepal_width']
+Y = df.loc[:,'class']
+plt.scatter(X, Y,color='green'
+        ,label='sepal_width')
+
+X = df.loc[:,'petal_length']
+Y = df.loc[:,'class']
+plt.scatter(X, Y,color='red'
+        ,label='petal_length')
+
+X = df.loc[:,'petal_width']
+Y = df.loc[:,'class']
+plt.scatter(X, Y,color='black'
+        ,label='petal_width')
+
+plt.legend(loc=4, prop={'size': 5})
+plt.show()
+</code></pre>
+</center>
+
+<img src="kn.png">
+
+<br><br><br><br><br><br><br>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+#include &lt stdio.h&gt <br>
+#define SIZE 50<br><br>
+ 
+struct student {<br>
+   char name[30];<br>
+   int rollno;<br>
+   int sub[3];<br>
+   int total;<br>
+};<br><br>
+
+void main()<br> 
+{<br>
+   int i, j, max, count, tot=0, n, a[SIZE], ni;<br>
+   struct student st[SIZE];<br><br>
+
+   printf("Enter how many students: ");<br>
+   scanf("%d", &n);<br><br>
+
+<font color="#888888">/* For loop to read data of students*/</font><br>
+   for (i = 0; i &lt n; i++) {<br>
+      &nbsp tot=0;<br>
+      &nbsp printf("\nEnter name and roll number for student %d : ", i+1);<br>
+      &nbsp scanf("%s", &st[i].name);<br>
+      &nbsp scanf("%d", &st[i].rollno);<br>
+      &nbsp for (j = 0; j &lt = 2; j++) {<br>
+      &nbsp &nbsp printf("Enter marks of student %d for subject %d : ", i+1, j+1);<br>
+      &nbsp &nbsp scanf("%d", &st[i].sub[j]);<br>
+      &nbsp &nbsp tot = tot+st[i].sub[j];<br>
+   &nbsp }<br>
+   &nbsp st[i].total = tot;<br>
+   }<br><br>
+   
+   printf("\n\n\n");<br><br>
+
+   for(i=0; i &lt n; i++){<br>
+   &nbsp printf("Student %d Name : %s \n",i+1,st[i].name);<br>
+   &nbsp printf("Student %d Rollno: %d \n",i+1,st[i].rollno);<br>
+   &nbsp for (j = 0; j &lt= 2; j++) {<br>
+   &nbsp &nbsp printf("marks of subject %d : %d \n", j+1, st[i].sub[j]);<br>
+   &nbsp }<br>
+   &nbsp printf("Total marks : %d \n\n",st[i].total);<br>
+   }<br>
+}

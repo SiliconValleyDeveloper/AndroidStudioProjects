@@ -1,0 +1,31 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+  &nbsp char ch;<br><br>
+
+  &nbsp printf("Input a character\n");<br>
+  &nbsp scanf("%c", &ch);<br><br>
+
+  &nbsp switch(ch)<br>
+  &nbsp {<br>
+    &nbsp case 'a':<br>
+    &nbsp case 'A':<br>
+    &nbsp case 'e':<br>
+    &nbsp case 'E':<br>
+    &nbsp case 'i':<br>
+    &nbsp case 'I':<br>
+    &nbsp case 'o':<br>
+    &nbsp case 'O':<br>
+    &nbsp case 'u':<br>
+    &nbsp case 'U':<br>
+    &nbsp printf("%c is a vowel.\n", ch);<br>
+    &nbsp break;<br>
+    &nbsp <font color="#ff00ff">/*if ch matches any case then it prints & breaks the execution */</font><br>
+    &nbsp default:<br>
+    &nbsp printf("%c is not a vowel.\n", ch);<br>
+    &nbsp<font color="#ff00ff">/*if the ch is not from the cases then prints ch is not a vowel */</font><br>
+  &nbsp }<br>
+
+  &nbsp return 0;<br>
+}

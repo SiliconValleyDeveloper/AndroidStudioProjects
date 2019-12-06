@@ -1,0 +1,30 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+  &nbsp int array[100], search, c, n;<br><br>
+ 
+  &nbsp printf("Enter the number of elements in array\n");<br>
+  &nbsp scanf("%d",&n);<br><br>
+ 
+  &nbsp printf("Enter %d integer(s)\n", n);<br><br>
+ 
+  &nbsp for (c = 0; c < n; c++)<br>
+     &nbsp scanf("%d", &array[c]);<br><br>
+ 
+  &nbsp printf("Enter the number to search\n");<br>
+  &nbsp scanf("%d", &search);<br><br>
+ 
+ <font color="#888888">/* We keep on comparing each element with the element to search until the desired element is found or list ends */</font><br>
+  &nbsp for (c = 0; c < n; c++)<br>
+   &nbsp {<br>
+     &nbsp if (array[c] == search){ <font color="#888888"><br>/* if required element found*/</font><br>
+        &nbsp &nbsp printf("%d is present at location %d.\n", search, c+1);<br>
+        &nbsp &nbsp break;<br>
+      &nbsp }<br>
+   &nbsp }<br>
+  &nbsp if (c == n)<br>
+     &nbsp printf("%d is not present in array.\n", search);<br><br>
+ 
+  &nbsp return 0;<br>
+}

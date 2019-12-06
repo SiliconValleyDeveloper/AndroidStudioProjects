@@ -1,0 +1,27 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int number, sum = 0, temp, remainder;<br><br>
+ 
+   &nbsp printf("Enter an integer\n");<br>
+   &nbsp scanf("%d",&number);<br><br>
+ 
+   &nbsp temp = number;<br><br>
+ 
+ <font color="#888888">/*if sum of cubes of each digit in a number is same as the number then it is called as armstrong no.*/</font><br>
+   &nbsp while( temp != 0 )<br>
+   &nbsp {<br>
+      &nbsp remainder = temp%10;<br>
+      &nbsp sum = sum + remainder*remainder*remainder;<br>
+      &nbsp temp = temp/10;<br>
+      <font color="#888888">/*taking unit place digits cube and adding into sum*/</font><br>
+   &nbsp }<br><br>
+ 
+   &nbsp if ( number == sum )<br>
+      &nbsp printf("Entered number is an armstrong number.\n");<br>
+   &nbsp else<br>
+      &nbsp printf("Entered number is not an armstrong number.\n");<br><br>
+ 
+   &nbsp return 0;<br>
+}

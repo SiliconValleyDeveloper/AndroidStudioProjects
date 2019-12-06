@@ -1,0 +1,25 @@
+#include &lt stdio.h &gt <br><br>
+ 
+int string_ln(char*);<br><br>
+ 
+void main()<br> 
+{<br>
+   char str[20];<br>
+   int length;<br><br>
+   
+   printf("\nEnter any string : ");<br>
+   gets(str);<br><br>
+   
+   length = string_ln(str);<br>
+   printf("The length of the given string %s is : %d", str, length);<br>
+}<br><br>
+ 
+int string_ln(char*p) <font color="#888888">/*p=&str[0]*/</font><br>
+{<br>
+   int count = 0;<br>
+   while (*p != '\0') {<br>
+      count++;<br>
+      p++;<br>
+   }<br>
+   return count;<br>
+}

@@ -1,0 +1,60 @@
+Array is a collection of similar data type items.  Arrays are used to store group of data of same datatype.
+Arrays can of any datatype. Arrays must have constant size. Continuous memory locations are used to store array. Array index always starts with 0.<br/><br/>
+
+<b>Example for Arrays:</b><br/>
+int a[5];       // integer array<br/>
+char a[5];   // character(string) array <br/><br/>
+
+<b>Types of Arrays:<br/></b>
+# One Dimensional Array<br/>
+# Two Dimensional Array<br/>
+# Multi Dimensional Array <br/><br/>
+
+<b><font color="#D52E0A" >One Dimensional Array</font></b><br/><br/>
+
+<b>Array declaration </b><br/>
+int age [5];<br/><br/>
+<b>Array initialization </b><br/>
+int age[5]={0, 1, 2, 3, 4, 5};<br/><br/>
+<b>Accessing array </b><br/>
+age[0]; /*0_is_accessed*/<br/>
+age[1]; /*1_is_accessed*/<br/>
+age[2]; /*2_is_accessed*/<br/><br/>
+
+<b><font color="#D52E0A">Two Dimensional Array</font></b><br/><br/>
+
+Two dimensional array is combination of rows n columns.<br/>
+<b>Array declaration</b><br/>
+int arr[2][2];<br/><br/>
+<b>Array initialization</b><br/>
+int arr[2][2] = {{1,2}, {3,4}};<br/><br/>
+<b>Accessing array</b><br/>
+arr [0][0] = 1; <br/>
+arr [0][1] = 2;<br/>
+arr [1][0] = 3;<br/>
+arr [1][1] = 4;<br/><br/>
+
+<b><font color="#D52E0A  ">Multi Dimensional Array</font></b><br/><br/>
+C programming language allows programmer to create arrays of arrays known as multidimensional arrays.<br/>
+For example:<br/>
+float a[2][4][3];<br/><br/>
+
+<b><font color="#D52E0A  "> Passing Array To Function</font></b><br/><br/>
+In C we can pass entire Arrays to functions as an argument.<br/>
+
+For eg.<br/>
+#include &lt;stdio.h><br/>
+void display(int a)<br/>
+{ <br/>
+&nbsp int i;<br/>
+&nbsp for(i=0;i &lt 4;i++){<br/>
+&nbsp &nbsp printf("%d",a[i]);<br/>
+&nbsp }<br/>
+}<br/>
+int main(){<br/>
+&nbsp int c[]={1,2,3,4};<br/>
+&nbsp display(c);  <br/>&nbsp //Passing array to display.<br/>
+&nbsp return 0;<br/>
+}<br/>
+
+<b>See Programs section of this app for example of Arrays</b>

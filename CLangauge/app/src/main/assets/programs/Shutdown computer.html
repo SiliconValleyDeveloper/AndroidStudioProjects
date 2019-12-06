@@ -1,0 +1,17 @@
+/* for windows 7 only */<br>
+#include &lt stdio.h &gt<br>
+#include &lt stdlib.h &gt<br><br>
+ 
+&nbsp main()<br>
+{<br>
+   &nbsp char ch;<br><br>
+ 
+   &nbsp printf("Do you want to shutdown your computer now (y/n)\n");<br>
+   &nbsp scanf("%c",&ch);<br><br>
+ 
+   &nbsp if (ch == 'y' || ch == 'Y')<br>
+      &nbsp system("C:\\WINDOWS\\System32\\shutdown /s");<br>
+      &nbsp <font color="#888888">/*shutdown command*/</font><br><br>
+ 
+   &nbsp return 0;<br>
+}

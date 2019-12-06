@@ -1,0 +1,50 @@
+#include &lt stdio.h &gt<br><br>
+ 
+long factorial(int);<br>
+long find_ncr(int, int);<br>
+long find_npr(int, int);<br><br>
+ 
+main()<br>
+{<br>
+   &nbsp int n, r;<br>
+   &nbsp long ncr, npr;<br><br>
+ 
+   &nbsp printf("Enter the value of n and r\n");<br>
+   &nbsp scanf("%d%d",&n,&r);<br><br>
+ 
+   &nbsp ncr = find_ncr(n, r);<br>
+   &nbsp npr = find_npr(n, r);<br><br>
+ 
+   &nbsp printf("%dC%d = %ld\n", n, r, ncr);<br>
+   &nbsp printf("%dP%d = %ld\n", n, r, npr);<br><br>
+ 
+   &nbsp return 0;<br>
+}<br><br>
+ 
+long find_ncr(int n, int r)<br>
+{<br>
+   &nbsp long result;<br><br>
+ 
+   &nbsp result = factorial(n)/(factorial(r)*factorial(n-r));<br><br>
+ 
+   &nbsp return result;<br>
+}<br><br>
+ 
+long find_npr(int n, int r)<br>
+{<br>
+   &nbsp long result;<br><br>
+ 
+   &nbsp result = factorial(n)/factorial(n-r);<br><br>
+ 
+   &nbsp return result;<br>
+} <br><br>
+ 
+  long factorial(int n)<br>
+{<br>
+   &nbsp int c;<br>
+   &nbsp long result = 1;<br>
+ 
+  &nbsp for( c = 1 ; c &lt = n ; c++ )<br>
+      &nbsp result = result*c;<br>
+      &nbsp return ( result );<br>
+}

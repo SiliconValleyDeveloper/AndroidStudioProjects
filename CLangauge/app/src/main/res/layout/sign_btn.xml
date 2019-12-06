@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtNewUserName"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:textColor="@color/black_overlay"
+            android:textColorHint="@color/grey"
+            android:textSize="24sp"
+            android:fontFamily="@font/ralewayregular"
+            app:met_baseColor="@color/grey"
+            app:met_singleLineEllipsis="true"
+
+
+            />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtNewPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:fontFamily="@font/ralewayregular"
+            android:textStyle="bold"
+            android:inputType="textPassword"
+            android:textColor="@color/black_overlay"
+            android:textColorHint="@color/grey"
+            android:textSize="24sp"
+            app:met_baseColor="@color/grey"
+            app:met_singleLineEllipsis="true"
+
+
+            />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtNewEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:fontFamily="@font/ralewayregular"
+            android:textStyle="bold"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black_overlay"
+            android:textColorHint="@color/grey"
+            android:textSize="24sp"
+            app:met_baseColor="@color/grey"
+            app:met_singleLineEllipsis="true"
+
+
+            />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,21 @@
+#include &lt stdio.h &gt<br>
+#include &lt string.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp char a[100], b[100];<br><br>
+ 
+   &nbsp printf("Enter the string to check if it is a palindrome\n");<br>
+   &nbsp gets(a);<br><br>
+ 
+   &nbsp strcpy(b,a);<br>
+   &nbsp strrev(b);<br>
+   <font color="#888888">/*reversing given string and comparing <br>if reverse and given are same then palindrome*/</font><br><br>
+ 
+   &nbsp if( strcmp(a,b) == 0 )<br>
+      &nbsp printf("Entered string is a palindrome.\n");<br>
+   &nbsp else<br>
+      &nbsp printf("Entered string is not a palindrome.\n");<br><br>
+ 
+   &nbsp return 0;<br>
+}

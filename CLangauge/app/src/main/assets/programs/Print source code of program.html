@@ -1,0 +1,20 @@
+#include &lt stdio.h &gt <br><br>
+ 
+int main()<br> 
+{<br>
+   FILE *fp;<br>
+   char ch;<br><br>
+ 
+   fp = fopen(__FILE__, "r");<br><br>
+ 
+   do {<br>
+      ch = getc(fp);<br>
+      putchar(ch);<br>
+   } while (ch != EOF);<br><br>
+ 
+   fclose(fp);<br>
+   return 0;<br>
+}
+
+
+

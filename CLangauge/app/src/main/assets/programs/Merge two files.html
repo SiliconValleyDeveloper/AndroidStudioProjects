@@ -1,0 +1,59 @@
+#include &lt stdio.h &gt<br>
+#include &lt stdlib.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp FILE *fs1, *fs2, *ft;<br><br>
+ 
+   &nbsp char ch, file1[20], file2[20], file3[20];<br><br>
+ 
+   &nbsp printf("Enter name of first file\n");<br>
+   &nbsp gets(file1);<br><br>
+ 
+   &nbsp printf("Enter name of second file\n");<br>
+   &nbsp gets(file2);<br><br>
+ 
+   &nbsp printf("Enter name of file which will store contents of two files\n");<br>
+  &nbsp gets(file3);<br><br>
+ 
+   &nbsp fs1 = fopen(file1,"r");<br>
+   &nbsp fs2 = fopen(file2,"r");<br><br>
+ 
+ <font color="#888888">/*if file not found then exit*/</font><br>
+   &nbsp if( fs1 == NULL || fs2 == NULL )<br>
+   {<br>
+      &nbsp perror("Error ");<br>
+      &nbsp printf("Press any key to exit...\n");<br>
+      &nbsp getch();<br>
+      &nbsp exit(EXIT_FAILURE);<br>
+   }<br><br>
+ 
+
+   ft = fopen(file3,"w");<br>
+   <font color="#888888">/* Opening file in write mode*/</font><br><br>
+ 
+ <font color="#888888">/*if file not found then exit*/</font><br>
+   if( ft == NULL )<br>
+   {<br>
+      perror("Error ");<br>
+      printf("Press any key to exit...\n");<br>
+      exit(EXIT_FAILURE);<br>
+   }<br><br>
+ 
+   while( ( ch = fgetc(fs1) ) != EOF )<br>
+      fputc(ch,ft);<br>
+      <font color="#888888">/* appending cotents of file1 to resultant file*/</font><br>
+ <br>
+   while( ( ch = fgetc(fs2) ) != EOF )<br>
+      fputc(ch,ft);<br>
+      <font color="#888888">/* appending cotents of file2 to resultant file*/</font><br><br>
+ 
+   printf("Two files were merged into %s file successfully.\n",file3);<br><br>
+ 
+ <font color="#888888">/* closing all file pointers */</font><br>
+   fclose(fs1);<br>
+   fclose(fs2);<br>
+   fclose(ft);<br><br>
+ 
+   return 0;<br>
+}

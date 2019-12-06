@@ -1,0 +1,32 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp int array[100], position, c, n;<br><br>
+
+   &nbsp printf("Enter number of elements in array\n");<br>
+   &nbsp scanf("%d", &n);<br><br>
+
+   &nbsp printf("Enter %d elements\n", n);<br><br>
+
+   &nbsp for ( c = 0 ; c < n ; c++ )<br>
+      &nbsp scanf("%d", &array[c]);<br><br>
+
+   &nbsp printf("Enter the location where you wish to delete element\n");<br>
+   &nbsp scanf("%d", &position);<br><br>
+
+   &nbsp if ( position >= n+1 )<br>
+      &nbsp printf("Deletion not possible.\n");<br>
+   &nbsp else<br>
+   &nbsp {<br>
+     &nbsp for ( c = position - 1 ; c < n - 1 ; c++ )<br>
+         &nbsp array[c] = array[c+1];<br>
+        <font color="#ff00ff">/* from given position shifting all elements by 1 position down*/</font><br><br>
+      &nbsp printf("Resultant array is\n");<br><br>
+
+      &nbsp for( c = 0 ; c < n - 1 ; c++ )<br>
+         &nbsp printf("%d\n", array[c]);<br>
+   &nbsp }<br><br>
+
+   &nbsp return 0;<br>
+}

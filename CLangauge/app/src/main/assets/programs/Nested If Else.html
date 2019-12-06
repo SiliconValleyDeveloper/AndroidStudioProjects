@@ -1,0 +1,30 @@
+#include &lt stdio.h &gt <br>
+void main()<br>
+{<br>
+&nbsp int marks;<br>
+&nbsp printf("Enter your marks : ");<br>
+&nbsp scanf("%d",&marks);<br><br>
+&nbsp if(marks>100)<br>
+<font color="#888888">/*marks greater than 100*/</font><br>
+&nbsp &nbsp printf("Not valid marks");<br><br>
+
+&nbsp else if(marks>=80)<br>
+<font color="#888888">/*marks between 80 & 99*/</font><br>
+&nbsp &nbsp printf("your grade is A");<br><br>
+
+&nbsp else if(marks >=70)<br>
+<font color="#888888">/*marks between 70 & 79*/</font><br>
+&nbsp &nbsp printf("your grade is B");<br><br>
+
+&nbsp else if(marks>=50)<br>
+<font color="#888888">/*marks between 50 & 69*/</font><br>
+&nbsp &nbsp printf("your grade is C");<br><br>
+
+&nbsp else if(marks>=35)<br>
+<font color="#888888">/*marks between 35 & 49*/</font><br>
+&nbsp &nbsp printf("your grade is D");<br><br>
+
+&nbsp else<br>
+<font color="#888888">/*marks less than 35*/</font><br>
+&nbsp &nbsp printf("your grade is E");<br>
+}

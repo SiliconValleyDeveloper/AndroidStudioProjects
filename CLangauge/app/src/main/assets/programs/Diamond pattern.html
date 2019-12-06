@@ -1,0 +1,46 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+  &nbsp int n, c, k, space = 1;<br><br>
+
+  &nbsp printf("Enter number of rows\n");<br>
+  &nbsp scanf("%d", &n);<br><br>
+
+  &nbsp space = n - 1;<br>
+  <font color="#ff00ff">/*here we will divide diamond in 2 parts upper and lower */</font><br><br>
+
+ <font color="#ff00ff">/*printing upper part*/</font><br>
+  &nbsp for (k = 1; k &lt= n; k++)<br>
+  &nbsp {<br>
+    &nbsp for (c = 1; c &lt= space; c++)<br>
+      &nbsp &nbsp printf(" ");<br>
+      &nbsp &nbsp <font color="#ff00ff">/*leaving space before printing * */</font><br>
+    &nbsp space--;<br><br>
+
+    &nbsp for (c = 1; c &lt= 2*k-1; c++)<br>
+      &nbsp &nbsp printf("*");<br>
+      &nbsp &nbsp <font color="#ff00ff">/*printing * by calculating row no */</font><br><br>
+
+    &nbsp printf("\n");<br>
+&nbsp <font color="#ff00ff">/*moving to new line after printing one */</font><br><br>
+  &nbsp }<br><br>
+
+  &nbsp space = 1;<br><br>
+
+<font color="#ff00ff">/*Printing lower part */</font><br>
+  &nbsp for (k = 1; k &lt= n - 1; k++)<br>
+  &nbsp {<br>
+    &nbsp for (c = 1; c &lt= space; c++)<br>
+      &nbsp &nbsp printf(" ");<br><br>
+
+    &nbsp space++;<br><br>
+
+    &nbsp for (c = 1 ; c &lt= 2*(n-k)-1; c++)<br>
+      &nbsp &nbsp printf("*");<br><br>
+
+    &nbsp printf("\n");<br>
+  &nbsp }<br><br>
+
+  &nbsp return 0;<br>
+}

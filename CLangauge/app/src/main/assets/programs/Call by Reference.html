@@ -1,0 +1,16 @@
+#include  &lt; stdio.h &gt; <br><br>
+
+void call_by_reference(int *y) {<br>
+	printf("Inside call_by_reference y = %d before adding 10.\n", *y);<br>
+	(*y) += 10;<br>
+	printf("Inside call_by_reference y = %d after adding 10.\n", *y);<br>
+}<br><br>
+
+int main() {<br>
+	int b=10;<br><br>
+
+	printf("b = %d before function call_by_reference.\n", b);<br>
+	call_by_reference(&b);<br>
+	printf("b = %d after function call_by_reference.\n", b);<br><br>
+	return 0;<br>
+}<br>

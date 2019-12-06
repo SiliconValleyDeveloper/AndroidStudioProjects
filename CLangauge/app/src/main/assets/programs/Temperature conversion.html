@@ -1,0 +1,36 @@
+#include &lt stdio.h &gt <br>
+<br>
+void main()<br>
+{<br>
+int from , to;<br>
+float value;<br><br>
+printf("Temperature Conversion\n");<br>
+printf("Enter no of Unit to covert from : \n 1.celcius\n 2. Farenheit\n 3. Kelvin");<br>
+scanf("%d",&from);<br><br>
+
+printf("Enter no of Unit to covert to : \n 1.celcius\n 2. Farenheit\n 3. Kelvin");<br>
+scanf("%d",&to);<br><br>
+
+printf("Enter The value to convert: ");<br>
+scanf("%f",&value);<br><br>
+<font color="#888888">/*converting given value from specified unit to Kelvin*/</font><br>
+switch(from) {<br>
+    &nbsp case 1:<br>
+    &nbsp value= value + 273.15; break;<br>
+    &nbsp case 2:<br>
+    &nbsp value= (value+459.67)*5/9; break;<br>
+    &nbsp case 3: break;<br>
+    &nbsp default: break;<br>
+    &nbsp }<br><br>
+<font color="#888888">/*converting value from Kelvin to specified unit*/</font><br>
+    switch(to) {<br>
+    &nbsp case 1:<br>
+    &nbsp value= value-273.15; break;<br>
+    &nbsp case 2:<br>
+    &nbsp value= value*9/5-459.67; break;<br>
+    &nbsp case 3: break;<br>
+    &nbsp default: break;<br>
+    &nbsp }<br><br>
+
+printf("Converted Value : %f", value);<br>
+}

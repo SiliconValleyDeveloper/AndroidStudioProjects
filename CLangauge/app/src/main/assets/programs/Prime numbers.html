@@ -1,0 +1,33 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int check_prime(int);<br><br>
+ 
+main()<br>
+{<br>
+   &nbsp int i, n, result;<br><br>
+ 
+   &nbsp printf("Enter the number of prime numbers required\n");<br>
+   &nbsp scanf("%d",&n);<br>
+   &nbsp printf("First %d prime numbers are :\n", n);<br><br>
+ 
+   &nbsp for(i=0; i &lt n; i++){<br>
+   &nbsp result = check_prime(i);<br>
+   &nbsp <font color="#888888">/*if i is prime then it will return 1*/</font><br><br>
+  &nbsp if ( result == 1 )<br>
+      &nbsp &nbsp printf("%d \n", i);<br>
+  &nbsp }<br>
+   &nbsp return 0;<br>
+}<br><br>
+ 
+int check_prime(int a)<br>
+{<br>
+   &nbsp int c;<br>
+   &nbsp <font color="#888888">/*starting from 2, if no is completely divisible by any no then it is not prime*/</font><br>
+   &nbsp for ( c = 2 ; c &lt= a - 1 ; c++ )<br>
+   &nbsp { <br>
+      &nbsp if ( a%c == 0 )<br>
+        &nbsp &nbsp return 0;<br>
+   &nbsp }<br>
+   &nbsp if ( c == a )<br>
+      &nbsp &nbsp return 1;<br>
+}

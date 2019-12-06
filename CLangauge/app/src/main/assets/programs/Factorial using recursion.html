@@ -1,0 +1,31 @@
+#include &lt stdio.h &gt<br><br>
+ 
+long factorial(int);<br><br>
+ 
+int main()<br>
+{<br>
+  &nbsp int n;<br>
+  &nbsp long f;<br><br>
+ 
+  &nbsp printf("Enter an integer to find factorial\n");<br>
+  &nbsp scanf("%d", &n); <br><br>
+ 
+  &nbsp if (n < 0)<br>
+    &nbsp printf("Negative integers are not allowed.\n");<br>
+  &nbsp else<br>
+  &nbsp {<br>
+    &nbsp f = factorial(n);<br>
+    &nbsp printf("%d! = %ld\n", n, f);<br>
+  &nbsp }<br><br>
+ 
+  &nbsp return 0;<br>
+}<br><br>
+ 
+long factorial(int n)<br>
+{<br>
+  &nbsp if (n == 0)<br>
+    &nbsp return 1;<br>
+  &nbsp else<br>
+    &nbsp return(n * factorial(n-1));<br>
+    &nbsp <font color="#888888">/*recursive call to factorial function*/</font><br>
+}

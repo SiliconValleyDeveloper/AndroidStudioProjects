@@ -1,0 +1,32 @@
+#include  &lt; stdio.h &gt; <br>
+#include  &lt; conio.h &gt; <br><br>
+
+void main()<br> {<br><br>
+   struct student {<br>
+      char name[30], sex[1];<br>
+      int rollno;<br>
+      float percentage;<br>
+   };<br>
+
+   union details {<br>
+      struct student st;<br>
+   };<br>
+   union details set;<br><br>
+
+   printf("Enter details:");<br>
+
+   printf("\nEnter name : ");<br>
+   scanf("%s", set.st.name);<br>
+   printf("Enter roll no : ");<br>
+   scanf("%d", &set.st.rollno);<br>
+   printf("Enter sex : ");<br>
+   scanf("%s", &set.st.sex);<br>
+   printf("Enter percentage :");<br>
+   scanf("%f", &set.st.percentage);<br><br>
+
+   printf("\nThe student details are : \n");<br>
+   printf("\name : %s", set.st.name);<br>
+   printf("\nRollno : %d", set.st.rollno);<br>
+   printf("\nSex : %s", set.st.sex);<br>
+   printf("\nPercentage : %f", set.st.percentage);<br>
+}<br>

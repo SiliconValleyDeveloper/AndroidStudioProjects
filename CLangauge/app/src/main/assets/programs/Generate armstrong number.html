@@ -1,0 +1,32 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int r;<br>
+   &nbsp long number = 0, c, sum = 0, temp;<br><br>
+ 
+   &nbsp printf("Enter an integer upto which you want to find armstrong numbers\n");<br>
+   &nbsp scanf("%ld",&number);<br><br>
+ 
+   &nbsp printf("Following armstrong numbers are found from 1 to %ld\n",number);<br><br>
+
+   <font color="#888888">/*if sum of cubes of each digit in a number is same as the number then it is called as armstrong no.*/</font><br>
+
+   &nbsp for( c = 1 ; c &lt = number ; c++ )<br>
+   &nbsp {<br>
+      &nbsp temp = c;<br>
+      &nbsp while( temp != 0 )<br>
+      &nbsp {<br>
+         &nbsp r = temp%10;<br>
+         &nbsp sum = sum + r*r*r;<br>
+         &nbsp temp = temp/10;<br>
+         <font color="#888888">/*taking unit place digits cube and adding into sum*/</font><br>
+      &nbsp }<br>
+      &nbsp if ( c == sum )<br>
+         &nbsp printf("%ld\n", c);<br>
+<font color="#888888">/*If no is Armstrong no then print*/</font><br>
+     &nbsp  sum = 0;<br>
+   &nbsp }<br><br>
+ 
+   &nbsp return 0;<br>
+}

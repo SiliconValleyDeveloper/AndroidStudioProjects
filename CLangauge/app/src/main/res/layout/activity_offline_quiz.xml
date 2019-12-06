@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".offline_quiz">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+
+        android:layout_height="?android:attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+
+
+        />
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/first_category"
+                android:scaleType="fitXY"
+                android:src="@drawable/b7"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:background="#4F0e0d0e"
+                android:textStyle="bold"
+                android:text="SET 1"
+                android:fontFamily="@font/ralewaysemibold"
+
+                android:textColor="@android:color/white"
+                android:textSize="24dp"/>
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/b7"
+            android:id="@+id/second_category"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="#4F0e0d0e"
+            android:textStyle="bold"
+            android:text="SET 2"
+            android:fontFamily="@font/ralewaysemibold"
+
+            android:textColor="@android:color/white"
+            android:textSize="24dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/third_category"
+            android:src="@drawable/b7"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="#4F0e0d0e"
+            android:fontFamily="@font/ralewaysemibold"
+
+            android:textStyle="bold"
+            android:text="SET 3"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="160dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fourth_category"
+            android:src="@drawable/b7"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="#4F0e0d0e"
+
+            android:text="SET 4"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="160dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fiveth_category"
+            android:src="@drawable/b7"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="#4F0e0d0e"
+
+            android:fontFamily="@font/ralewaysemibold"
+
+            android:text="SET 5"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="160dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/sixth_category"
+            android:src="@drawable/b7"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="#4F0e0d0e"
+            android:fontFamily="@font/ralewaysemibold"
+
+
+            android:text="SET 6"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/seven_category"
+            android:src="@drawable/b7"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="#4F0e0d0e"
+            android:fontFamily="@font/ralewaysemibold"
+
+            android:text="SET 7"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="160dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/eight_category"
+            android:src="@drawable/b7"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:background="#4F0e0d0e"
+            android:fontFamily="@font/ralewaysemibold"
+
+            android:text="SET 8"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"/>
+    </RelativeLayout>
+ <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-2783298230694780/4729676179">
+        </com.google.android.gms.ads.AdView>
+
+</LinearLayout>
+
+
+
+
+
+
+</ScrollView>

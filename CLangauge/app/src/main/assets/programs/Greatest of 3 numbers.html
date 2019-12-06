@@ -1,0 +1,17 @@
+#include &lt stdio.h &gt <br><br>
+void main()<br>
+{<br>
+ int a,b,c;<br><br>
+
+ printf("enter any three numbers:\n");<br>
+ scanf("%d%d%d",&a, &b, &c);<br>
+ if(a>b&&a>c)<br>
+ <font color="#888888">/*if a is greater than b & c*/</font><br>
+ printf("greatest number is: %d",a);<br>
+ else if(b>c)<br>
+ <font color="#888888">/*if not a then if b is greater than c*/</font><br>
+ printf("greatest number is: %d",b);<br>
+ else<br>
+ <font color="#888888">/*if a & b are not greater*/</font><br>
+ printf("greatest number is: %d",c);<br>
+}

@@ -1,0 +1,21 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp int first, second, *p, *q, sum;<br><br>
+
+   &nbsp printf("Enter two integers to add\n");<br>
+   &nbsp scanf("%d%d", &first, &second);<br><br>
+
+   &nbsp p = &first;<br>
+   &nbsp <font color="#ff00ff">/*storing address of first in p*/</font><br>
+   &nbsp q = &second;<br>
+   &nbsp <font color="#ff00ff">/*storing address of second in q*/</font><br><br>
+
+   &nbsp sum = *p + *q;<br><br>
+   &nbsp <font color="#ff00ff">/*adding contents of address stored in p & q*/</font><br>
+
+   &nbsp printf("Sum of entered numbers = %d\n",sum);<br><br>
+
+   &nbsp return 0;<br>
+}

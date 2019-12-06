@@ -1,0 +1,23 @@
+#include &ltstdio.h &gt<br><br>
+
+main()<br>
+{<br>
+   &nbsp int status;<br>
+   &nbsp char file_name[25];<br><br>
+
+   &nbsp printf("Enter the name of file you wish to delete\n");<br>
+   &nbsp gets(file_name);<br><br>
+
+   &nbsp status = remove(file_name);<br>
+   <font color="#ff00ff">/*remove() will delete specified file and returns 0 if file deleted*/</font><br><br>
+
+   &nbsp if( status == 0 )<br>
+      &nbsp printf("%s file deleted successfully.\n",file_name);<br>
+   &nbsp else<br>
+   &nbsp {<br>
+      &nbsp printf("Unable to delete the file\n");<br>
+      &nbsp perror("Error");<br>
+   &nbsp }<br><br>
+
+   &nbsp return 0;<br>
+}

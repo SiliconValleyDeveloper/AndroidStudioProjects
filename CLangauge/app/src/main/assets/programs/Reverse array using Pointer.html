@@ -1,0 +1,28 @@
+#include &lt stdio.h &gt<br>
+#define MAX 30<br><br>
+ 
+void main() <br>
+{<br>
+   int size, i, arr[MAX];<br>
+   int *ptr;<br><br>
+ 
+   ptr = &arr[0];<br><br>
+ 
+   printf("\nEnter the size of array : ");<br>
+   scanf("%d", &size);<br><br>
+ 
+   printf("\nEnter %d integers into array: ", size);<br>
+   for (i = 0; i &lt size; i++) {<br>
+      scanf("%d", ptr);<br>
+      ptr++;<br>
+   }<br><br>
+ 
+   ptr = &arr[size - 1];<br><br>
+ 
+   printf("\nElements of array in reverse order are :");<br>
+ 
+   for (i = size - 1; i &gt = 0; i--) {<br>
+      printf("\nElement%d is %d : ", i, *ptr);<br>
+      ptr--;<br>
+   }<br>
+}

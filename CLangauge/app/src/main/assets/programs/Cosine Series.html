@@ -1,0 +1,21 @@
+#include  &lt; stdio.h &gt; <br>
+#include  &lt; conio.h &gt; <br>
+#include  &lt; math.h &gt; <br><br>
+void main()<br>
+{<br>
+ int i, n ;<br>
+ float x, val, sum = 1, t = 1 ;<br><br>
+ printf("Enter the value for x : ") ;<br>
+ scanf("%f", &x) ;<br>
+ printf("\nEnter the value for n : ") ;<br>
+ scanf("%d", &n) ;<br><br>
+ val = x ;<br>
+ x = x * 3.14159 / 180 ;<br>
+ for(i = 1 ; i   &lt;  n + 1 ; i++)<br>
+ {<br>
+  t = t * pow((double) (-1), (double) (2 * i - 1)) * x * x / (2 * i * (2 * i - 1)) ;<br><br>
+  sum = sum + t ;<br>
+ }<br><br>
+ printf("\nCosine value of %f is : %8.4f", val, sum) ;<br>
+}<br>
+

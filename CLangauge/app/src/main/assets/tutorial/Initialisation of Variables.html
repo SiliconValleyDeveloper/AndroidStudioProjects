@@ -1,0 +1,14 @@
+<b>Initialization</b> means assigning a value to the variable.<br/>
+If variables are not explicitly initialised, then external and static variables are initialised to zero; 
+pointers (see ch 8) are initialised to NULL ; 
+auto and register variables have undefined values.<br/><br/>
+
+int  x = 1;<br/>
+char quote = '\'';<br/>
+long day = 60 * 24;<br/>
+int len = strlen(s);<br/><br/>
+
+external  and static<br/> initialisation done once only.<br/><br/>
+auto  and register <br/>initialisation done each time block is entered.<br/><br/>
+
+external and static variables cannot be initialised with a value that is not known until run-time; the initialiser must be a constant expression.

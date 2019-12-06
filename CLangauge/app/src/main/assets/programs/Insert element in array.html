@@ -1,0 +1,34 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp int array[100], position, c, n, value;<br>
+<br> 
+   &nbsp printf("Enter number of elements in array\n");<br>
+   &nbsp scanf("%d", &n);<br><br>
+ 
+  &nbsp printf("Enter %d elements\n", n);<br>
+ 
+  &nbsp for (c = 0; c < n; c++)<br>
+  &nbsp scanf("%d", &array[c]);<br><br>
+ 
+  &nbsp printf("Enter the location where you wish to insert an element\n");<br>
+  &nbsp scanf("%d", &position);<br><br>
+ 
+  &nbsp printf("Enter the value to insert\n");<br>
+  &nbsp scanf("%d", &value);<br><br>
+ 
+  &nbsp for (c = n - 1; c >= position - 1; c--)<br>
+  &nbsp array[c+1] = array[c];<br>
+  <font color="#888888">/* from given position shifting all elements by 1 position */</font><br><br>
+ 
+  &nbsp array[position-1] = value;<br>
+  <font color="#888888">/*inserting value to given position*/</font><br><br>
+ 
+  &nbsp printf("Resultant array is\n");<br>
+ 
+  &nbsp for (c = 0; c <= n; c++)<br>
+  &nbsp printf("%d\n", array[c]);<br>
+ 
+  &nbsp return 0;<br>
+}

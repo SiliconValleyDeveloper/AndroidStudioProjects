@@ -1,0 +1,24 @@
+<pre><br>
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp int n, sum = 0, remainder;<br><br>
+
+   &nbsp printf("Enter an integer\n");<br>
+   &nbsp scanf("%d",&n);<br><br>
+
+   &nbsp while(n != 0)<br>
+   &nbsp {<br>
+      &nbsp remainder = n % 10;<br>
+      &nbsp<font color="#ff00ff">/*stores unit place digit to remainder*/</font><br>
+      &nbsp sum = sum + remainder;<br>
+      &nbsp n = n / 10;<br>
+      &nbsp<font color="#ff00ff">/*dividing no to discard unit place digit*/</font><br>
+   &nbsp }<br><br>
+
+   &nbsp printf("Sum of digits of entered number = %d\n",sum);<br><br>
+
+   &nbsp return 0;<br>
+}
+</pre>

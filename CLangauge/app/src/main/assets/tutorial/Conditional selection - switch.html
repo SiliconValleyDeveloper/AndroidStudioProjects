@@ -1,0 +1,36 @@
+<b><font color="#ff4848"> switch()</font></b><br/><br/>
+A switch statement is used instead of nested if...else statements. It is multiple branch decision statement of C.
+A switch statement tests a variable with list of values for equivalence. Each value is called a case.<br/><br/>
+The case value must be a constant integer. <br/><br/>
+
+Structure of switch() statement :<br/>
+switch (expression)<br/>
+{<br/>
+&nbsp case value:  statements...<br/>
+&nbsp case value:  statements...<br/>
+&nbsp default :  statements...<br/>
+}<br/><br/>
+
+Individual case keyword and a semi-colon (:) is used for each constant.
+Switch tool is used for skipping to particular case, after jumping to that case it will execute all statements from cases beneath that case this is called as ''Fall Through''. <br/><br/>
+In the example below, for example, if the value 2 is entered, then the program will print two one something else!<br/><br/>
+
+int main()<br/>
+{<br/>
+&nbsp int i;<br/>
+&nbsp printf(''Enter an integer: '');<br/>
+&nbsp scanf(''%d'',&i);
+&nbsp switch(i)<br/>
+&nbsp {<br/>
+&nbsp &nbsp case 4: printf(''four ''); break;<br/>
+&nbsp &nbsp case 3: printf(''three ''); break;<br/>
+&nbsp &nbsp case 2: printf(''two '');<br/>
+&nbsp &nbsp case 1: printf(''one '');<br/>
+&nbsp &nbsp default: printf(''something else!'');<br/>
+&nbsp }<br/>
+&nbsp return 0;<br/>
+}<br/><br/>
+
+To avoid fall through, the break statements are necessary to exit the switch. If value 4 is entered, then in case 4 it will just print four and ends the switch.<br/><br/>
+
+The default label is non-compulsory, It is used for cases that are not present.<br/>

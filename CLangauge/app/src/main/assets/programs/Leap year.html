@@ -1,0 +1,20 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+ &nbsp int year;<br><br>
+ 
+ &nbsp printf("Enter a year to check if it is a leap year\n");<br>
+ &nbsp scanf("%d", &year);<br><br>
+ 
+ &nbsp if ( year%400 == 0)<br>
+   &nbsp printf("%d is a leap year.\n", year);<br>
+ &nbsp else if ( year%100 == 0)<br>
+   &nbsp printf("%d is not a leap year.\n", year);<br>
+ &nbsp else if ( year%4 == 0 )<br>
+   &nbsp printf("%d is a leap year.\n", year);<br>
+ &nbsp else<br>
+   &nbsp printf("%d is not a leap year.\n", year); <br><br>
+ 
+ &nbsp return 0;<br>
+}

@@ -1,0 +1,29 @@
+#include &lt stdio.h &gt<br>
+#include &lt string.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp char string[100];<br>
+   &nbsp int c = 0, count[26] = {0};<br><br>
+
+   &nbsp printf("Enter a string\n");<br>
+   &nbsp gets(string);<br><br>
+
+   &nbsp while ( string[c] != '\0' )<br>
+   &nbsp {<br>
+     &nbsp <font color="#ff00ff">/* Considering characters from 'a' to 'z' only */</font><br><br>
+
+      &nbsp if ( string[c] >= 'a' && string[c] <= 'z' )<br>
+         &nbsp count[string[c]-'a']++;<br><br>
+
+      &nbsp c++;<br>
+   &nbsp }<br><br>
+
+   &nbsp for ( c = 0 ; c < 26 ; c++ )<br>
+   &nbsp {<br>
+      &nbsp if( count[c] != 0 )<br>
+         &nbsp printf("%c occurs %d times in the entered string.\n",c+'a',count[c]);<br>
+   &nbsp }<br><br>
+
+   &nbsp return 0;<br>
+}

@@ -1,0 +1,48 @@
+#include &lt stdio.h &gt <br>
+#include &lt stdlib.h &gt <br>
+#include &lt string.h &gt <br><br>
+ 
+void sort_string(char*);<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp char string[100];<br><br>
+ 
+   &nbsp printf("Enter some text\n");<br>
+   &nbsp gets(string);<br><br>
+ 
+   &nbsp sort_string(string);<br>
+   &nbsp printf("%s\n", string);<br><br>
+ 
+   &nbsp return 0;<br>
+}<br><br>
+ 
+&nbsp void sort_string(char *s)<br>
+{<br>
+   &nbsp int c, d = 0, length;<br>
+   &nbsp char *pointer, *result, ch;<br><br>
+ 
+   &nbsp length = strlen(s);<br><br>
+ 
+   &nbsp result = (char*)malloc(length+1);<br><br>
+ 
+   &nbsp pointer = s;<br><br>
+ 
+   &nbsp for ( ch = 'a' ; ch &lt = 'z' ; ch++ )<br>
+   {<br>
+     &nbsp for ( c = 0 ; c < length ; c++ )<br>
+      &nbsp {<br>
+         &nbsp if ( *pointer == ch )<br>
+         &nbsp {<br>
+            &nbsp &nbsp *(result+d) = *pointer;<br>
+           &nbsp &nbsp d++;<br>
+         &nbsp }<br>
+         &nbsp pointer++;<br>
+      }<br>
+      &nbsp pointer = s;<br>
+   }<br>
+   &nbsp *(result+d) = '\0';<br><br>
+ 
+   &nbsp strcpy(s, result);<br>
+   &nbsp free(result);<br>
+}

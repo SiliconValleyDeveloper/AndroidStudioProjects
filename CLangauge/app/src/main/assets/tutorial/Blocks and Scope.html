@@ -1,0 +1,32 @@
+C is a block structured language. Blocks are enclosed by { and }. 
+Blocks can be defined wherever a C statement could be used.
+No semi-colon is required after the closing brace of a block.<br/><br/>
+
+
+<b>Variable Scope</b><br/>
+
+refers to where variables is declared. <br/><br/>
+
+<b><font color="#F0674A ">Global variables</font></b><br/><br/>
+
+ Global variable are declared outside any functions, usually at top of program.
+ they can be used by later blocks of code:<br/>
+
+int g;<br/>
+int main(void)<br/>
+{<br/>
+	g = 0;<br/>
+}<br/><br/>
+
+
+<b><font color="#F0674A ">Local variables</font></b><br/><br/>
+Variables that are declared inside a function or block are local variables.
+The scope of local variables will be within the function only.
+These variables are declared within the function and can't be accessed outside the function.<br/>
+
+void main()<br/>
+{<br/>
+	int g;<br/>
+	g=2;<br/>
+	printf(''g= %d'',&g);<br/>
+}<br/>

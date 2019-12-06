@@ -1,0 +1,33 @@
+#include &lt stdio.h &gt
+<br><br>
+struct complex<br>
+{<br>
+   &nbsp int real, img;<br>
+};<br>
+<font color="#ff00ff">/*structure to store real and imaginary part of number*/</font><br>
+<br>
+int main()<br>
+{<br>
+   &nbsp struct complex a, b, c;<br><br>
+   &nbsp printf("Enter a and b where a + ib is the first complex number.\n");<br>
+   &nbsp printf("a = ");<br>
+   &nbsp scanf("%d", &a.real);<br>
+   &nbsp printf("b = ");<br>
+   &nbsp scanf("%d", &a.img);<br><br>
+   &nbsp printf("Enter c and d where c + id is the second complex number.\n");<br>
+   &nbsp printf("c = ");<br>
+   &nbsp scanf("%d", &b.real);<br>
+   &nbsp printf("d = ");<br><br
+   &nbsp scanf("%d", &b.img);<br><br>
+
+   &nbsp c.real = a.real + b.real;<br>
+   &nbsp c.img = a.img + b.img;<br>
+   <font color="#ff00ff">/*adding real and imaginary parts */</font><br><br>
+
+   &nbsp if ( c.img >= 0 )<br>
+      &nbsp printf("Sum of two complex numbers = %d + %di\n",c.real,c.img);<br>
+   &nbsp else<br>
+      &nbsp printf("Sum of two complex numbers = %d - %di\n",c.real,c.img);<br><br>
+
+   &nbsp return 0;<br>
+}

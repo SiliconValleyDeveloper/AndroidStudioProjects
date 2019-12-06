@@ -1,0 +1,36 @@
+#include &lt stdio.h &gt<br><br>
+ 
+long gcd(long, long);<br>
+ 
+int main() {<br>
+ &nbsp long x, y, hcf, lcm;<br><br>
+ 
+ &nbsp printf("Enter two integers\n");<br>
+ &nbsp scanf("%ld%ld", &x, &y);<br><br>
+ 
+ &nbsp hcf = gcd(x, y);<br>
+ &nbsp lcm = (x*y)/hcf;<br><br>
+ 
+ &nbsp printf("Greatest common divisor of %ld and %ld = %ld\n", x, y, hcf);<br>
+ &nbsp printf("Least common multiple of %ld and %ld = %ld\n", x, y, lcm);<br><br>
+ 
+ &nbsp return 0;<br>
+}<br><br>
+ 
+<font color="#888888">/*if 1st no is 0 then 2nd no is gcd <br>make 2nd no 0 by subtracting smallest from largest and return 1st no as gcd*/</font><br>
+long gcd(long x, long y) {<br>
+&nbsp if (x == 0) {<br>
+&nbsp return y;<br>
+&nbsp }<br><br>
+ 
+&nbsp while (y != 0) {<br>
+&nbsp if (x > y) {<br>
+&nbsp &nbsp x = x - y;<br>
+&nbsp }<br>
+&nbsp else {<br>
+&nbsp &nbsp y = y - x;<br>
+&nbsp }<br>
+}<br><br>
+ 
+return x;<br>
+}

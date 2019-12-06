@@ -1,0 +1,32 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int n, c, d, a[100], b[100];<br><br>
+ 
+   &nbsp printf("Enter the number of elements in array\n");<br>
+   &nbsp scanf("%d", &n);<br><br>
+ 
+   &nbsp printf("Enter the array elements\n");<br><br>
+ 
+   &nbsp for (c = 0; c < n ; c++)<br>
+     &nbsp  scanf("%d", &a[c]);<br><br>
+ 
+ <font color="#888888">/* Copying elements into array b starting from end of array a */</font><br><br>
+ 
+   &nbsp for (c = n - 1, d = 0; c >= 0; c--, d++)<br>
+      &nbsp b[d] = a[c];<br><br>
+ 
+<font color="#888888">/* Copying reversed array into original.<br>
+    &nbsp * Here we are modifying original array, this is optional.*/</font><br><br>
+ 
+   &nbsp for (c = 0; c < n; c++)<br>
+      &nbsp a[c] = b[c];<br>
+ 
+   &nbsp printf("Reverse array is\n");<br><br>
+ 
+   &nbsp for (c = 0; c < n; c++)<br>
+      &nbsp printf("%d\n", a[c]);<br>
+ 
+   &nbsp return 0;<br>
+}

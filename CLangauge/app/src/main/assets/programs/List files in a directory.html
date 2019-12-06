@@ -1,0 +1,24 @@
+#include &lt stdio.h &gt<br>
+#include &lt conio.h &gt<br>
+#include &lt dir.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int done;<br>
+   &nbsp struct ffblk a;<br><br>
+ 
+   &nbsp printf("Press any key to view the files in the current directory\n");<br><br>
+ 
+   &nbsp getch();<br><br>
+ 
+   &nbsp done = findfirst("*.*",&a,0);<br><br>
+ 
+   &nbsp while(!done)<br>
+   {<br>
+      &nbsp printf("%s\n",a.ff_name);<br>
+      &nbsp done = findnext(&a);<br>
+   }<br><br>
+ 
+   &nbsp getch();<br>
+   &nbsp return 0;<br>
+}

@@ -1,0 +1,39 @@
+#include &lt stdio.h &gt<br><br> 
+int main()<br>
+{<br>
+   &nbsp int m, n, c, d, matrix[10][10], transpose[10][10];<br>
+ 
+   &nbsp printf("Enter the number of rows and columns of matrix ");<br>
+   &nbsp scanf("%d%d",&m,&n);
+   &nbsp printf("Enter the elements of matrix \n");<br>
+ 
+   &nbsp for( c = 0 ; c < m ; c++ )<br>
+   {<br>
+      &nbsp for( d = 0 ; d < n ; d++ )<br>
+      {<br>
+         &nbsp scanf("%d",&matrix[c][d]);<br>
+      }<br>
+   }<br><br>
+ 
+   &nbsp for( c = 0 ; c < m ; c++ )<br>
+   {<br>
+      &nbsp for( d = 0 ; d < n ; d++ )<br>
+      {<br>
+         &nbsp transpose[d][c] = matrix[c][d];<br>
+         &nbsp <font color="#888888">/* transpose by interchanging rows and columns */</font><br>
+      }<br>
+   }<br><br>
+ 
+   &nbsp printf("Transpose of entered matrix :-\n");<br>
+ 
+   &nbsp for( c = 0 ; c < n ; c++ )<br>
+   {<br>
+      &nbsp for( d = 0 ; d < m ; d++ )<br>
+      {<br>
+         &nbsp printf("%d\t",transpose[c][d]);<br>
+      } <br>
+     &nbsp printf("\n");<br>
+   }<br>
+ 
+  &nbsp return 0;<br>
+}

@@ -1,0 +1,16 @@
+#include   &lt; stdio.h &gt; <br><br>
+
+void call_by_value(int x) {<br>
+	printf("Inside call_by_value x = %d before adding 10.\n", x);<br>
+	x += 10;<br>
+	printf("Inside call_by_value x = %d after adding 10.\n", x);<br>
+}<br><br>
+
+int main() {<br>
+	int a=10;<br><br>
+
+	printf("a = %d before function call_by_value.\n", a);<br>
+	call_by_value(a);<br>
+	printf("a = %d after function call_by_value.\n", a);<br><br>
+	return 0;<br>
+}<br>

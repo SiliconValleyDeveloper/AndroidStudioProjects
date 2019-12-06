@@ -1,0 +1,106 @@
+Pointer is a variable that stores the address of another variable.
+They can make some things much easier, help improve your program's efficiency,
+and even allow you to handle unlimited amounts of data. <br/><br/>
+C Pointer is used to allocate memory dynamically i.e. at run time.
+The variable might be any of the data type such as int, float, char, double, short etc.<br/><br/>
+
+<b>Syntax :</b>
+Pointers require a bit of new syntax because when you have a pointer, you need the ability to both request the memory location it stores and the value stored at that memory location.<br/>
+data_type *ptr_name;<br/><br/>
+<b>Example : <br/></b>
+int *a; char *a;<br/>
+
+Where, * is used to denote that ''a'' is pointer variable and not a normal variable.<br/><br/>
+
+<b>Key points to remember about pointers in C:</b><br/><br/>
+
+<b>#</b>    Normal variable stores the value whereas pointer variable stores the address of the variable.<br/><br/>
+<b>#</b>    The content of the C pointer always be a whole number i.e. address.<br/><br/>
+<b>#</b>    Always C pointer is initialized to null, i.e. int *p = null.<br/><br/>
+<b>#</b>    The value of null pointer is 0.<br/><br/>
+<b>#</b>    & symbol is used to get the address of the variable.<br/><br/>
+<b>#</b>    * symbol is used to get the value of the variable that the pointer is pointing to.<br/><br/>
+<b>#</b>    If pointer is assigned to NULL, it means it is pointing to nothing.<br/><br/>
+<b>#</b>    Two pointers can be subtracted to know how many elements are available between these two pointers.<br/><br/>
+<b>#</b>    But, Pointer addition, multiplication, division are not allowed.<br/><br/>
+<b>#</b>    The size of any pointer is 2 byte (for 16 bit compiler).<br/><br/>
+
+<b>Example program for pointer in C:</b><br/><br/>
+
+#include <stdio.h><br/>
+int main()<br/>
+{<br/>
+int *ptr, q;<br/>
+&nbsp q = 50;  <br/> <br/>
+&nbsp /* address of q is assigned to ptr */<br/>
+&nbsp ptr = &q;     <br/> <br/>
+&nbsp /* display q's value using ptr variable */<br/>
+&nbsp printf("%d", *ptr); <br/>
+&nbsp return 0;<br/>
+}<br/><br/>
+
+<b><font color="#ff4848">NULL Pointers</font></b><br/>
+It is always a good practice to assign a NULL value to a pointer variable in case you do not have exact address to be assigned.
+ This is done at the time of variable declaration. A pointer that is assigned NULL is called a null pointer.
+Eg : int  *ptr = NULL;<br>
+The value of ptr is 0<br><br>
+
+<b><font color="#ff4848">Pointer Arithmetic</font></b><br><br>
+
+As you understood pointer is an address which is a numeric value; therefore, you can perform arithmetic
+operations on a pointer just as you can a numeric value. There are four arithmetic operators that can be used on
+pointers: ++, --, +, and -.<br><br>
+
+Example : <br>
+ptr++;<br>
+ptr--;<br>
+ptr+21;<br>
+ptr-10;<br><br>
+
+If a char pointer pointing to address 100 is incremented (ptr++) then it will point to memory address 101<br><br>
+
+
+<b><font color="#ff4848">Pointers vs Arrays</font></b><br><br>
+
+Pointers and arrays are strongly related. In fact, pointers and arrays are interchangeable in many cases. For
+example, a pointer that points to the beginning of an array can access that array by using either pointer arithmetic
+or array-style indexing.<br><br>
+
+int main ()<br>
+{<br>
+int var[3] = {1, 2, 3};<br>
+int *ptr;<br>
+printf("%d \n",*ptr);<br>
+ptr++;<br>
+printf("%d \n",*ptr);<br>
+return 0;<br>
+}<br><br>
+
+this code will return : <br>
+1<br>
+2<br><br>
+
+<b><font color="#ff4848">Pointer to Pointer</font></b><br><br>
+
+A pointer to a pointer is a form of multiple indirection or a chain of pointers. Normally, a pointer contains the
+address of a variable. When we define a pointer to a pointer, the first pointer contains the address of the second
+pointer, which points to the location that contains the actual value.
+
+int main ()<br>
+{<br>
+int var;<br>
+int *ptr;<br>
+int **pptr;<br>
+var = 3000;<br>
+ptr = &var;<br>
+pptr = &ptr;<br>
+printf("Value of var :%d \n", var);<br>
+printf("Value available at *ptr :%d \n",*ptr);<br>
+printf("Value available at **pptr :%d\n",**pptr);<br>
+return 0;<br>
+}<br><br>
+
+this code will return <br>
+Value of var :3000<br>
+Value available at *ptr :3000<br>
+Value available at **pptr :3000<br>

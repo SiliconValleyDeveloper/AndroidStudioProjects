@@ -1,0 +1,18 @@
+#include  &lt; stdio.h &gt; <br>
+#include  &lt; math.h &gt; <br>
+<br><br>
+void main()<br>
+{<br>
+        float radius,pie,volume;<br>
+        pie=3.1416;<br><br>
+        printf("Enter the radius:");<br>
+        if(scanf("%f",&radius)==1)<br>
+        {<br>
+                volume=(4/3)*pie*pow(radius,3);<br>
+                printf("The volume is    :%6.2f",volume);<br>
+        }<br>
+        else<br>
+        {<br>
+                printf("error ,enter correct value");<br>
+        }<br>
+}<br>

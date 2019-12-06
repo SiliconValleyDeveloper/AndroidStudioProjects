@@ -1,0 +1,53 @@
+#include &lt stdio.h &gt<br>
+#include &lt malloc.h &gt<br><br>
+
+char* substring(char*, int, int);<br><br>
+
+int main()<br>
+{<br>
+   &nbsp char string[100], *pointer;<br>
+   &nbsp int position, length;<br><br>
+
+   &nbsp printf("Enter a string\n");<br>
+   &nbsp gets(string);<br><br>
+
+   &nbsp printf("Enter the position and length of substring\n");<br>
+   &nbsp scanf("%d%d",&position, &length);<br><br>
+
+   &nbsp pointer = substring( string, position, length);<br><br>
+
+   &nbsp printf("Required substring is \"%s\"\n", pointer);<br><br>
+
+   &nbsp free(pointer);<br><br>
+
+   &nbsp return 0;<br><br>
+}<br><br>
+
+<font color="#ff00ff">/*C substring function: It returns a pointer to the substring*/</font><br>
+ 
+char *substring(char *string, int position, int length)<br>
+{<br>
+   &nbsp char *pointer;<br>
+   &nbsp int c;<br><br>
+
+   &nbsp pointer = malloc(length+1);<br><br>
+
+   &nbsp if (pointer == NULL)<br>
+   &nbsp {<br>
+      &nbsp printf("Unable to allocate memory.\n");<br>
+      &nbsp exit(EXIT_FAILURE);<br><br>
+   &nbsp }<br><br>
+
+   &nbsp for (c = 0 ; c < position -1 ; c++)<br>
+      &nbsp string++;<br><br>
+
+   &nbsp for (c = 0 ; c < length ; c++)<br>
+   &nbsp {<br>
+      &nbsp *(pointer+c) = *string;<br>
+      &nbsp string++;<br>
+   }<br><br>
+
+   *(pointer+c) = '\0';<br><br>
+
+   return pointer;<br>
+}

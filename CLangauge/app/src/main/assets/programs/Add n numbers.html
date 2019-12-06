@@ -1,0 +1,22 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp int n, sum = 0, c, value;<br><br>
+
+   &nbsp printf("Enter the number of integers you want to add\n");<br>
+   &nbsp scanf("%d", &n);<br><br>
+
+   &nbsp printf("Enter %d integers\n",n);<br><br>
+
+   &nbsp for (c = 1; c &lt= n; c++)<br>
+   &nbsp {<br>
+     &nbsp scanf("%d",&value);<br>
+     &nbsp sum = sum + value;<br>
+     &nbsp <font color="#ff00ff">/*adding each no in sum*/</font><br>
+   &nbsp }<br><br>
+
+   &nbsp printf("Sum of entered integers = %d\n",sum);<br><br>
+
+   &nbsp return 0;<br>
+}

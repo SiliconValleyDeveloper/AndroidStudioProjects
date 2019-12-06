@@ -1,0 +1,35 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+ &nbsp int n, array[1000], c, d, t;<br><br>
+ 
+ &nbsp printf("Enter number of elements\n");<br>
+ &nbsp scanf("%d", &n);<br><br>
+ 
+ &nbsp printf("Enter %d integers\n", n);<br><br>
+ 
+ &nbsp for (c = 0; c < n; c++) {<br>
+   &nbsp scanf("%d", &array[c]);<br>
+  }<br><br>
+ 
+ &nbsp for (c = 1 ; c &lt = n - 1; c++) {<br>
+    &nbsp d = c;<br><br>
+
+ <font color="#888888">/* positioning element at c, by this way all the elements in ascending order */</font><br>
+   &nbsp while ( d > 0 && array[d] < array[d-1]) {<br>
+    &nbsp  t          = array[d];<br>
+     &nbsp array[d]   = array[d-1];<br>
+     &nbsp array[d-1] = t;<br> 
+    &nbsp  d--;<br>
+    }<br>
+  }<br><br>
+ 
+  &nbsp printf("Sorted list in ascending order:\n");<br><br>
+ 
+ &nbsp for (c = 0; c &lt = n - 1; c++) {<br>
+   &nbsp printf("%d\n", array[c]);<br>
+  }<br><br>
+ 
+ &nbsp return 0;<br>
+}

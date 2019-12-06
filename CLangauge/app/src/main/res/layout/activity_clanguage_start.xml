@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/a3"
+    tools:context=".CLanguageStart">
+
+    <!--<ImageView
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/s"
+        android:id="@+id/imageView"/> -->
+    <TextView
+        android:fontFamily="@font/ralewaysemibold"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C"
+        android:textStyle="bold"
+        android:id="@+id/txt"
+        android:gravity="center"
+        android:textSize="106dp"
+        android:textColor="@android:color/white"
+
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:fontFamily="@font/ralewaysemibold"
+        android:paddingTop="10dp"
+        android:layout_below="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PROGRAMMING"
+
+        android:textStyle="bold"
+        android:id="@+id/txtbelow"
+        android:gravity="center"
+        android:textSize="26dp"
+        android:textColor="@android:color/white"
+
+        android:layout_centerInParent="true"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_below="@+id/txtbelow"
+        android:layout_marginTop="10dp"
+        android:layout_height="2dp"
+        android:id="@+id/view"
+        android:layout_centerInParent="true"
+
+        android:background="@android:color/black"
+  />
+
+
+</RelativeLayout>

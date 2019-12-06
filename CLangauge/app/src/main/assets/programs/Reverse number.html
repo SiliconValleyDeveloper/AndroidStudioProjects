@@ -1,0 +1,21 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int n, reverse = 0;<br><br>
+ 
+   &nbsp printf("Enter a number to reverse\n");<br>
+   &nbsp scanf("%d",&n);<br><br>
+ 
+   &nbsp while (n != 0)<br>
+   {<br>
+      &nbsp reverse = reverse * 10;<br>
+      &nbsp reverse = reverse + n%10;<br>
+      &nbsp n = n/10;<br>
+   }<br>
+   <font color="#888888">/*taking unit place digit of no and moving to reverse<br>Dividing the no to discard unit place digit*/</font><br><br>
+ 
+   &nbsp printf("Reverse of entered number is = %d\n", reverse);<br><br>
+ 
+   &nbsp return 0;<br>
+}

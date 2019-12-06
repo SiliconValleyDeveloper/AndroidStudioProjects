@@ -1,0 +1,18 @@
+#include &lt stdio.h><br><br>
+ 
+int main()<br>
+{<br>
+    long int binaryval, hexadecimalval = 0, i = 1, remainder;<br><br>
+ 
+    printf("Enter the binary number: ");<br>
+    scanf("%ld", &binaryval);<br>
+    while (binaryval != 0)<br>
+    {<br>
+        remainder = binaryval % 10;<br>
+        hexadecimalval = hexadecimalval + remainder * i;<br>
+        i = i * 2;<br>
+        binaryval = binaryval / 10;<br>
+    }<br>
+    printf("Equivalent hexadecimal value: %lX", hexadecimalval);<br>
+    return 0;<br>
+}

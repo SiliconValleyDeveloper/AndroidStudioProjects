@@ -1,0 +1,27 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int n, first = 0, second = 1, next, c;<br><br>
+ 
+   &nbsp printf("Enter the number of terms\n");<br>
+   &nbsp scanf("%d",&n);<br><br>
+ 
+   &nbsp printf("First %d terms of Fibonacci series are :-\n",n);<br><br>
+ 
+   &nbsp for ( c = 0 ; c &lt n ; c++ )<br>
+   &nbsp {<br>
+      &nbsp if ( c &lt = 1 )<br>
+         &nbsp next = c;<br>
+      &nbsp else<br>
+      &nbsp {<br>
+         &nbsp next = first + second;<br>
+         &nbsp first = second;<br>
+         &nbsp second = next;<br>
+         &nbsp <font color="#888888">/*replaced first no by second & second by addition of first & second */</font><br>
+      &nbsp }<br>
+      &nbsp printf("%d\n",next);<br>
+   &nbsp }<br><br>
+ 
+   &nbsp return 0;<br>
+}

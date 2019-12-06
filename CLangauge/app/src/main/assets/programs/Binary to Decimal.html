@@ -1,0 +1,19 @@
+#include &lt stdio.h &gt <br><br>
+ 
+void main()<br>
+{<br>
+    int  num, binary_val, decimal_val = 0, base = 1, rem;<br><br>
+
+    printf("Enter a binary number(1s and 0s) \n");<br>
+    scanf("%d", &amp num);<br>
+    binary_val = num;<br>
+    while (num > 0)<br>
+    {<br>
+        rem = num % 10;<br>
+        decimal_val = decimal_val + rem * base;<br>
+        num = num / 10 ;<br>
+        base = base * 2;<br>
+    }<br><br>
+    printf("The Binary number is = %d \n", binary_val);<br>
+    printf("Its decimal equivalent is = %d \n", decimal_val);<br>
+}

@@ -1,0 +1,28 @@
+#include &lt stdio.h &gt<br>
+#include &lt stdlib.h &gt<br><br>
+ 
+&nbsp int main()<br>
+{<br>
+   &nbsp char ch, file_name[25];<br>
+   &nbsp FILE *fp;<br><br>
+ 
+   &nbsp printf("Enter the name of file you wish to see\n");<br>
+   &nbsp gets(file_name);<br><br>
+ 
+   &nbsp fp = fopen(file_name,"r"); // read mode<br><br>
+ <font color="#888888">/* if file not found then exit*/</font><br>
+   &nbsp if( fp == NULL )<br>
+   &nbsp{<br>
+      &nbsp &nbsp perror("Error while opening the file.\n");<br>
+      &nbsp &nbsp exit(EXIT_FAILURE);<br>
+   &nbsp}<br><br>
+ 
+   &nbsp printf("The contents of %s file are :\n", file_name);<br><br>
+ 
+   &nbsp while( ( ch = fgetc(fp) ) != EOF )<br>
+      &nbsp printf("%c",ch);<br>
+      &nbsp <font color="#888888">/*printing one by one character from file*/</font><br><br>
+ 
+   &nbsp fclose(fp);<br>
+   &nbsp return 0;<br>
+}

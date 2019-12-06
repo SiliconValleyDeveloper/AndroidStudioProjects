@@ -1,0 +1,70 @@
+#include &lt stdio.h &gt <br><br>
+ 
+void merge(int [], int, int [], int, int []);<br><br>
+ 
+int main() {<br>
+  &nbsp int a[100], b[100], m, n, c, sorted[200];<br><br>
+ 
+  &nbsp printf("Input number of elements in first array\n");<br>
+  &nbsp scanf("%d", &m);<br><br>
+ 
+  &nbsp printf("Input %d integers\n", m);<br>
+  &nbsp for (c = 0; c < m; c++) {<br>
+    &nbsp scanf("%d", &a[c]);<br>
+  }<br><br>
+ 
+  &nbsp printf("Input number of elements in second array\n");<br>
+  &nbsp scanf("%d", &n);<br><br>
+ 
+  &nbsp printf("Input %d integers\n", n);<br>
+  &nbsp for (c = 0; c < n; c++) {<br>
+    &nbsp scanf("%d", &b[c]);<br>
+  }<br><br>
+ 
+  &nbsp merge(a, m, b, n, sorted);<br><br>
+ 
+  &nbsp printf("Sorted array:\n");<br><br>
+ 
+  &nbsp for (c = 0; c < m + n; c++) {<br>
+    &nbsp printf("%d\n", sorted[c]);<br>
+  }<br><br>
+ 
+  &nbsp return 0;<br>
+}<br>
+ 
+&nbsp void merge(int a[], int m, int b[], int n, int sorted[]) {<br>
+  &nbsp int i, j, k;<br>
+ 
+  &nbsp j = k = 0;<br>
+ 
+  &nbsp for (i = 0; i < m + n;) {<br>
+    &nbsp if (j < m && k < n) {<br>
+      &nbsp if (a[j] < b[k]) {<br>
+       &nbsp sorted[i] = a[j];<br>
+        &nbsp j++;<br>
+      }<br>
+      &nbsp else {<br>
+        &nbsp sorted[i] = b[k];<br>
+        &nbsp k++;<br>
+      }<br>
+      <font color="#888888">/*if element of a array is less than b then push it in resultant array else push element of b in array*/</font><br>
+      &nbsp i++;<br>
+    }<br>
+    &nbsp else if (j == m) {<br>
+      &nbsp for (; i < m + n;) {<br>
+        &nbsp sorted[i] = b[k];<br>
+        &nbsp k++;<br>
+        &nbsp i++;<br>
+        <font color="#888888">/*if array a is finished push all the elements of b in resultant array*/</font><br>
+      }<br>
+    }<br>
+    &nbsp else {<br>
+      &nbsp for (; i < m + n;) {<br>
+        &nbsp sorted[i] = a[j];<br>
+        &nbsp j++;<br>
+       &nbsp i++;<br>
+       <font color="#888888">/*if array b is finished push all the elements of a in resultant array*/</font><br>
+      }<br>
+    }<br>
+  }<br>
+}<br>

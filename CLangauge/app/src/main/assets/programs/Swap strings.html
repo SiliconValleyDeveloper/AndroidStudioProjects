@@ -1,0 +1,32 @@
+#include &lt stdio.h &gt<br>
+#include &lt string.h &gt<br>
+#include &lt malloc.h &gt<br><br>
+ 
+ int main()<br>
+{<br>
+   &nbsp char first[100], second[100], *temp;<br><br>
+ 
+   &nbsp printf("Enter the first string\n");<br>
+   &nbsp gets(first);<br><br>
+ 
+   &nbsp printf("Enter the second string\n");<br>
+   &nbsp gets(second);<br><br>
+ 
+   &nbsp printf("\nBefore Swapping\n");<br>
+   &nbsp printf("First string: %s\n",first);<br>
+   &nbsp printf("Second string: %s\n\n",second);<br><br>
+ 
+   &nbsp temp = (char*)malloc(100);<br>
+   <font color="#888888">/*allocating memory to temp variable*/</font><br><br>
+ 
+   &nbsp strcpy(temp,first);<br>
+   &nbsp strcpy(first,second);<br>
+   &nbsp strcpy(second,temp);<br>
+   <font color="#888888">/*swapping strings using strcpy()*/</font><br><br>
+ 
+   &nbsp printf("After Swapping\n");<br>
+   &nbsp printf("First string: %s\n",first);<br>
+   &nbsp printf("Second string: %s\n",second);<br><br>
+ 
+   &nbsp return 0;<br>
+}

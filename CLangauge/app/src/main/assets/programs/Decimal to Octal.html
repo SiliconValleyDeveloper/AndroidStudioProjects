@@ -1,0 +1,19 @@
+#include <stdio.h><br><br>
+
+void main()<br>
+{<br>
+    long num, decimal_num, remainder, base = 1, octal = 0;<br><br>
+
+    printf("Enter a decimal integer \n");<br>
+    scanf("%ld", &amp num);<br>
+    decimal_num = num;<br>
+    while (num > 0)<br>
+    {<br>
+        &nbsp remainder = num % 8;<br>
+        &nbsp octal = octal + remainder * base;<br>
+        &nbsp num = num / 8;<br>
+        &nbsp base = base * 10;<br>
+    }<br>
+    printf("Input number is = %d\n", decimal_num);<br>
+    printf("Its octal equivalent is = %ld\n", Octal);<br>
+}

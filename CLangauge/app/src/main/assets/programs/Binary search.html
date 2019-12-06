@@ -1,0 +1,43 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp int c, first, last, middle, n, search, array[100];<br><br>
+
+   &nbsp &nbsp printf("Enter number of elements\n");<br>
+   scanf("%d",&n);<br><br>
+
+   &nbsp printf("Enter %d integers\n", n);<br><br>
+
+   &nbsp for ( c = 0 ; c < n ; c++ )<br>
+      &nbsp scanf("%d",&array[c]);<br><br>
+
+   &nbsp printf("Enter value to find\n");<br>
+   &nbsp scanf("%d",&search);<br><br>
+
+ <font color="#ff00ff">/*calculating first, last and middle position*/</font><br>
+   &nbsp first = 0;<br>
+   &nbsp last = n - 1;<br>
+   &nbsp middle = (first+last)/2;<br><br>
+
+  <font color="#ff00ff">/*Binary search will search element at middle, if element is not found in middle then it will split array into two parts and
+  if element to be searched is less than middle then it will search only in lower part and if greater then in upper part */</font><br><br>
+   &nbsp while( first &lt = last )<br>
+   &nbsp {<br>
+         if ( array[middle] == search )<br>
+      &nbsp {<br>
+         &nbsp printf("%d found at location %d.\n", search, middle+1);<br>
+         &nbsp break;<br>
+      &nbsp }<br>
+      &nbsp else if ( array[middle] < search )<br>
+         &nbsp first = middle + 1;<br>
+      &nbsp else <br>
+         &nbsp last = middle - 1;<br><br>
+
+      &nbsp middle = (first + last)/2;<br>
+   &nbsp }<br><br>
+   &nbsp if ( first > last )<br>
+      &nbsp printf("Not found! %d is not present in the list.\n", search);<br><br>
+
+   &nbsp return 0;<br>
+}

@@ -1,0 +1,37 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp int m, n, c, d, first[10][10], second[10][10], sum[10][10];<br><br>
+
+   &nbsp printf("Enter the number of rows and columns of matrix\n");<br><br>
+   &nbsp scanf("%d%d", &m, &n);<br>
+   &nbsp printf("Enter the elements of first matrix\n");<br><br>
+
+   &nbsp for ( c = 0 ; c < m ; c++ )<br>
+      &nbsp for ( d = 0 ; d < n ; d++ )<br>
+         &nbsp scanf("%d", &first[c][d]);<br><br>
+
+   &nbsp printf("Enter the elements of second matrix\n");<br><br>
+
+   &nbsp for ( c = 0 ; c < m ; c++ )<br>
+      &nbsp for ( d = 0 ; d < n ; d++ )<br>
+            &nbsp scanf("%d", &second[c][d]);<br><br>
+
+   &nbsp for ( c = 0 ; c < m ; c++ )<br>
+      &nbsp for ( d = 0 ; d < n ; d++ )<br>
+         &nbsp sum[c][d] = first[c][d] + second[c][d];<br>
+         <font color="#ff00ff">/* Matrix addition */</font><br><br>
+
+   &nbsp printf("Sum of entered matrices:-\n");<br><br>
+
+   &nbsp for ( c = 0 ; c < m ; c++ )<br>
+   &nbsp {<br>
+      &nbsp for ( d = 0 ; d < n ; d++ )<br>
+         &nbsp printf("%d\t", sum[c][d]);<br><br>
+
+      &nbsp printf("\n");<br>
+   &nbsp }<br><br>
+
+   &nbsp return 0;<br>
+}

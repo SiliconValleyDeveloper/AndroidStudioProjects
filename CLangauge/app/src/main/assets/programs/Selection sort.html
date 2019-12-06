@@ -1,0 +1,38 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int array[100], n, c, d, position, swap;<br><br>
+ 
+   &nbsp printf("Enter number of elements\n");<br>
+   &nbsp scanf("%d", &n);<br><br>
+ 
+   &nbsp printf("Enter %d integers\n", n);<br><br>
+ 
+   &nbsp for ( c = 0 ; c < n ; c++ )<br>
+      &nbsp scanf("%d", &array[c]);<br><br>
+ 
+   &nbsp for ( c = 0 ; c < ( n - 1 ) ; c++ )<br>
+   {<br>
+      &nbsp position = c;<br>
+ <font color="#888888">/* for all array, from position c selecting smallest element in  array and swap with c position*/</font><br>
+      &nbsp for ( d = c + 1 ; d < n ; d++ )<br>
+      {<br>
+         &nbsp if ( array[position] > array[d] )<br>
+            &nbsp position = d;<br>
+      }<br>
+      &nbsp if ( position != c )<br>
+      {<br>
+         &nbsp swap = array[c];<br>
+         &nbsp array[c] = array[position];<br>
+         &nbsp array[position] = swap;<br>
+      }<br>
+   }<br><br>
+ 
+   &nbsp printf("Sorted list in ascending order:\n");<br>
+ 
+   &nbsp for ( c = 0 ; c < n ; c++ )<br>
+      &nbsp printf("%d\n", array[c]);<br><br>
+ 
+   &nbsp return 0;<br>
+}

@@ -1,0 +1,23 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+  &nbsp int n, c, k;<br><br>
+
+  &nbsp printf("Enter an integer in decimal number system\n");<br>
+  &nbsp scanf("%d", &n);<br><br>
+
+  &nbsp printf("%d in binary number system is:\n", n);<br><br>
+
+  &nbsp for (c = 31; c >= 0; c--)<br>
+  &nbsp {<br>
+    &nbsp &nbsp k = n >> c;<br>
+    &nbsp &nbsp <font color="#ff00ff">/*Right shift(Binary Divide by 2)*/</font><br>
+    &nbsp &nbsp if (k & 1)<font color="#ff00ff">//k is logically ANDed with 1</font><br>
+    &nbsp &nbsp printf("1");<br>
+    &nbsp &nbsp else<br>
+    &nbsp &nbsp printf("0");<br>
+  &nbsp }<br><br>
+
+return 0;<br>
+}

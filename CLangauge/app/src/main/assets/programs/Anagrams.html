@@ -1,0 +1,51 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int check_anagram(char [], char []);<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp char a[100], b[100];<br>
+   &nbsp int flag;<br><br>
+ 
+   &nbsp printf("Enter first string\n");<br>
+   &nbsp gets(a);<br><br>
+ 
+   &nbsp printf("Enter second string\n");<br>
+   &nbsp gets(b);<br><br>
+ 
+   &nbsp flag = check_anagram(a, b);<br><br>
+ 
+   &nbsp if (flag == 1)<br>
+      &nbsp printf("\"%s\" and \"%s\" are anagrams.\n", a, b);<br>
+   &nbsp else<br>
+      &nbsp printf("\"%s\" and \"%s\" are not anagrams.\n", a, b);<br><br>
+ 
+   &nbsp return 0;<br>
+}<br><br>
+ 
+int check_anagram(char a[], char b[])<br>
+{<br>
+   &nbsp int first[26] = {0}, second[26] = {0}, c = 0;<br><br>
+ 
+   &nbsp while (a[c] != '\0')<br>
+   &nbsp {<br>
+      &nbsp first[a[c]-'a']++;<br>
+      &nbsp c++;<br>
+   &nbsp }<br><br>
+ 
+   &nbsp c = 0;<br><br>
+ 
+   &nbsp while (b[c] != '\0')<br>
+   &nbsp {<br>
+      &nbsp second[b[c]-'a']++;<br>
+      &nbsp c++;<br>
+   &nbsp }<br><br>
+ 
+   &nbsp for (c = 0; c < 26; c++)<br>
+   &nbsp {<br>
+      &nbsp if (first[c] != second[c])<br>
+         &nbsp return 0;<br>
+   &nbsp }<br><br>
+ 
+   &nbsp return 1;<br>
+}

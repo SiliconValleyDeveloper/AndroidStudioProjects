@@ -1,0 +1,53 @@
+#i#ff00fflt stdio.h &gt<br>
+#include &lt string.h &gt<br><br>
+
+int check_vowel(char);<br><br>
+
+int main()<br>
+{<br>
+  &nbsp char s[100], t[100];<br>
+  &nbsp int i, j = 0;<br><br>
+
+  &nbsp printf("Enter a string to delete vowels\n");<br>
+  &nbsp gets(s);<br><br>
+
+ <font color="#ff00ff">/* In the program we create a new string and process entered string character by character,
+ and if a vowel is found it is not added to new string otherwise the character is added to new string,
+ after the string ends we copy the new string into original string*/</font><br><br>
+  &nbsp for(i = 0; s[i] != '\0'; i++) {<br>
+    &nbsp if(check_vowel(s[i]) == 0) {<br>
+       <font color="#ff00ff">/* not a vowel */</font><br>
+      &nbsp t[j] = s[i];<br>
+      &nbsp j++;<br>
+    &nbsp }<br>
+  &nbsp }<br><br>
+
+  &nbsp t[j] = '\0';<br><br>
+
+  &nbsp strcpy(s, t); <br>
+  <font color="#ff00ff">/* We are changing initial string */</font><br>
+
+  &nbsp printf("String after deleting vowels: %s\n", s);<br><br>
+
+  &nbsp return 0;<br>
+}<br>
+
+
+int check_vowel(char c)<br>
+{<br>
+  &nbsp switch(c) {<br>
+    &nbsp case 'a':<br>
+    &nbsp case 'A':<br>
+    &nbsp case 'e':<br>
+    &nbsp case 'E':<br>
+    &nbsp case 'i':<br>
+    &nbsp case 'I':<br>
+    &nbsp case 'o':<br>
+    &nbsp case 'O':<br>
+    &nbsp case 'u':<br>
+    &nbsp case 'U':<br>
+      &nbsp return 1;<br>
+    &nbsp default:<br>
+      &nbsp return 0;<br>
+  &nbsp }<br>
+}

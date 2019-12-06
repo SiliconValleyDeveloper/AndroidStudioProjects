@@ -1,0 +1,35 @@
+#include &lt stdio.h &gt<br><br>
+ 
+long factorial(int);<br><br>
+ 
+ int main()<br>
+{<br>
+  &nbsp  int i, n, c;<br><br>
+ 
+   &nbsp printf("Enter the number of rows you wish to see in pascal triangle\n");<br>
+   &nbsp scanf("%d",&n);<br><br>
+ 
+   &nbsp for ( i = 0 ; i < n ; i++ )<br>
+   {<br>
+     &nbsp  for ( c = 0 ; c &lt = ( n - i - 2 ) ; c++ )<br>
+         &nbsp printf(" ");<br><br>
+ 
+      &nbsp for( c = 0 ; c &lt = i ; c++ )<br>
+        &nbsp printf("%ld ",factorial(i)/(factorial(c)*factorial(i-c)));<br><br>
+ 
+      &nbsp printf("\n");<br>
+   }<br><br>
+ 
+   &nbsp return 0;<br>
+}<br><br>
+ 
+&nbsp long factorial(int n)<br>
+{<br>
+  &nbsp int c;<br>
+   &nbsp long result = 1;<br><br>
+ 
+  &nbsp for( c = 1; c &lt = n; c++ )<br>
+         &nbsp result = result*c;<br><br>
+ 
+   &nbsp return ( result );<br>
+}

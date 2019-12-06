@@ -1,0 +1,24 @@
+#include &lt stdio.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp int first, second, add, subtract, multiply;<br>
+   &nbsp float divide;<br><br>
+
+   &nbsp printf("Enter two integers\n");<br>
+   &nbsp scanf("%d%d", &first, &second);<br><br>
+
+   &nbsp add        = first + second;<br>
+   &nbsp subtract = first - second;<br>
+   &nbsp multiply = first * second;<br>
+   &nbsp divide     = first / (float)second;<br>
+   &nbsp <font color="#ff00ff">//typecasting</font><br>
+   <br>
+
+   &nbsp printf("Sum = %d\n",add);<br>
+   &nbsp printf("Difference = %d\n",subtract);<br>
+   &nbsp printf("Multiplication = %d\n",multiply);<br>
+   &nbsp printf("Division = %.2f\n",divide);<br><br>
+
+   &nbsp return 0;<br>
+}

@@ -1,0 +1,20 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int x, y, temp;<br><br>
+ 
+   &nbsp printf("Enter the value of x and y\n");<br>
+   &nbsp scanf("%d%d", &x, &y);<br><br>
+ 
+   &nbsp printf("Before Swapping\nx = %d\ny = %d\n",x,y);<br><br>
+ 
+   &nbsp temp = x;<br>
+   &nbsp x    = y;<br>
+   &nbsp y    = temp;<br>
+   <font color="#888888">/*using temp to swap<br>storing x to temp and y to x then moving temp to y*/</font><br><br>
+ 
+   &nbsp printf("After Swapping\nx = %d\ny = %d\n",x,y);<br><br>
+ 
+   &nbsp return 0;<br>
+}

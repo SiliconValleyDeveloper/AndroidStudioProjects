@@ -1,0 +1,44 @@
+#include &lt stdio.h &gt<br><br>
+ 
+void bubble_sort(long [], long);<br><br>
+ 
+int main()<br>
+{<br>
+  &nbsp long array[100], n, c, d, swap;<br><br>
+ 
+  &nbsp printf("Enter number of elements\n");<br>
+  &nbsp scanf("%ld", &n);<br><br>
+ 
+  &nbsp printf("Enter %ld integers\n", n);<br><br>
+ 
+  &nbsp for (c = 0; c < n; c++)<br>
+    &nbsp scanf("%ld", &array[c]);<br><br>
+ 
+  &nbsp bubble_sort(array, n);<br><br>
+ 
+  &nbsp printf("Sorted list in ascending order:\n");<br><br>
+ 
+  &nbsp for ( c = 0 ; c < n ; c++ )<br>
+     &nbsp printf("%ld\n", array[c]);<br><br>
+ 
+  &nbsp return 0;<br>
+}<br><br>
+ 
+void bubble_sort(long list[], long n)<br>
+{<br>
+  &nbsp long c, d, t;<br><br>
+ 
+  &nbsp for (c = 0 ; c < ( n - 1 ); c++)<br>
+  &nbsp {<br>
+    &nbsp for (d = 0 ; d < n - c - 1; d++)<br>
+    &nbsp {<br>
+      &nbsp if (list[d] > list[d+1])<br>
+      &nbsp {<br>
+        &nbsp <font color="#888888">/* Swapping */</font><br> 
+        &nbsp t         = list[d];<br>
+        &nbsp list[d]   = list[d+1];<br>
+        &nbsp list[d+1] = t;<br>
+      &nbsp }<br>
+    &nbsp }<br>
+  &nbsp }<br>
+}

@@ -1,0 +1,22 @@
+#include &lt stdio.h &gt <br><br>
+
+void main()<br> 
+{<br>
+   int numArray[10];<br>
+   int i, sum = 0;<br>
+   int *ptr;<br><br>
+
+   printf("\nEnter 5 elements : ");<br>
+
+   for (i = 0; i &lt 5; i++)<br>
+      scanf("%d", &numArray[i]);<br>
+
+   ptr = numArray; <font color="#888888">/*a=&a[0] */</font><br><br>
+
+   for (i = 0; i &lt 5; i++) {<br>
+      sum = sum + *ptr;<br>
+      ptr++;<br>
+   }<br>
+
+   printf("The sum of array elements : %d", sum);<br>
+}

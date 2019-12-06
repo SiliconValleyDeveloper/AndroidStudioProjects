@@ -1,0 +1,45 @@
+#include &lt stdio.h &gt<br>
+#include &lt stdlib.h &gt<br><br>
+
+int main()<br>
+{<br>
+   &nbsp char ch, source_file[20], target_file[20];<br>
+   &nbsp FILE *source, *target;<br><br>
+
+   &nbsp printf("Enter name of file to copy\n");<br>
+   &nbsp gets(source_file);<br><br>
+
+   &nbsp source = fopen(source_file, "r");<br><br>
+
+ <font color="#ff00ff">/* if file not found then exit*/</font><br>
+   &nbsp if( source == NULL )<br>
+   &nbsp {<br>
+      &nbsp printf("Press any key to exit...\n");<br>
+      &nbsp exit(EXIT_FAILURE);<br>
+   &nbsp }<br><br>
+
+   &nbsp printf("Enter name of target file\n");<br>
+   &nbsp gets(target_file);<br><br>
+
+   &nbsp target = fopen(target_file, "w");<br><br>
+ <font color="#ff00ff">/*opening file in write mode*/</font><br>
+ <font color="#ff00ff">/* if file not found then exit*/</font><br>
+   &nbsp if( target == NULL )<br>
+   &nbsp {<br>
+      &nbsp fclose(source);<br>
+      &nbsp printf("Press any key to exit...\n");<br>
+      &nbsp exit(EXIT_FAILURE);<br>
+   &nbsp }<br><br>
+
+   &nbsp while( ( ch = fgetc(source) ) != EOF )<br>
+      &nbsp fputc(ch, target);<br>
+      <font color="#ff00ff">/* appending each character from file1 to target file*/</font><br><br>
+
+   &nbsp printf("File copied successfully.\n");<br><br>
+
+ <font color="#ff00ff">/*closing both files*/</font><br>
+   &nbsp fclose(source);<br>
+   &nbsp fclose(target);<br><br>
+
+   &nbsp return 0;<br>
+}

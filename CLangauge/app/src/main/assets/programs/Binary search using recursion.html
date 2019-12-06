@@ -1,0 +1,47 @@
+#include &lt stdio.h &gt <br>
+int main()<br>
+{<br>
+    int a[10],i,n,m,c,l,u; <br>
+    printf("Enter the size of an array: ");<br>
+    scanf("%d",&n); <br>
+    printf("Enter the elements of the array: " ); <br>
+    for(i=0;i &lt n;i++)<br>
+scanf("%d",&a[i]); <br><br>
+
+    printf("Enter the number to be search: ");<br>
+    scanf("%d",&m); <br><br>
+l=0,u=n-1; <br>
+    c=binary(a,n,m,l,u); <br>
+    if(c==0) <br>
+         printf("Number is not found."); <br>
+    else<br>
+ printf("Number is found."); <br>
+    return 0; <br>
+ }<br><br>
+
+<font color="#ff00ff">/*Binary search will search element at middle, if element is not found and if element to be searched is less than middle
+then it will search only in lower part and if greater then in upper part */</font><br><br>
+
+int binary(int a[],int n,int m,int l,int u) <br>
+{ <br>
+int mid,c=0; <br>
+   if(l &lt = u){ <br>
+        mid=(l+u)/2; <br>
+        if(m==a[mid]){ <br>
+            c=1; <br>
+        }<br>
+ else if(m &lt a[mid]){ <br>
+              return binary(a,n,m,l,mid-1); <br>
+          }<br>
+          else<br>
+return binary(a,n,m,mid+1,u); <br>
+     }<br>
+   else<br>
+       return c; <br>
+}<br><br>
+
+Output:<br><br>
+Enter the size of an array:4<br>
+Enter the elements of the array:5 3 6 2<br>
+Enter the number to be search:3<br>
+Number is found.<br>

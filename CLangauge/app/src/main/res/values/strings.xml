@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">C Langauge</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recent_news">" Dennis Ritchie"</string>
+    <string name="in_news">C was a powerful, multi-purpose language and combined with UNIX, their widespread impact and influence is evident in almost every aspect of the computing industry today. For instance, languages which came later (such as Java and C++) were derived from the C language, browser codes are all written in C, and the UNIX kernel (an important basis on which is the internet works) is also written in C. Even Microsoft Windows was initially written in C. Both of Apple Inc’s Operating Systems (called iOS and MAC OS X) are based on the UNIX system. There is no doubt about the impact of Ritchie’s contributions on the computing industry and the world. It would be fair to say that he has significantly altered the course of the computing industry’s history.
+
+As the popularity of the C language rose, the use of C and UNIX spread throughout the industry and it began to be taught to computer engineers in universities. This was in large part due to the success of Kerninghan and Ritchie’s book titled “The C Programming Language“. This book was published in 1978, and served as a comprehensive manual for learning how to use C. The book’s authors are often collectively referred to as “K and R”. This book was so successful that it’s been translated into 20 different languages. It’s popularity is due to the fact that it’s easy to use and understand.
+
+When AT and T was restructured, Ritchie was transferred to a newly created division called Lucent Technologies, where he worked until his retirement in 2007 as Head of System Software Research Department. Ritchie’s list of awards and accolades is extensive. He is a Fellow of the Computer History Museum, and recipient of the National Medal of Technology from President Bill Clinton, Achievement Award by the Industrial Research Institute and the Japan Prize for Information and Communications.
+
+By nature, Dennis Ritchie was a humble, polite and well liked person. He looked like a typical IT guru with long hair and a beard. He preferred to start working around noon and went home and worked into the late hours of the night. Ritchie suffered from poor health for the last few years of his life and died in October 2011 at the age of 70. His legacy lives on in the form of the prevalent application of his contributions to modern computing.
+    </string>
+    <string name="between_date">"9 September 1941 - 12 October 2011"</string>
+    <string name="information">"1.Every Question Contain Equal Marks\n2.Every set Contain Equal Number of Questions\n3.Choose the best answer from the choices given .choose only one answer.Each question are contain 10 Marks\n4.Every Question Contain 2 min 30 sec to solve and choose Answer."
+    </string>
+
+
+</resources>

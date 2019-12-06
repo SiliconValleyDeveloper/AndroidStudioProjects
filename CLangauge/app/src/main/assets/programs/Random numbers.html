@@ -1,0 +1,18 @@
+#include &lt stdio.h &gt<br>
+#include &lt stdlib.h &gt<br><br>
+ 
+&nbsp int main() {<br>
+  &nbsp int c, n;<br><br>
+ 
+ <font color="#888888">/*rand() is used to get random numbers*/</font><br><br>
+ 
+  &nbsp printf("Ten random numbers in 1 to 100\n");<br><br>
+ 
+  &nbsp for (c = 1; c &lt = 10; c++) {<br>
+    &nbsp n = rand()%100 + 1;<br>
+    &nbsp <font color="#888888">/*rand()%100 gives random value in between 0 to 99 */</font><br>
+    &nbsp printf("%d\n", n);<br>
+  }<br><br>
+ 
+  &nbsp return 0;<br>
+}

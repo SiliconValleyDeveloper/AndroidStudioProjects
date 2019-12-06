@@ -1,0 +1,30 @@
+#include &lt stdio.h &gt <br><br>
+ 
+int main()<br>
+{<br>
+  &nbsp int array[100], maximum, size, c, location = 1;<br><br>
+ 
+  &nbsp printf("Enter the number of elements in array\n");<br>
+  &nbsp scanf("%d", &size);<br><br>
+ 
+  &nbsp printf("Enter %d integers\n", size);<br><br>
+ 
+  &nbsp for (c = 0; c < size; c++)<br>
+    &nbsp scanf("%d", &array[c]);<br><br>
+ 
+  &nbsp maximum = array[0];<br>
+  &nbsp <font color="#888888">/*assuming first no. as maximum*/</font><br><br>
+ 
+  &nbsp for (c = 1; c < size; c++)<br>
+  &nbsp {<br>
+    &nbsp if (array[c] > maximum)<br>
+    &nbsp {<br>
+       &nbsp &nbsp maximum  = array[c];<br>
+       &nbsp &nbsp location = c+1;<br>
+       &nbsp &nbsp <font color="#888888">/*If any no. greater than maximum found then set it as maximum and save its location */</font><br>
+    &nbsp }<br>
+  &nbsp }<br><br>
+ 
+  &nbsp printf("Maximum element is present at location %d and it's value is %d.\n", location, maximum);<br>
+  &nbsp return 0;<br>
+}

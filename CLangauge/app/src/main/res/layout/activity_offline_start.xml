@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg4"
+    tools:context=".offline_start">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
+
+
+    <TextView
+        android:fontFamily="@font/ralewayregular"
+        android:id="@+id/question_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="text Question"
+        android:textColor="@android:color/black"
+
+        android:textSize="24dp" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:paddingTop="20dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/group"
+            android:paddingTop="10dp"
+            android:orientation="vertical">
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/txtScore"
+                    android:textColor="@android:color/black"
+                    android:text="0"
+                    android:textSize="22sp"
+                    android:layout_marginLeft="8dp"
+                    android:textStyle="bold"
+
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/TotalQuestion"
+                    android:textColor="@android:color/black"
+                    android:text="1/30"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+
+                >
+            <RadioGroup
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+
+
+                android:id="@+id/rg">
+
+                <RadioButton
+                    android:checked="false"
+                    android:id="@+id/r1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/ralewayregular"
+                    android:layout_gravity="left"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="onClick"
+                    android:text="Answer A "
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+
+                    tools:ignore="OnClick" />
+
+                <RadioButton
+                    android:checked="false"
+                    android:id="@+id/r2"
+                    android:onClick="onClick"
+                    android:fontFamily="@font/ralewaysemibold"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="Answer B"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/white"
+
+
+                    tools:ignore="OnClick" />
+                <RadioButton
+                    android:checked="false"
+                    android:id="@+id/r3"
+                    android:fontFamily="@font/ralewaysemibold"
+
+                    android:onClick="onClick"
+                    android:textSize="18sp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="Answer C"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+
+                    tools:ignore="OnClick" />
+                <RadioButton
+                    android:checked="false"
+                    android:id="@+id/r4"
+                    android:fontFamily="@font/ralewaysemibold"
+
+                    android:onClick="onClick"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="@android:color/white"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:text="Answer D"
+                    android:textStyle="bold"
+
+
+
+                    tools:ignore="OnClick" />
+            </RadioGroup>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

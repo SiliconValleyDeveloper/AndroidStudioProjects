@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="language.com.clp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/s"
+        android:label="C Programming"
+        android:roundIcon="@drawable/s"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="language.com.clp.CLanguageStart">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <receiver android:name="language.com.clp.BroadcastReceiver.AlarmReceiver" />
+
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2783298230694780~3549645819"/>
+
+
+        <activity
+            android:name="language.com.clp.Tutorial"
+            android:parentActivityName="language.com.clp.MainActivity" />
+        <activity
+            android:name="language.com.clp.open_tutorial"
+            android:parentActivityName="language.com.clp.Tutorial" />
+        <activity
+            android:name="language.com.clp.all_question"
+            android:parentActivityName="language.com.clp.MainActivity" />
+        <activity
+            android:name="language.com.clp.online_login"
+            android:parentActivityName="language.com.clp.MainActivity" />
+        <activity android:name="language.com.clp.Home_online" />
+        <activity
+            android:name="language.com.clp.offline_quiz"
+            android:parentActivityName="language.com.clp.MainActivity" />
+        <activity
+            android:name="language.com.clp.offline_start"
+            android:parentActivityName="language.com.clp.offline_quiz" />
+        <activity android:name="language.com.clp.Start_online" />
+        <activity android:name="language.com.clp.online_playing" />
+        <activity android:name="language.com.clp.online_done" />
+        <activity
+            android:name="language.com.clp.About_C"
+            android:parentActivityName="language.com.clp.MainActivity" />
+        <activity android:name="language.com.clp.ScoreDetails" />
+        <activity
+            android:name="language.com.clp.programs"
+            android:parentActivityName="language.com.clp.MainActivity" />
+        <activity
+            android:name="language.com.clp.open_program"
+            android:parentActivityName="language.com.clp.programs" />
+        <activity
+            android:name="language.com.clp.Start_offline_two"
+            android:parentActivityName="language.com.clp.offline_quiz" />
+        <activity
+            android:name="language.com.clp.Start_offline_three"
+            android:parentActivityName="language.com.clp.offline_quiz" />
+        <activity
+            android:name="language.com.clp.Start_offline_four"
+            android:parentActivityName="language.com.clp.offline_quiz" />
+        <activity android:name="language.com.clp.MainActivity"></activity>
+
+
+    </application>
+
+</manifest>

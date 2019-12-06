@@ -1,0 +1,34 @@
+ C Union is also like structure, i.e. collection of different data types which are grouped together.
+ Each element in a union is called member.<br/><br/>
+
+
+ Union and structure both are same, except allocating memory for their members.
+ Structure allocates storage space for each member separately.
+ Whereas, Union allocates one common storage space for all its members.<br/><br/>
+
+<b><font color="#ff4848">Syntax</font></b><br/><br/>
+union tag_name<br/>
+{<br/>
+	data type var_name1;<br/>
+	data type var_name2;<br/>
+	data type var_name3;<br/>
+};<br/><br/>
+
+
+<b><font color="#ff4848">Example </font></b><br/><br/>
+union student<br/>
+{<br/>
+	int id;<br/>
+	char name[10];<br/>
+	char address[50];<br/>
+};<br/><br/>
+
+<b><font color="#ff4848">Initializing and Declaring union variable 	</font></b><br/><br/>
+
+union student data;<br/>
+union student data = {001,''ABC'', ''DELHI''};<br/><br/>
+
+<b><font color="#ff4848">Accessing union members 	</font></b><br/><br/>
+data.id<br/>
+data.name<br/>
+data.address<br/>

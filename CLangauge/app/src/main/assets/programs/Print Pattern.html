@@ -1,0 +1,28 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp int row, c, n, temp;<br><br>
+ 
+   &nbsp printf("Enter the number of rows in pyramid of stars you wish to see ");<br>
+   &nbsp scanf("%d",&n);<br><br>
+ 
+   &nbsp temp = n;<br><br>
+ 
+    &nbsp for ( row = 1 ; row &lt= n ; row++ )<br>
+    &nbsp {<br>
+      &nbsp for ( c = 1 ; c &lt temp ; c++ )<br>
+         &nbsp &nbsp printf(" ");<br>
+         &nbsp &nbsp <font color="#888888">/*Leaving spaces before printing * */</font><br>
+ 
+&nbsp temp--;<br><br>
+
+    &nbsp for ( c = 1 ; c &lt= 2*row - 1 ; c++ )<br>
+         &nbsp &nbsp printf("*");<br>
+         &nbsp &nbsp <font color="#888888">/*Printing stars by calculating rows */</font><br><br>
+         &nbsp printf("\n");<br>
+         &nbsp &nbsp <font color="#888888">/*moving to new line after printing one */</font><br><br>
+   }<br><br>
+ 
+   &nbsp return 0;<br>
+}

@@ -1,0 +1,26 @@
+#include &lt stdio.h &gt<br><br>
+ 
+int main()<br>
+{<br>
+   &nbsp char text[100], blank[100];<br>
+   &nbsp int c = 0, d = 0;<br><br>
+ 
+   &nbsp printf("Enter some text\n");<br>
+   &nbsp gets(text);<br><br>
+ 
+   &nbsp while (text[c] != '\0')<br>
+   {<br>
+   <font color="#888888">/*if two consecutive spaces found then it will not be added to new string*/</font><br>
+      &nbsp if (!(text[c] == ' ' && text[c+1] == ' ')) {<br>
+        &nbsp blank[d] = text[c];<br>
+        &nbsp d++;<br>
+      }<br>
+      &nbsp c++;<br>
+   }<br><br>
+ 
+   &nbsp blank[d] = '\0';<br><br>
+ 
+   &nbsp printf("Text after removing blanks\n%s\n", blank);<br><br>
+ 
+   &nbsp return 0;<br>
+}
